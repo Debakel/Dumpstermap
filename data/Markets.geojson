@@ -1,0 +1,140 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 0,
+      "properties": {
+        "NAME": "EDEKA Weiß",
+        "ADDRESS": "Salomon-Idler-Str. 4",
+        "upvotes": 36,
+        "downvotes": 2,
+        "tags": ["Gemüse", "Brot", "Bio"],
+        "comment": "Hier gibt's viel zu holen!",
+        "popupContent": "This is where the Rockies play!"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990618,
+          40.759851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "NAME": "Tengelmann",
+        "ADDRESS": "Salomon-Idler-Str. 4",
+        "upvotes": 36,
+        "downvotes": 2,
+        "tags": ["Gemüse", "Brot", "Bio"],
+        "comment": "Hier gibt's viel zu holen!"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.988106,
+          40.760471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "properties": {
+        "NAME": "Penny Hochzoll",
+        "ADDRESS": "Salomon-Idler-Str. 4",
+        "upvotes": 36,
+        "downvotes": 2,
+        "tags": ["Gemüse", "Brot", "Bio"],
+        "comment": "Hier gibt's viel zu holen!"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.970385,
+          40.763399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "properties": {
+        "NAME": "EDEKA Weiß",
+        "ADDRESS": "Salomon-Idler-Str. 4",
+        "upvotes": 36,
+        "downvotes": 2,
+        "tags": ["Gemüse", "Brot", "Bio"],
+        "comment": "Hier gibt's viel zu holen!"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.993324,
+          40.758537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "properties": {
+        "NAME": "EDEKA Weiß",
+        "ADDRESS": "Salomon-Idler-Str. 4",
+        "upvotes": 36,
+        "downvotes": 2,
+        "tags": ["Gemüse", "Brot", "Bio"],
+        "comment": "Hier gibt's viel zu holen!"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.989214,
+          40.759261
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 5,
+      "properties": {
+        "NAME": "EDEKA Weiß",
+        "ADDRESS": "Salomon-Idler-Str. 4",
+        "upvotes": 36,
+        "downvotes": 2,
+        "tags": ["Gemüse", "Brot", "Bio"],
+        "comment": "Hier gibt's viel zu holen!"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.985001,
+          40.761259
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 6,
+      "properties": {
+        "NAME": "American Airlines Theatre",
+        "TEL": "(212) 719-9393",
+        "URL": "http://www.newyorkcitytheatre.com/theaters/americanairlinestheater/theater.php",
+        "ADDRESS1": "227 W 42nd Street",
+        "ADDRES2": null,
+        "CITY": "New York",
+        "ZIP": 10036
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.988049,
+          40.756779
+        ]
+      }
+    }
+  ]
+}

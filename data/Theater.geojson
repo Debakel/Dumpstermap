@@ -1,0 +1,46 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 0,
+      "properties": {
+        "NAME": "45th Street Theater",
+        "TEL": "(212) 352-3101",
+        "URL": "http:\/\/www.theatermania.com\/new-york\/theaters\/45th-street-theatre_2278\/",
+        "ADDRESS1": "354 West 45th Street",
+        "ADDRES2": null,
+        "CITY": "New York",
+        "ZIP": 10036.0,
+        "popupContent": "This is where the Rockies play!"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990618,
+          40.759851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "NAME": "47th Street Theater",
+        "TEL": "(800) 775-1617",
+        "URL": "http:\/\/www.bestofoffbroadway.com\/theaters\/47streettheatre.html",
+        "ADDRESS1": "304 West 47th Street",
+        "ADDRES2": null,
+        "CITY": "New York",
+        "ZIP": 10036.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.988106,
+          40.760471
+        ]
+      }
+    }
+  ]
+}

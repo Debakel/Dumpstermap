@@ -1,0 +1,2006 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2015-08-23T15:49:03Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/256398132",
+      "properties": {
+        "@id": "node/256398132",
+        "addr:city": "Bobingen",
+        "addr:country": "DE",
+        "addr:housenumber": "15",
+        "addr:postcode": "86399",
+        "addr:street": "Ziegeleistraße",
+        "name": "Netto",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8405515,
+          48.2633321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/256398221",
+      "properties": {
+        "@id": "node/256398221",
+        "addr:city": "Bobingen",
+        "addr:country": "DE",
+        "addr:housenumber": "13",
+        "addr:postcode": "86399",
+        "addr:street": "Ziegeleistraße",
+        "name": "Lidl",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8396904,
+          48.2636146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/262621769",
+      "properties": {
+        "@id": "node/262621769",
+        "name": "EDEKA Volgmann",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.835479,
+          48.2708577
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/268845918",
+      "properties": {
+        "@id": "node/268845918",
+        "addr:city": "Königsbrunn",
+        "addr:country": "DE",
+        "addr:housenumber": "27",
+        "addr:postcode": "86343",
+        "addr:street": "Augsburger Straße",
+        "name": "Tengelmann",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8858381,
+          48.2816123
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/270912613",
+      "properties": {
+        "@id": "node/270912613",
+        "name": "Norma",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8417223,
+          48.2760811
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/278354933",
+      "properties": {
+        "@id": "node/278354933",
+        "name": "Lidl",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9749708,
+          48.3573906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/290740505",
+      "properties": {
+        "@id": "node/290740505",
+        "name": "Edeka",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9004147,
+          48.3486566
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/299139422",
+      "properties": {
+        "@id": "node/299139422",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "26",
+        "addr:postcode": "86157",
+        "addr:street": "Augsburger Straße",
+        "name": "Tengelmann",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "phone": "+49 821 22 90 265",
+        "shop": "supermarket",
+        "source": "extrapolation",
+        "website": "http://www.kaisers-tengelmann.de",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8710574,
+          48.3630513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/303958079",
+      "properties": {
+        "@id": "node/303958079",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "12",
+        "addr:postcode": "86163",
+        "addr:street": "Zwölf-Apostel-Platz",
+        "name": "Edeka Münzesheimer",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9439029,
+          48.3440555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/319067150",
+      "properties": {
+        "@id": "node/319067150",
+        "name": "Norma",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8804543,
+          48.3817665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/325654724",
+      "properties": {
+        "@id": "node/325654724",
+        "name": "EDEKA",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9839031,
+          48.2731885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/325654844",
+      "properties": {
+        "@id": "node/325654844",
+        "name": "Penny Markt",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9789748,
+          48.2740597
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/325668014",
+      "properties": {
+        "@id": "node/325668014",
+        "addr:city": "Mering",
+        "addr:country": "DE",
+        "addr:housenumber": "2-6",
+        "addr:postcode": "86415",
+        "addr:street": "Ohmstraße",
+        "name": "REWE",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.976735,
+          48.2749732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/339103636",
+      "properties": {
+        "@id": "node/339103636",
+        "name": "Asia Laden",
+        "origin": "asian",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9099574,
+          48.3718535
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/370760198",
+      "properties": {
+        "@id": "node/370760198",
+        "amenity": "cafe",
+        "name": "vis a vis",
+        "organic": "only",
+        "shop": "supermarket",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8939789,
+          48.2825415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/414097300",
+      "properties": {
+        "@id": "node/414097300",
+        "level": "1",
+        "name": "E-Center",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9082674,
+          48.365666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/458100678",
+      "properties": {
+        "@id": "node/458100678",
+        "name": "Edeka",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8916182,
+          48.2574603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/492696187",
+      "properties": {
+        "@id": "node/492696187",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8788635,
+          48.4234534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/497352689",
+      "properties": {
+        "@id": "node/497352689",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "17",
+        "addr:postcode": "86159",
+        "addr:street": "Schertlinstraße",
+        "name": "Tengelmann",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.893958,
+          48.3534212
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/502514776",
+      "properties": {
+        "@id": "node/502514776",
+        "addr:city": "Königsbrunn",
+        "addr:country": "DE",
+        "addr:housenumber": "10",
+        "addr:postcode": "86343",
+        "addr:street": "Messerschmittring",
+        "name": "Netto",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8740311,
+          48.255938
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/502514796",
+      "properties": {
+        "@id": "node/502514796",
+        "addr:city": "Königsbrunn",
+        "addr:country": "DE",
+        "addr:housenumber": "8",
+        "addr:postcode": "86343",
+        "addr:street": "Messerschmittring",
+        "name": "REWE",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.875101,
+          48.2557449
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/523285396",
+      "properties": {
+        "@id": "node/523285396",
+        "addr:city": "Königsbrunn",
+        "addr:country": "DE",
+        "addr:housenumber": "2",
+        "addr:postcode": "86343",
+        "addr:street": "Blumenallee",
+        "name": "Tengelmann",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8858387,
+          48.263947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/538993722",
+      "properties": {
+        "@id": "node/538993722",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "57",
+        "addr:postcode": "86179",
+        "addr:street": "Landsberger Straße",
+        "name": "Netto",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9052428,
+          48.3088953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/564959866",
+      "properties": {
+        "@id": "node/564959866",
+        "addr:housenumber": "8",
+        "addr:street": "Bismarckstraße",
+        "name": "Tengelmann",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.897223,
+          48.3581854
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/603208085",
+      "properties": {
+        "@id": "node/603208085",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "71",
+        "addr:postcode": "86150",
+        "addr:street": "Maximilianstraße",
+        "name": "NORMA",
+        "shop": "supermarket",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9000064,
+          48.3645662
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/611875742",
+      "properties": {
+        "@id": "node/611875742",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "1",
+        "addr:postcode": "86150",
+        "addr:street": "Halderstraße",
+        "name": "Netto City",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8933232,
+          48.3646998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/639307919",
+      "properties": {
+        "@id": "node/639307919",
+        "name": "Norma",
+        "shop": "supermarket",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9050756,
+          48.3704278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/639307920",
+      "properties": {
+        "@id": "node/639307920",
+        "name": "Tengelmann",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9055588,
+          48.3703028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/665085540",
+      "properties": {
+        "@id": "node/665085540",
+        "name": "Norma",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9097595,
+          48.3182046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/672077946",
+      "properties": {
+        "@id": "node/672077946",
+        "addr:city": "Merching",
+        "addr:country": "DE",
+        "addr:housenumber": "18",
+        "addr:postcode": "86504",
+        "addr:street": "Hauptstraße",
+        "name": "Getränkemarkt Bauer",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9864315,
+          48.2461951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/672077958",
+      "properties": {
+        "@id": "node/672077958",
+        "name": "REWE",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9860038,
+          48.2554404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/674489402",
+      "properties": {
+        "@id": "node/674489402",
+        "addr:city": "Mering",
+        "addr:country": "DE",
+        "addr:housenumber": "34",
+        "addr:postcode": "86415",
+        "addr:street": "Gaußring",
+        "name": "Norma",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9760604,
+          48.2724162
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/685495753",
+      "properties": {
+        "@id": "node/685495753",
+        "name": "Netto",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8821958,
+          48.3898647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/685495758",
+      "properties": {
+        "@id": "node/685495758",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "110a",
+        "addr:postcode": "86154",
+        "addr:street": "Donauwörther Straße",
+        "name": "Edeka",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8825974,
+          48.3898524
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/702250674",
+      "properties": {
+        "@id": "node/702250674",
+        "name": "Hüdaverdi",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8830978,
+          48.3916339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/724941446",
+      "properties": {
+        "@id": "node/724941446",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "9",
+        "addr:postcode": "86179",
+        "addr:street": "Im Tal",
+        "name": "Rewe",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8926138,
+          48.3162274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/739860724",
+      "properties": {
+        "@id": "node/739860724",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "4",
+        "addr:postcode": "86159",
+        "name": "Edeka",
+        "shop": "supermarket",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8852848,
+          48.3565191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/747162662",
+      "properties": {
+        "@id": "node/747162662",
+        "addr:city": "Bobingen",
+        "addr:housenumber": "46",
+        "addr:postcode": "86399",
+        "addr:street": "Flurstraße",
+        "name": "Kugelmanns Hofladen",
+        "organic": "only",
+        "shop": "supermarket",
+        "website": "http://www.kugelmann-hofladen.de/index.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.833814,
+          48.285412
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/868279670",
+      "properties": {
+        "@id": "node/868279670",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "11",
+        "addr:postcode": "86161",
+        "addr:street": "Hofrat-Röhrer-Straße",
+        "name": "Tengelmann",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9117721,
+          48.3549857
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/871370114",
+      "properties": {
+        "@id": "node/871370114",
+        "brand": "Edeka",
+        "name": "Nah & Gut Kehr - Brunnenhof",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8448696,
+          48.3488071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/877053665",
+      "properties": {
+        "@id": "node/877053665",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "11",
+        "addr:postcode": "86150",
+        "addr:street": "Bürgermeister-Fischer-Straße",
+        "name": "Vitalia",
+        "organic": "only",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8949754,
+          48.3662028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/880227831",
+      "properties": {
+        "@id": "node/880227831",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "50",
+        "addr:postcode": "86154",
+        "addr:street": "Ulmer Straße",
+        "name": "Tengelmann",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8734053,
+          48.3816071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/886888651",
+      "properties": {
+        "@id": "node/886888651",
+        "name": "Norma",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8858365,
+          48.2685944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/913083710",
+      "properties": {
+        "@id": "node/913083710",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "7",
+        "addr:postcode": "86154",
+        "addr:street": "Zollernstraße",
+        "name": "Altzincer Supermarket",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.876573,
+          48.3833343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/913247329",
+      "properties": {
+        "@id": "node/913247329",
+        "name": "Norma",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8267874,
+          48.3933381
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/931996287",
+      "properties": {
+        "@id": "node/931996287",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "9",
+        "addr:postcode": "86157",
+        "addr:street": "Franz-Kobinger-Straße",
+        "entrance": "yes",
+        "name": "Edeka Opalewski",
+        "opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-18:00",
+        "phone": "+49821520437",
+        "shop": "supermarket",
+        "website": "http://www.edeka.de",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8723652,
+          48.3618399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/947927048",
+      "properties": {
+        "@id": "node/947927048",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "3",
+        "addr:postcode": "86150",
+        "addr:street": "Bauerntanzgäßchen",
+        "name": "Mutter Erde",
+        "organic": "only",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9008935,
+          48.3677471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/948160925",
+      "properties": {
+        "@id": "node/948160925",
+        "name": "Norma",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.927975,
+          48.3784151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/957601194",
+      "properties": {
+        "@id": "node/957601194",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "25",
+        "addr:postcode": "86179",
+        "addr:street": "Alpenrosenstraße",
+        "name": "BIOS Naturmarkt",
+        "organic": "only",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9021581,
+          48.3004045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1111420757",
+      "properties": {
+        "@id": "node/1111420757",
+        "name": "Rewe",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9096727,
+          48.3189053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1122330449",
+      "properties": {
+        "@id": "node/1122330449",
+        "addr:city": "Stadtbergen",
+        "addr:country": "DE",
+        "addr:housenumber": "47",
+        "addr:postcode": "86391",
+        "addr:street": "Hagenmähderstraße",
+        "name": "Marktkauf",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8476797,
+          48.3734162
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1126433776",
+      "properties": {
+        "@id": "node/1126433776",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "26",
+        "addr:postcode": "86179",
+        "addr:street": "Hofackerstraße",
+        "name": "Mills Thomas Nahkauf Rewe",
+        "opening_hours": "Mo-Sa 06:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9029956,
+          48.3119609
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1134490536",
+      "properties": {
+        "@id": "node/1134490536",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "111",
+        "addr:postcode": "86169",
+        "addr:street": "Schillstraße",
+        "name": "REWE",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9020985,
+          48.3907798
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1160893065",
+      "properties": {
+        "@id": "node/1160893065",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "26",
+        "addr:postcode": "86152",
+        "addr:street": "Ludwigstraße",
+        "name": "Basic",
+        "organic": "only",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8938272,
+          48.3705284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1189334326",
+      "properties": {
+        "@id": "node/1189334326",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "9-11",
+        "addr:postcode": "86153",
+        "addr:street": "Jakoberwallstraße",
+        "name": "Rewe",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9106974,
+          48.3695479
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1207183356",
+      "properties": {
+        "@id": "node/1207183356",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "38",
+        "addr:postcode": "86161",
+        "addr:street": "Wilhelm-Hauff-Straße",
+        "email": "suedbayern@edeka.de",
+        "fax": "08458-62-108",
+        "name": "EDEKA - Center",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "phone": "0821-560890",
+        "shop": "supermarket",
+        "website": "http://www.edeka.de",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9263743,
+          48.3555756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1247375499",
+      "properties": {
+        "@id": "node/1247375499",
+        "addr:housenumber": "11",
+        "addr:postcode": "86165",
+        "addr:street": "Donaustraße",
+        "name": "ALDI",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9331477,
+          48.3751163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1247381616",
+      "properties": {
+        "@id": "node/1247381616",
+        "addr:postcode": "86167",
+        "addr:street": "Steinerne Furt",
+        "name": "ALDI Süd",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9248298,
+          48.3944543
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1258671804",
+      "properties": {
+        "@id": "node/1258671804",
+        "addr:city": "Augsburg",
+        "addr:housenumber": "64",
+        "addr:postcode": "86154",
+        "addr:street": "Donauwörther Straße",
+        "name": "Rewe",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "phone": "+49 (0) 821 219 392 55",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8810926,
+          48.3848914
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1275935783",
+      "properties": {
+        "@id": "node/1275935783",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "97c",
+        "addr:postcode": "86179",
+        "addr:street": "Inninger Straße",
+        "entrance": "yes",
+        "name": "Netto",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8909981,
+          48.3099567
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1279325108",
+      "properties": {
+        "@id": "node/1279325108",
+        "addr:city": "Stadtbergen",
+        "addr:country": "DE",
+        "addr:housenumber": "14",
+        "addr:postcode": "86391",
+        "addr:street": "Hagenmähderstraße",
+        "name": "Penny",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8472211,
+          48.370133
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1281754420",
+      "properties": {
+        "@id": "node/1281754420",
+        "addr:city": "Stadtbergen",
+        "addr:country": "DE",
+        "addr:housenumber": "7",
+        "addr:postcode": "86391",
+        "addr:street": "Benzstraße",
+        "entrance": "yes",
+        "name": "REWE",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8468236,
+          48.3765663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1281754444",
+      "properties": {
+        "@id": "node/1281754444",
+        "addr:city": "Stadtbergen",
+        "addr:country": "DE",
+        "addr:housenumber": "9",
+        "addr:postcode": "86391",
+        "addr:street": "Benzstraße",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "de:Aldi",
+        "entrance": "yes",
+        "name": "Aldi",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "operator": "Aldi Süd",
+        "shop": "supermarket",
+        "website": "http://www.aldi-sued.de/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.846871,
+          48.3773698
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1317286026",
+      "properties": {
+        "@id": "node/1317286026",
+        "addr:city": "Westheim",
+        "addr:housenumber": "13a",
+        "addr:postcode": "86356",
+        "addr:street": "Hindenburgstraße",
+        "name": "Bio Grande Naturkostladen",
+        "organic": "only",
+        "shop": "supermarket",
+        "wheelchair": "limited",
+        "wheelchair:description": "eine Stufe zwischen 5 und 10 cm leicht schräg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8186125,
+          48.3852946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1431274897",
+      "properties": {
+        "@id": "node/1431274897",
+        "name": "Netto",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9161937,
+          48.3882806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1464305336",
+      "properties": {
+        "@id": "node/1464305336",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "1",
+        "addr:postcode": "86154",
+        "addr:street": "Neuhäuserstraße",
+        "name": "Netto Marken-Discount",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "shop": "supermarket",
+        "website": "http://www.netto-online.de/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8743958,
+          48.3817077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1509869196",
+      "properties": {
+        "@id": "node/1509869196",
+        "name": "Tengelmann",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.983992,
+          48.3554931
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1510315144",
+      "properties": {
+        "@id": "node/1510315144",
+        "name": "Drogeriemarkt Müller",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8881587,
+          48.3656495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1555313458",
+      "properties": {
+        "@id": "node/1555313458",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "133",
+        "addr:postcode": "86156",
+        "addr:street": "Ulmer Straße",
+        "name": "Norma",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8607991,
+          48.3803003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1557116094",
+      "properties": {
+        "@id": "node/1557116094",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "176",
+        "addr:postcode": "86167",
+        "addr:street": "Neuburger Straße",
+        "name": "REWE",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9164558,
+          48.3909996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1591250722",
+      "properties": {
+        "@id": "node/1591250722",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "227",
+        "addr:postcode": "86169",
+        "addr:street": "Neuburger Straße",
+        "name": "LIDL",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "shop": "supermarket",
+        "website": "http://www.lidl.de/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9145137,
+          48.3969711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1610765446",
+      "properties": {
+        "@id": "node/1610765446",
+        "name": "E-Center",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9145103,
+          48.3952648
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1613646169",
+      "properties": {
+        "@id": "node/1613646169",
+        "name": "ehemals Norma (Leerstand)",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9141176,
+          48.39878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1686777471",
+      "properties": {
+        "@id": "node/1686777471",
+        "addr:housenumber": "6",
+        "addr:postcode": "86165",
+        "addr:street": "Donaustraße",
+        "name": "Lidl",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9305404,
+          48.3766373
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1686777473",
+      "properties": {
+        "@id": "node/1686777473",
+        "addr:housenumber": "183a",
+        "addr:postcode": "86165",
+        "addr:street": "Zugspitzstraße",
+        "name": "Netto",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9326007,
+          48.3686949
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1688091913",
+      "properties": {
+        "@id": "node/1688091913",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "2",
+        "addr:postcode": "86156",
+        "addr:street": "Luther-King-Straße",
+        "name": "ALDI Süd",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "operator": "Aldi GmbH & Co. KG Kleinaitingen Messerschmittstraße 2 86507 Kleinaitingen",
+        "shop": "supermarket",
+        "website": "https://www.aldi-sued.de/",
+        "wheelchair": "yes",
+        "wikipedia": "de:Aldi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8626183,
+          48.3720074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1692235484",
+      "properties": {
+        "@id": "node/1692235484",
+        "name": "REWE",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9160978,
+          48.3807189
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1692441906",
+      "properties": {
+        "@id": "node/1692441906",
+        "name": "Norma",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9151237,
+          48.3795363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1694526824",
+      "properties": {
+        "@id": "node/1694526824",
+        "name": "Saturn",
+        "opening_hours": "Mo-Sa 09:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9310427,
+          48.3812218
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1694526828",
+      "properties": {
+        "@id": "node/1694526828",
+        "name": "Kaufland",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9327844,
+          48.3803955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1700624678",
+      "properties": {
+        "@id": "node/1700624678",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "9 1/5",
+        "addr:postcode": "86157",
+        "addr:street": "Augsburger Straße",
+        "entrance": "yes",
+        "name": "Vitalia",
+        "organic": "only",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8746606,
+          48.3637087
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1839141644",
+      "properties": {
+        "@id": "node/1839141644",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "3",
+        "addr:postcode": "86167",
+        "addr:street": "Tauroggener Straße",
+        "building": "yes",
+        "name": "Norma",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9177303,
+          48.3862078
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1944408067",
+      "properties": {
+        "@id": "node/1944408067",
+        "name": "Marktkauf",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "recycling:batteries": "yes",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8869149,
+          48.3416305
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2212749443",
+      "properties": {
+        "@id": "node/2212749443",
+        "addr:housename": "Wertach Zentrum",
+        "addr:housenumber": "20c",
+        "addr:postcode": "86399",
+        "addr:street": "Winterstraße",
+        "name": "nahkauf",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.7998391,
+          48.2729692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2348246159",
+      "properties": {
+        "@id": "node/2348246159",
+        "addr:city": "Großaitingen",
+        "addr:country": "DE",
+        "addr:housenumber": "55",
+        "addr:postcode": "86845",
+        "addr:street": "Augsburger Straße",
+        "contact:phone": "+49 8203 9590550",
+        "name": "Edeka",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.789181,
+          48.2348019
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2469029354",
+      "properties": {
+        "@id": "node/2469029354",
+        "name": "Tengelmann",
+        "opening_hours": "Mo-Fr 08:00-20:00; Sa 07:30-20:00",
+        "phone": "+49 821 22 92 965",
+        "shop": "supermarket",
+        "source": "local knowledge; Aerowest aerial imagery",
+        "website": "http://www.kaisers-tengelmann.de",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8687781,
+          48.3673733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2518216212",
+      "properties": {
+        "@id": "node/2518216212",
+        "name": "Göl Supermarkt",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8754129,
+          48.3643745
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2598368978",
+      "properties": {
+        "@id": "node/2598368978",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "18",
+        "addr:postcode": "86159",
+        "addr:street": "Salomon-Idler-Straße",
+        "fax": "+49 821 571056",
+        "name": "EDEKA Weiss",
+        "opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-18:00",
+        "phone": "+49 821 595141",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.901598,
+          48.3330904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2697641012",
+      "properties": {
+        "@id": "node/2697641012",
+        "name": "Mix Markt",
+        "opening_hours": "Mo-Fr 09:00-20:00; Sa 09:00-18:00",
+        "phone": "+49 821 60998618",
+        "shop": "supermarket",
+        "website": "http://www.mixmarkt.de"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9031077,
+          48.3457935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2746860810",
+      "properties": {
+        "@id": "node/2746860810",
+        "name": "REWE",
+        "operator": "Rewe",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9742012,
+          48.3569436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2823368801",
+      "properties": {
+        "@id": "node/2823368801",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "7",
+        "addr:postcode": "86150",
+        "addr:street": "Maximilianstraße",
+        "entrance": "yes",
+        "name": "REWE City",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8984148,
+          48.3683037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2905248828",
+      "properties": {
+        "@id": "node/2905248828",
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "6",
+        "addr:postcode": "86199",
+        "addr:street": "Bürgermeister-Aurnhammer-Straße",
+        "name": "Picks Raus",
+        "opening_hours": "Mo-Fr 09:00-19:00; Sa 09:00-16:00",
+        "shop": "supermarket",
+        "website": "http://www.picksraus.de",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8682128,
+          48.3413621
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3335267550",
+      "properties": {
+        "@id": "node/3335267550",
+        "name": "REWE",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8755927,
+          48.4249642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3556068912",
+      "properties": {
+        "@id": "node/3556068912",
+        "addr:city": "Augsburg",
+        "addr:housenumber": "97b",
+        "addr:postcode": "86159",
+        "addr:street": "Alter Postweg",
+        "name": "Mix Markt",
+        "opening_hours": "Mo-Sa 09:00-20:00",
+        "phone": "0821 5998481",
+        "shop": "supermarket",
+        "website": "http://www.mixmarkt.eu/",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9005841,
+          48.3396936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3574229491",
+      "properties": {
+        "@id": "node/3574229491",
+        "name": "Polnische Spezialitäten",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9213662,
+          48.3841671
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3574239052",
+      "properties": {
+        "@id": "node/3574239052",
+        "name": "Türkischer Supermarkt",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9167434,
+          48.3811481
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3580343452",
+      "properties": {
+        "@id": "node/3580343452",
+        "addr:city": "Augsburg",
+        "addr:housenumber": "3",
+        "addr:postcode": "86165",
+        "addr:street": "Meraner Straße",
+        "name": "Kim-Long, Asia Supermarkt",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9294358,
+          48.3808245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3678414936",
+      "properties": {
+        "@id": "node/3678414936",
+        "addr:city": "Bobingen",
+        "addr:country": "DE",
+        "addr:housenumber": "5",
+        "addr:postcode": "86399",
+        "addr:street": "Banaterstraße",
+        "name": "Türkiyem Süpermarkt",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.843751,
+          48.2786246
+        ]
+      }
+    }
+  ]
+}
