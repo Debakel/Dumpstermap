@@ -74,4 +74,16 @@ class Vote(Base):
     session = relationship(Session, backref='votes')
     session_id = Column(Integer, ForeignKey('sessions.id'))
 
+class Comment(Base):
+    __tablename__ = "comments"
+    id = Column(Integer, primary_key=True)
+    name = Column(String(500))
+    comment = Column(String(500))
+    created = Column(DateTime)
+
+    dumpster = relationship(Dumpster, backref='comments')
+    dumpster_id = Column(Integer, ForeignKey('dumpsters.id'))
+
+    session = relationship(Session, backref='comments')
+    session_id = Column(Integer, ForeignKey('sessions.id'))
 
