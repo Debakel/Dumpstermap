@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 
 class Store():
     def __init__(self):
-        engine = create_engine('postgresql://user:password@localhost/database')
+        engine = create_engine('postgresql://moritz:123qwe@localhost/geotest')
 
         # Nur beim ersten Mal
         Base.metadata.create_all(engine)
