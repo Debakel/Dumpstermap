@@ -7,7 +7,10 @@ import json
 from pprint import pprint
 
 config = ConfigParser()
-config.read('trashmap/trashmap.config')
+if __name__ == '__main__':
+        config.read('trashmap.config')
+else:
+    config.read('trashmap/trashmap.config')
 
 app = Flask(__name__)
 
@@ -15,8 +18,8 @@ store = Store(config.get('Database', 'connection'))
 session = store.session
 
 @app.route('/')
-def index():
-    return app.send_static_file('static/app.html')
+def map():
+    return app.send_static_file('app.html')
 
 ##
 ## Votes
