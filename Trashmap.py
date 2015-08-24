@@ -2,10 +2,14 @@ from flask import Flask
 from Model import Dumpster, Vote, Comment
 from DB import Store
 from geojson import FeatureCollection
+from ConfigParser import ConfigParser
+
+config = ConfigParser()
+config.read('trashmap.config')
 
 app = Flask(__name__)
 
-store = Store()
+store = Store(config.get('Database','connection'))
 session = store.session
 
 @app.route('/')
@@ -48,6 +52,7 @@ def comment(id, name, comment):
         new_comment = Comment(dumpster=dumpster, name=name, comment=comment)
         store.session.add(new_comment)
         store.session.commit()
-        return "OK"	
+        return "OK"
+
 if __name__ == '__main__':
-   app.run(port=5001, debug=True)
+   app.run(port=config.getint('Webserver', 'port'), debug=True)

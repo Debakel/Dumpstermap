@@ -3,11 +3,12 @@
 from Model import Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
+from ConfigParser import ConfigParser
 
 class Store():
-    def __init__(self):
-        engine = create_engine('postgresql://user:password@localhost/database')
+    def __init__(self, db_connection):
+
+        engine = create_engine(db_connection)
 
         # Nur beim ersten Mal
         Base.metadata.create_all(engine)

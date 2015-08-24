@@ -1,0 +1,5 @@
+[Database]
+connection = postgresql://user:password@localhost/db
+
+[Webserver]
+port = 5001
