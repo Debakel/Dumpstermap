@@ -51,6 +51,8 @@
 
 <!-- Template for marker popups -->
 <script id="market-template" type="text/x-handlebars-template">
+  <input type="hidden" id="dumpster_id" value="{{ id }}">
+
   <div class="dumpster">
 	<label><h1><b>{{name}} </b>(Supermarkt)</h1></label>
 		<div id="votes">	
@@ -59,23 +61,24 @@
         </div>
        <hr>
        <div id="comment_list">
-                {{#comments}}
+                {{#each comments}}
                 <b>{{name}}: </b>
                 {{comment}}
                 <small>({{date}})</small>
                 <br>
-                {{/comments}}
+                {{/each}}
             </div>
 	  </div>
 	  
 		<div id="submit_comment>">
                 <form class="form-horizontal">
                     <fieldset>
+
                         <!-- Text input-->
                         <div class="inpout-group input-group-sm">
                             <label class="control-label" for="name">Name (optional)</label>
                             <div class="controls">
-                                <input id="name" name="name" placeholder="Hans Wurst" class="form-control input-sm"
+                                <input id="txt_name" name="name" placeholder="Hans Wurst" class="form-control input-sm"
                                        type="text">
 
                             </div>
@@ -86,7 +89,7 @@
                             <label class="control-label" for="comment">Kommentar</label>
 
                             <div class="controls">
-                                <textarea class="form-control input-sm" rows="3" id="comment" name="comment"placeholder="Super Möhren gibt's hier!"></textarea>
+                                <textarea class="form-control input-sm" rows="3" id="txt_comment" name="comment"placeholder="Super Möhren gibt's hier!"></textarea>
                             </div>
                         </div>
 
@@ -95,7 +98,7 @@
                             <label class="control-label" for="submit"></label>
 
                             <div class="controls">
-                                <button id="submit" name="submit" class="btn btn-default btn-block btn-sm">Abschicken</button>
+                                <button id="btn_comment" name="submit" class="btn btn-default btn-block btn-sm">Abschicken</button>
                             </div>
                         </div>
 

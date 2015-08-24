@@ -13,7 +13,7 @@ from geoalchemy2 import Geometry
 from geoalchemy2.shape import to_shape
 
 from geojson import Feature
-
+import json
 Base = declarative_base()
 
 
@@ -45,7 +45,10 @@ class Dumpster(Base):
                 i+=1
         return i
     def __geojson__(self):
-        properties = {'id': self.id, 'name': self.osmnode.name, 'upvotes': self.count_upvotes(), 'downvotes': self.count_downvotes(), 'osmnode_id': self.osmnode.osm_id }
+        comments = []
+        for comment in self.comments:
+            comments.append(comment.to_dict())
+        properties = {'id': self.id, 'name': self.osmnode.name, 'upvotes': self.count_upvotes(), 'downvotes': self.count_downvotes(), 'osmnode_id': self.osmnode.osm_id, 'comments': comments }
         geometry = to_shape(self.osmnode.location)
         feature = Feature(geometry=geometry, properties=properties)
         return feature
@@ -86,4 +89,7 @@ class Comment(Base):
 
     session = relationship(Session, backref='comments')
     session_id = Column(Integer, ForeignKey('sessions.id'))
-
+    def to_dict(self):
+        return {'id': self.id, 'name': self.name, 'comment': self.comment, 'dumpster_id': self.dumpster_id, 'date': '?' }
+    def __json__(self):
+        return json.dumps(self.to_dict())
