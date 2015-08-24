@@ -7,7 +7,7 @@ import json
 from pprint import pprint
 
 config = ConfigParser()
-config.read('trashmap.config')
+config.read('trashmap/trashmap.config')
 
 app = Flask(__name__)
 
