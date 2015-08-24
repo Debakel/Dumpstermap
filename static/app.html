@@ -12,7 +12,7 @@
     <script src="js/leaflet.js"></script>-->
 
     <!-- Leaflet location plugin -->
-    <link rel="stylesheet" href="L.Control.Locate.min.css"/>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <script src="js/L.Control.Locate.min.js"></script>
 
@@ -29,11 +29,12 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
+    <link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-
+	<link href='css/style.css' rel='stylesheet'/>
     <style>
         body {
             padding: 0;
@@ -50,18 +51,14 @@
 
 <!-- Template for marker popups -->
 <script id="market-template" type="text/x-handlebars-template">
-    <div class="entry">
-        <h1><b>{{name}}</b></h1>
-
-        <div id="votes">
-
-            <button class="btn btn_vote" dumpster-id="{{ id }}" voting="up" ><span class="glyphicon glyphicon-thumbs-up"></span> ({{upvotes}})</button>
-            <button class="btn btn_vote" dumpster-id="{{ id }}" voting="down"><span class="glyphicon glyphicon-thumbs-down"></span>({{downvotes}})</button>
+  <div class="dumpster">
+	<label><h1><b>{{name}} </b>(Supermarkt)</h1></label>
+		<div id="votes">	
+            <button class="btn  btn-success btn_vote col-md-6" dumpster-id="{{ id }}" voting="up" ><span class="glyphicon glyphicon-thumbs-up"> </span> <span class="badge">{{upvotes}}</span></button>
+            <button class="btn  btn-danger btn_vote col-md-6" dumpster-id="{{ id }}" voting="down"><span class="glyphicon glyphicon-thumbs-down"> </span> <span class="badge">{{downvotes}}</span></button>
         </div>
-
-        <div id="comments">
-            <h3>Kommentare</h3>
-            <div id="comment_list">
+       <hr>
+       <div id="comment_list">
                 {{#comments}}
                 <b>{{name}}: </b>
                 {{comment}}
@@ -69,51 +66,51 @@
                 <br>
                 {{/comments}}
             </div>
-            <div id="submit_comment>">
+	  </div>
+	  
+		<div id="submit_comment>">
                 <form class="form-horizontal">
                     <fieldset>
                         <!-- Text input-->
-                        <div class="control-group">
-                            <label class="control-label" for="name">Name</label>
-
+                        <div class="inpout-group input-group-sm">
+                            <label class="control-label" for="name">Name (optional)</label>
                             <div class="controls">
-                                <input id="name" name="name" placeholder="Hans Wurst" class="input-small" required=""
+                                <input id="name" name="name" placeholder="Hans Wurst" class="form-control input-sm"
                                        type="text">
 
                             </div>
                         </div>
 
                         <!-- Textarea -->
-                        <div class="control-group">
+                        <div class="inpout-group input-group-sm">
                             <label class="control-label" for="comment">Kommentar</label>
 
                             <div class="controls">
-                                <textarea id="comment" name="comment">Super Möhren gibt's hier!</textarea>
+                                <textarea class="form-control input-sm" rows="3" id="comment" name="comment"placeholder="Super Möhren gibt's hier!"></textarea>
                             </div>
                         </div>
 
                         <!-- Button -->
-                        <div class="control-group">
+                        <div class="inpout-group input-group-sm">
                             <label class="control-label" for="submit"></label>
 
                             <div class="controls">
-                                <button id="submit" name="submit" class="btn btn-default btn-xs">Abschicken</button>
+                                <button id="submit" name="submit" class="btn btn-default btn-block btn-sm">Abschicken</button>
                             </div>
                         </div>
 
                     </fieldset>
                 </form>
-            </div>
+	  </div>
 
-        </div>
 
     </div>
-    </div>
+	</div>      
 
 
 </script>
 
-<div id="map"</div>
+<div  id="map" class="custom-popup"></div>
 <script src="app.js"></script>
 </body>
 </html>
