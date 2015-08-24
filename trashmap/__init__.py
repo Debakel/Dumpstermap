@@ -1,3 +1,4 @@
+__author__ = 'niemand'
 from flask import Flask, request
 from Model import Dumpster, Vote, Comment
 from DB import Store
@@ -14,6 +15,9 @@ app = Flask(__name__)
 store = Store(config.get('Database', 'connection'))
 session = store.session
 
+@app.route('/')
+def index():
+    return app.send_static_file('static/app.html')
 
 ##
 ## Votes
@@ -83,3 +87,4 @@ def add_comment(dumpster_id):
 
 if __name__ == '__main__':
     app.run(port=config.getint('Webserver', 'port'), debug=True)
+
