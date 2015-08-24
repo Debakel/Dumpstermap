@@ -1,13 +1,16 @@
 __author__ = 'niemand'
 
-from DB import Store
-from Model import *
+from trashmap.DB import Store
+from trashmap.Model import *
 from geoalchemy2.shape import to_shape
 from geojson import Point, Feature, FeatureCollection
 import json
+from ConfigParser import ConfigParser
+config = ConfigParser()
+config.read('trashmap/trashmap.config')
 
 # Get Database
-store = Store()
+store = Store(config.get('Database','connection'))
 session = store.session
 
 def read_json(filename):
@@ -37,5 +40,4 @@ def create_dumpster_for_all_osmnodes():
             new_dumpster = Dumpster(osmnode=osmnode)
             session.add(new_dumpster)
             session.commit()
-#import_geojson('data/shop_augsburg.geojson')
-create_dumpster_for_all_osmnodes()
+#create_dumpster_for_all_osmnodes()
