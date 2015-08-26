@@ -78,7 +78,10 @@ def add_comment(dumpster_id):
     else:
         pprint(request.form)
         comment = request.form['comment']
-        username = request.form['name']
+        if 'name' in request.form and request.form['name'] != "":
+            username = request.form['name']
+        else:
+            username = "Anonym"
         new_comment = Comment(dumpster=dumpster, name=username, comment=comment)
         store.session.add(new_comment)
         store.session.commit()
