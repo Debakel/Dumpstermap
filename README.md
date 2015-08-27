@@ -11,16 +11,22 @@
 ### Setup notes
 * apt-get install language-pack-de-base (bei locales fehler während postgresql installation)
 
-## Deploy to webserver
-### Apache
-* apt-get install apache2 libapache2-mod-wsgi
-* create deploy.py with `from Trashmap import app as application`
-### Tornado
-* `./run_tornado.py`
-* 
-#### nginx as proxy  
+## Deployment
+### Tornado (with nginx)
+Tornado is an open source version of the scalable, non-blocking web server and tools that power FriendFeed. Because it is non-blocking and uses epoll, it can handle thousands of simultaneous standing connections, which means it is ideal for real-time web services. Integrating this service with Flask is straightforward (run_tornado.py):  
+```
+from tornado.wsgi import WSGIContainer
+from tornado.httpserver import HTTPServer
+from tornado.ioloop import IOLoop
+from yourapplication import app
+
+http_server = HTTPServer(WSGIContainer(app))
+http_server.listen(5000)
+IOLoop.instance().start()
+```
 
 Here’s a simple nginx configuration which proxies to an application served on localhost at port 8000, setting appropriate headers:
+
 ```
   server {
     listen 80;
