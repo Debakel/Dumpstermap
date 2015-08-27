@@ -12,7 +12,8 @@
     <script src="js/leaflet.js"></script>-->
 
     <!-- Leaflet location plugin -->
-    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css'
+          rel='stylesheet'/>
     <link rel="stylesheet" href="static/css/font-awesome.min.css"/>
     <script src="static/js/L.Control.Locate.min.js"></script>
 
@@ -34,86 +35,95 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-	<link href='static/css/style.css' rel='stylesheet'/>
-    <style>
-        body {
-            padding: 0;
-            margin: 0;
-        }
-
-        html, body, #map {
-            height: 100%;
-
-        }
-    </style>
+    <link href='static/css/style.css' rel='stylesheet'/>
 </head>
 <body>
 
 <!-- Template for marker popups -->
-<script id="market-template" type="text/x-handlebars-template">
-  <input type="hidden" id="dumpster_id" value="{{ id }}">
+<script id="dumpster_popup_template" type="text/x-handlebars-template">
+    <input type="hidden" id="dumpster_id" value="{{ id }}">
 
-  <div class="dumpster">
-	<label><h1><b>{{name}} </b>(Supermarkt)</h1></label>
-		<div id="votes">	
-            <button class="btn  btn-success btn_vote col-md-6" dumpster-id="{{ id }}" voting="up" ><span class="glyphicon glyphicon-thumbs-up"> </span> <span class="badge">{{upvotes}}</span></button>
-            <button class="btn  btn-danger btn_vote col-md-6" dumpster-id="{{ id }}" voting="down"><span class="glyphicon glyphicon-thumbs-down"> </span> <span class="badge">{{downvotes}}</span></button>
+    <div class="dumpster">
+        <label><h1><b>{{ name }} </b>(Supermarkt)</h1></label>
+
+        <div id="votes">
+            <button id="btn-upvote" class="btn btn-success btn-vote btn-upvote   col-md-6" dumpster-id="{{ id }}"
+                    voting="up"><span class="glyphicon glyphicon-thumbs-up"> </span> <span name="count"
+                                                                                           class="badge">{{ upvotes }}</span>
+            </button>
+            <button id="btn-downvote" class="btn btn-danger btn-vote btn-downvote col-md-6" dumpster-id="{{ id }}"
+                    voting="down"><span class="glyphicon glyphicon-thumbs-down"> </span> <span name="count"
+                                                                                               class="badge">{{ downvotes }}</span>
+            </button>
         </div>
-       <hr>
-       <div id="comment_list">
-                {{#each comments}}
-                <b>{{name}}: </b>
-                {{comment}}
-                <small>({{date}})</small>
-                <br>
-                {{/each}}
+        <hr>
+        <div id="comment_list">
+            {{#each comments}}
+            <div class="comment">
+                <span name="name"><strong>{{ name }}: </strong>
+                </span>
+                <span name="comment">{{ comment }}</span>
+                <span name="date"><small>({{ date }})</small></span>
             </div>
-	  </div>
-	  
-		<div id="submit_comment>">
-                <form class="form-horizontal">
-                    <fieldset>
+            {{/each}}
+        </div>
+    </div>
 
-                        <!-- Text input-->
-                        <div class="inpout-group input-group-sm">
-                            <label class="control-label" for="name">Name (optional)</label>
-                            <div class="controls">
-                                <input id="txt_name" name="name" placeholder="Hans Wurst" class="form-control input-sm"
-                                       type="text">
+    <div id="submit_comment>">
+        <form class="form-horizontal">
+            <fieldset>
 
-                            </div>
-                        </div>
+                <!-- Text input-->
+                <div class="inpout-group input-group-sm">
+                    <label class="control-label" for="name">Name (optional)</label>
 
-                        <!-- Textarea -->
-                        <div class="inpout-group input-group-sm">
-                            <label class="control-label" for="comment">Kommentar</label>
+                    <div class="controls">
+                        <input id="txt_name" name="name" placeholder="Hans Wurst" class="form-control input-sm"
+                               type="text">
 
-                            <div class="controls">
-                                <textarea class="form-control input-sm" rows="3" id="txt_comment" name="comment"placeholder="Super Möhren gibt's hier!"></textarea>
-                            </div>
-                        </div>
+                    </div>
+                </div>
 
-                        <!-- Button -->
-                        <div class="inpout-group input-group-sm">
-                            <label class="control-label" for="submit"></label>
+                <!-- Textarea -->
+                <div class="inpout-group input-group-sm">
+                    <label class="control-label" for="comment">Kommentar</label>
 
-                            <div class="controls">
-                                <button id="btn_comment" name="submit" class="btn btn-default btn-block btn-sm">Abschicken</button>
-                            </div>
-                        </div>
+                    <div class="controls">
+                        <textarea class="form-control input-sm" rows="3" id="txt_comment" name="comment"
+                                  placeholder="Super Möhren gibt's hier!"></textarea>
+                    </div>
+                </div>
 
-                    </fieldset>
-                </form>
-	  </div>
+                <!-- Button -->
+                <div class="inpout-group input-group-sm">
+                    <label class="control-label" for="submit"></label>
+
+                    <div class="controls">
+                        <button id="btn_comment" name="submit" class="btn btn-default btn-block btn-sm">Abschicken
+                        </button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
 
 
     </div>
-	</div>      
+    </div>
 
 
 </script>
+<script id="dumpster_popup_comments_template" type="text/x-handlebars-template">
+    <div class="comment">
+                <span name="name"><strong>{{ name }}: </strong>
+                </span>
+        <span name="comment">{{ comment }}</span>
+        <span name="date"><small>({{ date }})</small></span>
+    </div>
+</script>
 
-<div  id="map" class="custom-popup"></div>
+<div id="map" class="custom-popup"></div>
 <script src="static/app.js"></script>
 </body>
 </html>
