@@ -48,7 +48,12 @@ class Dumpster(Base):
         comments = []
         for comment in self.comments:
             comments.append(comment.to_dict())
-        properties = {'id': self.id, 'name': self.osmnode.name, 'upvotes': self.count_upvotes(), 'downvotes': self.count_downvotes(), 'osmnode_id': self.osmnode.osm_id, 'comments': comments }
+        properties = {'id': self.id, 'name': self.osmnode.name, 'upvotes': self.count_upvotes(),
+                      'downvotes': self.count_downvotes(),
+                      'osmnode_id': self.osmnode.osm_id, 'comments': comments,
+                      'total_votes': self.count_upvotes() - self.count_downvotes(),
+                      'good': self.count_upvotes() > self.count_downvotes(),
+                      'not_good': self.count_upvotes() < self.count_downvotes()}
         geometry = to_shape(self.osmnode.location)
         feature = Feature(geometry=geometry, properties=properties)
         return feature

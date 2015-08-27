@@ -36,6 +36,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <link href='static/css/style.css' rel='stylesheet'/>
+    <link href='static/css/header.css' rel='stylesheet'/>
 </head>
 <body>
 <div id="header" class="hidden-xs">
@@ -43,7 +44,8 @@
         <div id="header-left">
             <div id="brand">
                 <a href="/">
-                    <img src="/static/img/title.png" alt="Bürger baut Stadt">
+                    <!-- <img src="/static/img/title.png" alt="Dumpstermap"> -->
+                    <h1><strong>Müllkarte</strong></h1>
                 </a>
             </div>
         </div>
@@ -51,22 +53,10 @@
         <div id="header-right">
             <ul class="sitenav">
                 <li>
-                    <a href="/begriffe">Begriffe</a>
+                    <a href="/was">Was ist das?</a>
                 </li>
                 <li>
-                    <a href="/liste">Liste</a>
-                </li>
-                <li>
-                    <a href="/news/abonnieren">Abo</a>
-                </li>
-                <li>
-                    <a href="http://blog.buergerbautstadt.de/about/">Über</a>
-                </li>
-                <li>
-                    <a href="http://blog.buergerbautstadt.de/">Blog</a>
-                </li>
-                <li>
-                    <a href="http://blog.buergerbautstadt.de/impressum/">Impressum</a>
+                    <a href="impressum">Kontakt</a>
                 </li>
 
 
@@ -74,12 +64,12 @@
                     <i class="fa fa-twitter-square"></i>
                 </a>
 
-                <a href="https://www.facebook.com/dialog/share?href=http%3A%2F%2Fbuergerbautstadt.de&amp;redirect_uri=http%3A%2F%2Fbuergerbautstadt.de&amp;app_id=310881089105382&amp;display=page"
+                <a href="e"
                    target="blank">
                     <i class="fa fa-facebook-square"></i>
                 </a>
 
-                <a href="https://plus.google.com/share?url=http%3A%2F%2Fbuergerbautstadt.de&amp;href=http%3A%2F%2Fbuergerbautstadt.de"
+                <a href=""
                    target="blank">
                     <i class="fa fa-google-plus-square"></i>
                 </a>
@@ -167,6 +157,7 @@
 
 
 </script>
+
 <script id="dumpster_popup_comments_template" type="text/x-handlebars-template">
     <div class="comment">
                 <span name="name"><strong>{{ name }}: </strong>
@@ -175,8 +166,87 @@
         <span name="date"><small>({{ date }})</small></span>
     </div>
 </script>
+<script id="template_dumpster-list-entry" type="text/x-handlebars-template">
+    <li class="list-group-item  dumpster-list-entry">
+        <input type="hidden" name="id" value="{{ id }}">
+        <span class="h3"><b>{{ name }}</b></span>
+        {{#if good}}<span class="label label-success"><span class="glyphicon glyphicon-thumbs-up"> </span></span>{{/if}}
+        {{#if not_good}}<span class="label label-danger"><span
+            class="glyphicon glyphicon-thumbs-down"> </span></span>{{/if}}
+        <div name="comments">
+            {{#if comments.[0]}}
+            {{ comments.[0].name }}: {{ comments.[0].comment }}
+            {{/if}}
+
+            {{#if comments.[1]}}
+            <br>
+            {{ comments.[1].name }}: {{ comments.[1].comment }}
+            {{/if}}
+
+            {{#if comments.[2]}}
+            <br>
+            {{ comments.[2].name }}: {{ comments.[2].comment }}
+            {{/if}}
+
+        </div>
+    </li>
+</script>
 
 <div id="map" class="custom-popup"></div>
+<!--- Sidebar -->
+<div id="sidebar" class="sidebar collapsed">
+    <!-- Nav tabs -->
+    <div class="sidebar-tabs">
+        <ul role="tablist">
+            <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+        </ul>
+        <ul role="tablist">
+            <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="sidebar-content">
+        <div class="sidebar-pane" id="home">
+            <h1 class="sidebar-header">Container in der Nähe
+                <div class="sidebar-close"><i class="fa fa-caret-left"></i></div>
+            </h1>
+            <ul id="sidebar-dumpster-list" class="list-group">
+                <!-- dumpsters in map bound-->
+
+            </ul>
+            <div class="dumpster-list">
+                <!-- dumpsters in map bound-->
+
+            </div>
+        </div>
+
+
+        <div class="sidebar-pane" id="settings">
+            <h1 class="sidebar-header">Settings
+                <div class="sidebar-close"><i class="fa fa-caret-left"></i></div>
+            </h1>
+
+        </div>
+    </div>
+</div>
+<!-- end sidebar -->
+<style>
+    pre.ui-coordinates {
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        padding: 5px 10px;
+        color: #fff;
+        font-size: 11px;
+        line-height: 18px;
+        border-radius: 3px;
+        max-height: 240px;
+        overflow: auto;
+        width: 100px;
+    }
+</style>
 <script src="static/app.js"></script>
 </body>
 </html>
