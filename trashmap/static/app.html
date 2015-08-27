@@ -38,7 +38,60 @@
     <link href='static/css/style.css' rel='stylesheet'/>
 </head>
 <body>
+<div id="header" class="hidden-xs">
+    <div class="container">
+        <div id="header-left">
+            <div id="brand">
+                <a href="/">
+                    <img src="/static/img/title.png" alt="Bürger baut Stadt">
+                </a>
+            </div>
+        </div>
 
+        <div id="header-right">
+            <ul class="sitenav">
+                <li>
+                    <a href="/begriffe">Begriffe</a>
+                </li>
+                <li>
+                    <a href="/liste">Liste</a>
+                </li>
+                <li>
+                    <a href="/news/abonnieren">Abo</a>
+                </li>
+                <li>
+                    <a href="http://blog.buergerbautstadt.de/about/">Über</a>
+                </li>
+                <li>
+                    <a href="http://blog.buergerbautstadt.de/">Blog</a>
+                </li>
+                <li>
+                    <a href="http://blog.buergerbautstadt.de/impressum/">Impressum</a>
+                </li>
+
+
+                <a href="https://twitter.com/share" target="blank">
+                    <i class="fa fa-twitter-square"></i>
+                </a>
+
+                <a href="https://www.facebook.com/dialog/share?href=http%3A%2F%2Fbuergerbautstadt.de&amp;redirect_uri=http%3A%2F%2Fbuergerbautstadt.de&amp;app_id=310881089105382&amp;display=page"
+                   target="blank">
+                    <i class="fa fa-facebook-square"></i>
+                </a>
+
+                <a href="https://plus.google.com/share?url=http%3A%2F%2Fbuergerbautstadt.de&amp;href=http%3A%2F%2Fbuergerbautstadt.de"
+                   target="blank">
+                    <i class="fa fa-google-plus-square"></i>
+                </a>
+
+                <a href="/feeds/">
+                    <i class="fa fa-rss-square"></i>
+                </a>
+
+            </ul>
+        </div>
+    </div>
+</div>
 <!-- Template for marker popups -->
 <script id="dumpster_popup_template" type="text/x-handlebars-template">
     <input type="hidden" id="dumpster_id" value="{{ id }}">
