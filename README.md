@@ -18,11 +18,11 @@
 ### Tornado
 * `./run_tornado.py`
 * 
-#### nginx as proxy
-Here’s a simple nginx configuration which proxies to an application served on localhost at port 8000, setting appropriate headers:
-nginx config:
+#### nginx as proxy  
 
-server {
+Here’s a simple nginx configuration which proxies to an application served on localhost at port 8000, setting appropriate headers:
+```
+  server {
     listen 80;
 
     server_name dumpstermap.mrtz.me;
@@ -39,3 +39,4 @@ server {
         proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
     }
 }
+```
