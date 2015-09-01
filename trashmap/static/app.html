@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Dumpstermap</title>
+    <!-- tell the mobile browser to disable unwanted scaling of the page and set it to its actual size -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
     <!-- Mapbox -->
     <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
@@ -231,6 +233,25 @@
     </div>
 </div>
 <!-- end sidebar -->
+
+<div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title text-primary" id="feature-title"></h4>
+            </div>
+            <div class="modal-body" id="feature-info"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
 <style>
     pre.ui-coordinates {
         background: rgba(0, 0, 0, 0.5);
