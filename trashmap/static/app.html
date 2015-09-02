@@ -91,12 +91,15 @@
     <div class="dumpster">
         <label><h1><b>{{ name }} </b>(Supermarkt)</h1></label>
 
-        <div id="votes">
-            <button id="btn-upvote" class="btn btn-success btn-vote btn-upvote   col-md-6" dumpster-id="{{ id }}"
+        <div class="container" id="votes">
+            <div class="row">
+                <button type="button" id="btn-upvote" class="btn btn-success btn-vote btn-upvote col-xs-6"
+                        dumpster-id="{{ id }}"
                     voting="up"><span class="glyphicon glyphicon-thumbs-up"> </span> <span name="count"
                                                                                            class="badge">{{ upvotes }}</span>
             </button>
-            <button id="btn-downvote" class="btn btn-danger btn-vote btn-downvote col-md-6" dumpster-id="{{ id }}"
+                <button type="button" id="btn-downvote" class="btn btn-danger btn-vote btn-downvote col-xs-6"
+                        dumpster-id="{{ id }}"
                     voting="down"><span class="glyphicon glyphicon-thumbs-down"> </span> <span name="count"
                                                                                                class="badge">{{ downvotes }}</span>
             </button>
@@ -154,12 +157,82 @@
     </div>
 
 
+</script>
+<script id="feature_modal_body" type="text/x-handlebars-template">
+    <input type="hidden" id="dumpster_id" value="{{ id }}">
+
+    <div class="dumpster">
+
+        <div class="container" id="votes">
+            <div class="row">
+                <button type="button" id="btn-upvote" class="btn btn-success btn-vote btn-upvote col-xs-6"
+                        dumpster-id="{{ id }}"
+                        voting="up"><span class="glyphicon glyphicon-thumbs-up"> </span> <span name="count"
+                                                                                               class="badge">{{ upvotes }}</span>
+                </button>
+                <button type="button" id="btn-downvote" class="btn btn-danger btn-vote btn-downvote col-xs-6"
+                        dumpster-id="{{ id }}"
+                        voting="down"><span class="glyphicon glyphicon-thumbs-down"> </span> <span name="count"
+                                                                                                   class="badge">{{ downvotes }}</span>
+                </button>
+            </div>
+
+        </div>
+
+        <hr>
+        <div id="comment_list">
+            {{#each comments}}
+            <div class="comment">
+                <span name="name"><strong>{{ name }}: </strong>
+                </span>
+                <span name="comment">{{ comment }}</span>
+                <span name="date"><small>({{ date }})</small></span>
+            </div>
+            {{/each}}
+        </div>
     </div>
+
+    <div id="submit_comment>">
+        <form class="form-horizontal">
+            <fieldset>
+
+                <!-- Text input-->
+                <div class="inpout-group input-group-sm">
+                    <label class="control-label" for="name">Name (optional)</label>
+
+                    <div class="controls">
+                        <input id="txt_name" name="name" placeholder="Hans Wurst" class="form-control input-sm"
+                               type="text">
+
+                    </div>
+                </div>
+
+                <!-- Textarea -->
+                <div class="inpout-group input-group-sm">
+                    <label class="control-label" for="comment">Kommentar</label>
+
+                    <div class="controls">
+                        <textarea class="form-control input-sm" rows="3" id="txt_comment" name="comment"
+                                  placeholder="Super Möhren gibt's hier!"></textarea>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="inpout-group input-group-sm">
+                    <label class="control-label" for="submit"></label>
+
+                    <div class="controls">
+                        <button id="btn_comment" name="submit" class="btn btn-default btn-block btn-sm">Abschicken
+                        </button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
     </div>
 
 
 </script>
-
 <script id="dumpster_popup_comments_template" type="text/x-handlebars-template">
     <div class="comment">
                 <span name="name"><strong>{{ name }}: </strong>
@@ -195,6 +268,26 @@
 </script>
 
 <div id="map" class="custom-popup"></div>
+<div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
+    <!--
+        Modal documentation: http://getbootstrap.com/javascript/#modals
+    -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title text-primary" id="feature-title"></h4>
+            </div>
+            <div class="modal-body" id="feature-info"></div>
+            <!--<div class="modal-footer">-->
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <!--- Sidebar -->
 <div id="sidebar" class="sidebar collapsed">
     <!-- Nav tabs -->
@@ -234,23 +327,6 @@
 </div>
 <!-- end sidebar -->
 
-<div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title text-primary" id="feature-title"></h4>
-            </div>
-            <div class="modal-body" id="feature-info"></div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
 
 <style>
     pre.ui-coordinates {
