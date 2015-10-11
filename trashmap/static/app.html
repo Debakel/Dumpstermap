@@ -5,19 +5,24 @@
     <!-- tell the mobile browser to disable unwanted scaling of the page and set it to its actual size -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
+
     <!-- Mapbox -->
     <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet'/>
-
-    <!--Leaflet
-    <link rel="stylesheet" href="css/leaflet.css" />
-    <script src="js/leaflet.js"></script>-->
 
     <!-- Leaflet location plugin -->
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css'
           rel='stylesheet'/>
     <link rel="stylesheet" href="static/css/font-awesome.min.css"/>
     <script src="static/js/L.Control.Locate.min.js"></script>
+
+    <!-- Mapbox Marker Cluster Plugin -->
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css'
+          rel='stylesheet'/>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css'
+          rel='stylesheet'/>
 
     <!-- Leaflet sidebar plugin -->
     <link rel="stylesheet" href="static/css/leaflet-sidebar.css"/>
@@ -31,134 +36,21 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
-    <link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.css">
+    <!-- Optional theme
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.css"> -->
+
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <link href='static/css/style.css' rel='stylesheet'/>
-    <link href='static/css/header.css' rel='stylesheet'/>
 </head>
 <body>
-<div id="header" class="hidden-xs">
-    <div class="container">
-        <div id="header-left">
-            <div id="brand">
-                <a href="/">
-                    <!-- <img src="/static/img/title.png" alt="Dumpstermap"> -->
-                    <h1><strong>Müllkarte</strong></h1>
-                </a>
-            </div>
-        </div>
 
-        <div id="header-right">
-            <ul class="sitenav">
-                <li>
-                    <a href="/was">Was ist das?</a>
-                </li>
-                <li>
-                    <a href="impressum">Kontakt</a>
-                </li>
+<!-- Handlebars templates-->
 
-
-                <a href="https://twitter.com/share" target="blank">
-                    <i class="fa fa-twitter-square"></i>
-                </a>
-
-                <a href="e"
-                   target="blank">
-                    <i class="fa fa-facebook-square"></i>
-                </a>
-
-                <a href=""
-                   target="blank">
-                    <i class="fa fa-google-plus-square"></i>
-                </a>
-
-                <a href="/feeds/">
-                    <i class="fa fa-rss-square"></i>
-                </a>
-
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- Template for marker popups -->
-<script id="dumpster_popup_template" type="text/x-handlebars-template">
-    <input type="hidden" id="dumpster_id" value="{{ id }}">
-
-    <div class="dumpster">
-        <label><h1><b>{{ name }} </b>(Supermarkt)</h1></label>
-
-        <div class="container" id="votes">
-            <div class="row">
-                <button type="button" id="btn-upvote" class="btn btn-success btn-vote btn-upvote col-xs-6"
-                        dumpster-id="{{ id }}"
-                        voting="up"><span class="glyphicon glyphicon-thumbs-up"> </span> <span name="count"
-                                                                                               class="badge">{{ upvotes }}</span>
-                </button>
-                <button type="button" id="btn-downvote" class="btn btn-danger btn-vote btn-downvote col-xs-6"
-                        dumpster-id="{{ id }}"
-                        voting="down"><span class="glyphicon glyphicon-thumbs-down"> </span> <span name="count"
-                                                                                                   class="badge">{{ downvotes }}</span>
-                </button>
-            </div>
-        </div>
-        <hr>
-        <div id="comment_list">
-            {{#each comments}}
-            <div class="comment">
-                <span name="name"><strong>{{ name }}: </strong>
-                </span>
-                <span name="comment">{{ comment }}</span>
-                <span name="date"><small>({{ date }})</small></span>
-            </div>
-            {{/each}}
-            </div>
-        </div>
-
-    <div id="submit_comment>">
-        <form class="form-horizontal">
-            <fieldset>
-
-                <!-- Text input-->
-                <div class="inpout-group input-group-sm">
-                    <label class="control-label" for="name">Name (optional)</label>
-
-                    <div class="controls">
-                        <input id="txt_name" name="name" placeholder="Hans Wurst" class="form-control input-sm"
-                               type="text">
-
-                    </div>
-                    </div>
-
-                <!-- Textarea -->
-                <div class="inpout-group input-group-sm">
-                    <label class="control-label" for="comment">Kommentar</label>
-
-                    <div class="controls">
-                        <textarea class="form-control input-sm" rows="3" id="txt_comment" name="comment"
-                                  placeholder="Super Möhren gibt's hier!"></textarea>
-                    </div>
-                    </div>
-
-                <!-- Button -->
-                <div class="inpout-group input-group-sm">
-                    <label class="control-label" for="submit"></label>
-
-                    <div class="controls">
-                        <button id="btn_comment" name="submit" class="btn btn-default btn-block btn-sm">Abschicken
-                        </button>
-                    </div>
-                    </div>
-
-            </fieldset>
-        </form>
-    </div>
-
-
-</script>
 <script id="feature_modal_body" type="text/x-handlebars-template">
     <input type="hidden" id="dumpster_id" value="{{ id }}">
 
@@ -235,17 +127,21 @@
 
 </script>
 <script id="dumpster_popup_comments_template" type="text/x-handlebars-template">
-    <div class="comment">
-                <span name="name"><strong>{{ name }}: </strong>
-                </span>
-        <span name="comment">{{ comment }}</span>
-        <span name="date"><small>({{ date }})</small></span>
+    <div class="sidebar-dumpster-comment">
+        <span class="message">{{ comment }}</span>
+        <br>
+        <small class="name">{{ name }}</small>
+        <small class="date quiet"> - {{ date }}</small>
     </div>
 </script>
 <script id="template_dumpster-list-entry" type="text/x-handlebars-template">
-    <li class="list-group-item  dumpster-list-entry">
+    <div class="item">
         <input type="hidden" name="id" value="{{ id }}">
-        <span class="h3"><b>{{ name }}</b></span>
+        <a class="title">
+            {{ name }}
+            <br>
+            <small class="quiet">{{ addr:street }}</small>
+        </a>
         {{#if good}}<span class="label label-success"><span class="glyphicon glyphicon-thumbs-up"> </span></span>{{/if}}
         {{#if not_good}}<span class="label label-danger"><span
             class="glyphicon glyphicon-thumbs-down"> </span></span>{{/if}}
@@ -265,10 +161,158 @@
             {{/if}}
 
         </div>
-    </li>
+    </div>
 </script>
 
-<div id="map" class="custom-popup"></div>
+<!-- Content -->
+<!-- sidebar-left
+<div id="sidebar2-left" class="sidebar2">
+    <nav id="navbar" class="navbar navbar-default">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Dumpstermap</a>
+        </div>
+    </nav>
+    <div id="listings" class="listings">
+
+    </div>
+</div>
+/sidebar-left -->
+<nav class="navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><strong class="title">Trashmaps</strong></a>
+
+            <p class="navbar-text navbar-right">The world-wide map to dumpster diving</p>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" id="btn-about" data-toggle="modal" data-target="#modal-about">About</a></li>
+            <li><a href="http://trashwiki.org">Trashwiki.org</a></li>
+
+        </ul>
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<div id="map" class="map"></div>
+<div id="sidebar2-right" class="sidebar2 hidden">
+    <div id="sidebar-dumpster-info">
+        <script id="dumpster_popup_template" type="text/x-handlebars-template">
+
+            <input type="hidden" id="dumpster_id" value="{{ id }}">
+
+            <h3 name="heading" class="sidebar-dumpster-info-block">
+                <b>{{ name }} </b> - Supermarkt
+                <br>
+                <small class="quiet">{{ addr:street }} {{ addr:housenumber }}, {{ addr:city }}</small>
+            </h3>
+            <hr>
+            <div name="voting" class="sidebar-dumpster-info-block">
+                <div class="btn-group btn-group-justified" role="group">
+                    <a type="button" id="btn-upvote" class="btn btn-success btn-vote btn-upvote" role="button"
+                       dumpster-id="{{ id }}"
+                       voting="up"><span class="glyphicon glyphicon-thumbs-up"> </span> <span name="count"
+                                                                                              class="badge">{{ upvotes }}</span>
+                    </a>
+                    <a type="button" id="btn-downvote" class="btn btn-danger btn-vote btn-downvote" role="button"
+                       dumpster-id="{{ id }}"
+                       voting="down"><span class="glyphicon glyphicon-thumbs-down"> </span> <span name="count"
+                                                                                                  class="badge">{{ downvotes }}</span>
+                    </a>
+                </div>
+            </div>
+            <hr>
+            <div name="comments" class="sidebar-dumpster-info-block">
+                <div id="comment_list">
+                    {{#each comments}}
+                    <div class="sidebar-dumpster-comment">
+                        <span class="message">{{ comment }}</span>
+                        <br>
+                        <small class="name">{{ name }}</small>
+                        <small class="date quiet"> - {{ date }}</small>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            <hr>
+            <div name="submit-comment" class="sidebar-dumpster-info-block">
+                <div id="submit_comment>">
+                    <form class="form-horizontal">
+                        <fieldset>
+
+
+                            <!-- Textarea -->
+                            <div class="inpout-group input-group-sm">
+                                <div class="controls">
+                        <textarea class="form-control input-sm" rows="3" id="txt_comment" name="comment"
+                                  placeholder="Leave a comment ..."></textarea>
+                                </div>
+                            </div>
+                            <br>
+                            <!-- Text input-->
+                            <div class="inpout-group input-group-sm">
+                                <div class="controls">
+                                    <input id="txt_name" name="name" placeholder="Name (optional)"
+                                           class="form-control input-sm"
+                                           type="text">
+
+                                </div>
+                            </div>
+                            <!-- Button -->
+                            <div class="inpout-group input-group-sm">
+                                <label class="control-label" for="submit"></label>
+
+                                <div class="controls">
+                                    <button id="btn_comment" name="submit" class="btn btn-default btn-block btn-sm">
+                                        Send
+                                    </button>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </script>
+
+    </div>
+</div>
+<!-- sidebar-plugin
+<div id="sidebar" class="sidebar collapsed hidden">
+    <!-- Nav tabs
+    <div class="sidebar-tabs">
+        <ul role="tablist">
+            <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+        </ul>
+        <ul role="tablist">
+            <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- Tab panes
+    <div class="sidebar-content">
+        <div class="sidebar-pane" id="home">
+            <h1 class="sidebar-header">Container in der Nähe
+                <div class="sidebar-close"><i class="fa fa-caret-left"></i></div>
+            </h1>
+            <div class="listings">
+                <!-- dumpsters in map bound
+
+            </div>
+        </div>
+
+
+        <div class="sidebar-pane" id="settings">
+            <h1 class="sidebar-header">Settings
+                <div class="sidebar-close"><i class="fa fa-caret-left"></i></div>
+            </h1>
+
+        </div>
+    </div>
+</div>
+/sidebar-plugin -->
+
+<!-- Dumpster dialog -->
 <div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
     <!--
         Modal documentation: http://getbootstrap.com/javascript/#modals
@@ -286,65 +330,39 @@
     </div>
     <!-- /.modal-content -->
 </div>
-<!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
-<!--- Sidebar -->
-<div id="sidebar" class="sidebar collapsed">
-    <!-- Nav tabs -->
-    <div class="sidebar-tabs">
-        <ul role="tablist">
-            <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-        </ul>
-        <ul role="tablist">
-            <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
-        </ul>
-    </div>
-
-    <!-- Tab panes -->
-    <div class="sidebar-content">
-        <div class="sidebar-pane" id="home">
-            <h1 class="sidebar-header">Container in der Nähe
-                <div class="sidebar-close"><i class="fa fa-caret-left"></i></div>
-            </h1>
-            <ul id="sidebar-dumpster-list" class="list-group">
-                <!-- dumpsters in map bound-->
-
-            </ul>
-            <div class="dumpster-list">
-                <!-- dumpsters in map bound-->
-
+<!-- Modal About -->
+<div class="modal fade" id="modal-about" tabindex="-1" role="dialog">
+    <!--
+        Modal documentation: http://getbootstrap.com/javascript/#modals
+    -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title text-primary">Welcome to Trashmaps.org</h4>
             </div>
-        </div>
-
-
-        <div class="sidebar-pane" id="settings">
-            <h1 class="sidebar-header">Settings
-                <div class="sidebar-close"><i class="fa fa-caret-left"></i></div>
-            </h1>
+            <div class="modal-body">
+                <div>Welcome to Trashmaps.org, the collaborative world wide guide of creating value from trash!</div>
+                <p>It is written for and by <a href="/en/Dumpster_diver" title="Dumpster diver">dumpster divers</a>, <a
+                        href="/en/Freegan" title="Freegan">freegans</a> and others of such kind.
+                    Here you will find plenty of trash-related articles: you can search by specific <a
+                            href="/en/Category:World" title="Category:World">countries</a>, by places like <a
+                            href="/en/Markets" title="Markets">markets</a>, by <a href="/en/Food"
+                                                                                                      title="Food">food</a>
+                    types, etc. We already have <b><a href="/en/Special:Statistics" title="Special:Statistics">837
+                        articles</a> on trash and living for free</b>. You can find precise descriptions of how to get
+                    rid of your trash in a sustainable manner, how to <a href="/en/Dumpster_diving"
+                                                                         title="Dumpster diving">sensibly recuperate
+                        trash</a>, how to share and get stuff for free, and much much more... <br>
+                </p>
+            </div>
+            <!--<div class="modal-footer">-->
 
         </div>
     </div>
+    <!-- /.modal-content -->
 </div>
-<!-- end sidebar -->
-
-
-<style>
-    pre.ui-coordinates {
-        background: rgba(0, 0, 0, 0.5);
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        padding: 5px 10px;
-        color: #fff;
-        font-size: 11px;
-        line-height: 18px;
-        border-radius: 3px;
-        max-height: 240px;
-        overflow: auto;
-        width: 100px;
-    }
-</style>
+<!-- /Model About -->
 <script src="static/app.js"></script>
 </body>
 </html>

@@ -1,6 +1,9 @@
 body {
-    padding: 0;
+    color: #404040;
+    font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
     margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
 }
 
 html, body, #map {
@@ -8,29 +11,175 @@ html, body, #map {
 
 }
 
-.custom-popup .leaflet-popup-content-wrapper {
-    background: #2c3e50;
+h1 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 400;
+}
+
+a {
+    color: #404040;
+    text-decoration: none;
+}
+
+.quiet {
+    color: #888;
+}
+
+a:hover {
+    color: #101010;
+}
+
+.heading {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 10px;
+}
+
+.listings {
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 60px;
+}
+
+.listings .item {
+    display: block;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.listings .item:last-child {
+    border-bottom: none;
+}
+
+.listings .item .title {
+    display: block;
+    color: #00853e;
+    font-weight: 700;
+}
+
+.listings .item .title small {
+    font-weight: 400;
+}
+
+.listings .item.active .title,
+.listings .item .title:hover {
+    color: #8cc63f;
+}
+
+.listings .item.active {
+    background-color: #f8f8f8;
+}
+
+.sidebar2 {
+    width: 250px;
+    overflow: scroll;
+    height: 100%;
+    top: 50px;
+    position: absolute;
+    background-color: white;
+}
+
+#sidebar2-left {
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+    left: 0;
+    width: 1px;
+
+}
+
+#sidebar2-right {
+    border-left: 1px solid rgba(0, 0, 0, 0.25);
+    right: 0;
+}
+
+.sidebar-dumpster-info-block {
+    padding: 0 10px 0 10px;
+}
+
+.sidebar-dumpster-comment {
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-left: 2px solid black;
+}
+
+#map {
+    width: 100%;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    position: absolute;
+}
+
+.navbar {
+    background-color: #45A15C;
+    color: white;
+}
+
+.title {
+    color: white;
+}
+
+/* Marker tweaks */
+.leaflet-popup-close-button {
+    display: none;
+}
+
+.leaflet-popup-content {
+    font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+    padding: 0;
+    width: 200px;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 0;
+}
+
+.leaflet-popup-content h3 {
+    background: #91c949;
     color: #fff;
-    font-size: 16px;
-    line-height: 24px;
+    margin: 0;
+    display: block;
+    padding: 10px;
+    border-radius: 3px 3px 0 0;
+    font-weight: 700;
+    margin-top: -15px;
 }
 
-.custom-popup .leaflet-popup-content-wrapper a {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.custom-popup .leaflet-popup-tip-container {
-    width: 100px;
-    height: 15px;
-}
-
-.custom-popup .leaflet-popup-tip {
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 15px solid #2c3e50;
+.leaflet-popup-content div {
+    padding: 2px;
 }
 
 .dumpster-list-entry {
     color: black;
     background-color: white;
 }
+
+/* Navbar */
+.navbar-inverse { background-color: #45A15C}
+.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { background-color: #45A15C}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { background-color: #45A15C}
+.dropdown-menu { background-color: #45A15C}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-color: #45A15C}
+.navbar-inverse { background-image: none; }
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-image: none; }
+.navbar-inverse { border-color: #080808}
+.navbar-inverse .navbar-brand { color: #FFFFFF}
+.navbar-inverse .navbar-text { color: #FFFFFF}
+.navbar-inverse .navbar-brand:hover { color: #FFFFFF}
+.navbar-inverse .navbar-nav>li>a { color: #FFFFFF}
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { color: #FFFFFF}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { color: #FFFFFF}
+.navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus { color: #FFFFFF}
+.dropdown-menu>li>a { color: #FFFFFF}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { color: #FFFFFF}
+.navbar-inverse .navbar-nav>.dropdown>a .caret { border-top-color: #999999}
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-top-color: #FFFFFF}
+.navbar-inverse .navbar-nav>.dropdown>a .caret { border-bottom-color: #999999}
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #FFFFFF}
+
+
+
+/* /Navbar */

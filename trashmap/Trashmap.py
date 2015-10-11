@@ -54,7 +54,6 @@ def get_dumpsters():
     featurecollection = FeatureCollection(features)
     return str(featurecollection)
 
-
 @app.route('/api/dumpster/<int:id>')
 def get_dumpster(id):
     d = store.get(Dumpster, id=id)

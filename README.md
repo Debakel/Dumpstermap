@@ -11,6 +11,9 @@
 ### Setup notes
 * apt-get install language-pack-de-base (bei locales fehler während postgresql installation)
 
+###
+* npm install --save-dev grunt-wiredep (To inject Bower packages into your source code with Grunt.)
+
 ## Deployment
 ### Tornado (with nginx)
 Tornado is an open source version of the scalable, non-blocking web server and tools that power FriendFeed. Because it is non-blocking and uses epoll, it can handle thousands of simultaneous standing connections, which means it is ideal for real-time web services. Integrating this service with Flask is straightforward (`run_tornado.py`):  

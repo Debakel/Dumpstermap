@@ -21,16 +21,25 @@ def import_geojson(filename):
     data = read_json(filename)
     for feature in data['features']:
         osm_id = int(feature['id'].replace("node/", ""))
-        if 'name' in feature['properties']:
-            name = feature['properties']['name']
-        else:
-            name = ""
-        long    = feature['geometry']['coordinates'][0]
-        lat     = feature['geometry']['coordinates'][1]
-        print "ID: " + str(osm_id) + " Name: " + name + " long: " + str(long) + " lat: " + str(lat)
+        properties = feature['properties']
+        geometry = feature['geometry']
 
-        # Insert into Database
-        node = OSMNode(osm_id=osm_id, name=name, location='POINT('+str(long) + ' ' + str(lat) + ')')
+        long    = geometry['coordinates'][0]
+        lat     = geometry['coordinates'][1]
+        print "ID: " + str(osm_id)  + " long: " + str(long) + " lat: " + str(lat)
+
+        # Create node
+        node = OSMNode(osm_id=osm_id, location='POINT('+str(long) + ' ' + str(lat) + ')')
+        if 'name' in properties:
+            node.name = properties['name']
+        if 'addr:street' in properties:
+            node.street = properties['addr:street']
+        if 'addr:housenumber' in properties:
+            node.housenumber = properties['addr:housenumber']
+        if 'addr:city' in properties:
+            node.city = properties['addr:city']
+
+        # Insert in Database
         session.add(node)
         session.commit()
 def create_dumpster_for_all_osmnodes():
@@ -40,4 +49,5 @@ def create_dumpster_for_all_osmnodes():
             new_dumpster = Dumpster(osmnode=osmnode)
             session.add(new_dumpster)
             session.commit()
+import_geojson('data/shop_augsburg.geojson')
 #create_dumpster_for_all_osmnodes()

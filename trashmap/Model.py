@@ -24,6 +24,9 @@ class OSMNode(Base):
     name = Column(String(250))
     location = Column(Geometry('POINT'))
 
+    city = Column(String(250))
+    street = Column(String(250))
+    housenumber = Column(String(50))
 
 class Dumpster(Base):
     __tablename__ = 'dumpsters'
@@ -48,12 +51,19 @@ class Dumpster(Base):
         comments = []
         for comment in self.comments:
             comments.append(comment.to_dict())
-        properties = {'id': self.id, 'name': self.osmnode.name, 'upvotes': self.count_upvotes(),
+        properties = {'id': self.id,
+                      'name': self.osmnode.name,
+                      'addr:street': self.osmnode.street,
+                      'addr:housenumber': self.osmnode.housenumber,
+                      'addr:city': self.osmnode.city,
+                      'upvotes': self.count_upvotes(),
                       'downvotes': self.count_downvotes(),
-                      'osmnode_id': self.osmnode.osm_id, 'comments': comments,
+                      'osmnode_id': self.osmnode.osm_id,
+                      'comments': comments,
                       'total_votes': self.count_upvotes() - self.count_downvotes(),
                       'good': self.count_upvotes() > self.count_downvotes(),
-                      'not_good': self.count_upvotes() < self.count_downvotes()}
+                      'not_good': self.count_upvotes() < self.count_downvotes()
+                      }
         geometry = to_shape(self.osmnode.location)
         feature = Feature(geometry=geometry, properties=properties)
         return feature
