@@ -183,134 +183,146 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="#"><strong class="title">Trashmaps</strong></a>
 
-            <p class="navbar-text navbar-right">The world-wide map to dumpster diving</p>
+            <p class="collapse navbar-collapse navbar-text navbar-right">The world-wide map to dumpster diving</p>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
-        <ul class="nav navbar-nav navbar-right">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
             <li><a href="#" id="btn-about" data-toggle="modal" data-target="#modal-about">About</a></li>
             <li><a href="http://trashwiki.org">Trashwiki.org</a></li>
 
         </ul>
+        </div>
+
     </div>
     <!-- /.container-fluid -->
 </nav>
+<div class="content">
+    <div id="map" class="map"></div>
+    <div id="sidebar2-right" class="sidebar2 hidden">
+        <div id="sidebar-dumpster-info">
+            <script id="dumpster_popup_template" type="text/x-handlebars-template">
 
-<div id="map" class="map"></div>
-<div id="sidebar2-right" class="sidebar2 hidden">
-    <div id="sidebar-dumpster-info">
-        <script id="dumpster_popup_template" type="text/x-handlebars-template">
+                <input type="hidden" id="dumpster_id" value="{{ id }}">
 
-            <input type="hidden" id="dumpster_id" value="{{ id }}">
-
-            <h3 name="heading" class="sidebar-dumpster-info-block">
-                <b>{{ name }} </b> - Supermarkt
-                <br>
-                <small class="quiet">{{ addr:street }} {{ addr:housenumber }}, {{ addr:city }}</small>
-            </h3>
-            <hr>
-            <div name="voting" class="sidebar-dumpster-info-block">
-                <div class="btn-group btn-group-justified" role="group">
-                    <a type="button" id="btn-upvote" class="btn btn-success btn-vote btn-upvote" role="button"
-                       dumpster-id="{{ id }}"
-                       voting="up"><span class="glyphicon glyphicon-thumbs-up"> </span> <span name="count"
-                                                                                              class="badge">{{ upvotes }}</span>
-                    </a>
-                    <a type="button" id="btn-downvote" class="btn btn-danger btn-vote btn-downvote" role="button"
-                       dumpster-id="{{ id }}"
-                       voting="down"><span class="glyphicon glyphicon-thumbs-down"> </span> <span name="count"
-                                                                                                  class="badge">{{ downvotes }}</span>
-                    </a>
-                </div>
-            </div>
-            <hr>
-            <div name="comments" class="sidebar-dumpster-info-block">
-                <div id="comment_list">
-                    {{#each comments}}
-                    <div class="sidebar-dumpster-comment">
-                        <span class="message">{{ comment }}</span>
-                        <br>
-                        <small class="name">{{ name }}</small>
-                        <small class="date quiet"> - {{ date }}</small>
+                <h3 name="heading" class="sidebar-dumpster-info-block">
+                    <b>{{ name }} </b> - Supermarkt
+                    <br>
+                    <small class="quiet">{{ addr:street }} {{ addr:housenumber }}, {{ addr:city }}</small>
+                </h3>
+                <hr>
+                <div name="voting" class="sidebar-dumpster-info-block">
+                    <div class="btn-group btn-group-justified" role="group">
+                        <a type="button" id="btn-upvote" class="btn btn-success btn-vote btn-upvote" role="button"
+                           dumpster-id="{{ id }}"
+                           voting="up"><span class="glyphicon glyphicon-thumbs-up"> </span> <span name="count"
+                                                                                                  class="badge">{{ upvotes }}</span>
+                        </a>
+                        <a type="button" id="btn-downvote" class="btn btn-danger btn-vote btn-downvote" role="button"
+                           dumpster-id="{{ id }}"
+                           voting="down"><span class="glyphicon glyphicon-thumbs-down"> </span> <span name="count"
+                                                                                                      class="badge">{{ downvotes }}</span>
+                        </a>
                     </div>
-                    {{/each}}
                 </div>
-            </div>
-            <hr>
-            <div name="submit-comment" class="sidebar-dumpster-info-block">
-                <div id="submit_comment>">
-                    <form class="form-horizontal">
-                        <fieldset>
+                <hr>
+                <div name="comments" class="sidebar-dumpster-info-block">
+                    <div id="comment_list">
+                        {{#each comments}}
+                        <div class="sidebar-dumpster-comment">
+                            <span class="message">{{ comment }}</span>
+                            <br>
+                            <small class="name">{{ name }}</small>
+                            <small class="date quiet"> - {{ date }}</small>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <hr>
+                <div name="submit-comment" class="sidebar-dumpster-info-block">
+                    <div id="submit_comment>">
+                        <form class="form-horizontal">
+                            <fieldset>
 
 
-                            <!-- Textarea -->
-                            <div class="inpout-group input-group-sm">
-                                <div class="controls">
+                                <!-- Textarea -->
+                                <div class="inpout-group input-group-sm">
+                                    <div class="controls">
                         <textarea class="form-control input-sm" rows="3" id="txt_comment" name="comment"
                                   placeholder="Leave a comment ..."></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <br>
-                            <!-- Text input-->
-                            <div class="inpout-group input-group-sm">
-                                <div class="controls">
-                                    <input id="txt_name" name="name" placeholder="Name (optional)"
-                                           class="form-control input-sm"
-                                           type="text">
+                                <br>
+                                <!-- Text input-->
+                                <div class="inpout-group input-group-sm">
+                                    <div class="controls">
+                                        <input id="txt_name" name="name" placeholder="Name (optional)"
+                                               class="form-control input-sm"
+                                               type="text">
 
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Button -->
-                            <div class="inpout-group input-group-sm">
-                                <label class="control-label" for="submit"></label>
+                                <!-- Button -->
+                                <div class="inpout-group input-group-sm">
+                                    <label class="control-label" for="submit"></label>
 
-                                <div class="controls">
-                                    <button id="btn_comment" name="submit" class="btn btn-default btn-block btn-sm">
-                                        Send
-                                    </button>
+                                    <div class="controls">
+                                        <button id="btn_comment" name="submit" class="btn btn-default btn-block btn-sm">
+                                            Send
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </fieldset>
-                    </form>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </script>
+
+        </div>
+    </div>
+    <!-- sidebar-plugin
+    <div id="sidebar" class="sidebar collapsed hidden">
+        <!-- Nav tabs
+        <div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+            </ul>
+            <ul role="tablist">
+                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- Tab panes
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="home">
+                <h1 class="sidebar-header">Container in der Nähe
+                    <div class="sidebar-close"><i class="fa fa-caret-left"></i></div>
+                </h1>
+                <div class="listings">
+                    <!-- dumpsters in map bound
+
                 </div>
             </div>
-        </script>
 
-    </div>
-</div>
-<!-- sidebar-plugin
-<div id="sidebar" class="sidebar collapsed hidden">
-    <!-- Nav tabs
-    <div class="sidebar-tabs">
-        <ul role="tablist">
-            <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-        </ul>
-        <ul role="tablist">
-            <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
-        </ul>
-    </div>
 
-    <!-- Tab panes
-    <div class="sidebar-content">
-        <div class="sidebar-pane" id="home">
-            <h1 class="sidebar-header">Container in der Nähe
-                <div class="sidebar-close"><i class="fa fa-caret-left"></i></div>
-            </h1>
-            <div class="listings">
-                <!-- dumpsters in map bound
+            <div class="sidebar-pane" id="settings">
+                <h1 class="sidebar-header">Settings
+                    <div class="sidebar-close"><i class="fa fa-caret-left"></i></div>
+                </h1>
 
             </div>
         </div>
-
-
-        <div class="sidebar-pane" id="settings">
-            <h1 class="sidebar-header">Settings
-                <div class="sidebar-close"><i class="fa fa-caret-left"></i></div>
-            </h1>
-
-        </div>
     </div>
+    /sidebar-plugin -->
+    <a href="#" id="imprint" data-toggle="modal" data-target="#modal-about">Impressum</a>
 </div>
-/sidebar-plugin -->
 
 <!-- Dumpster dialog -->
 <div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
@@ -348,7 +360,7 @@
                     Here you will find plenty of trash-related articles: you can search by specific <a
                             href="/en/Category:World" title="Category:World">countries</a>, by places like <a
                             href="/en/Markets" title="Markets">markets</a>, by <a href="/en/Food"
-                                                                                                      title="Food">food</a>
+                                                                                  title="Food">food</a>
                     types, etc. We already have <b><a href="/en/Special:Statistics" title="Special:Statistics">837
                         articles</a> on trash and living for free</b>. You can find precise descriptions of how to get
                     rid of your trash in a sustainable manner, how to <a href="/en/Dumpster_diving"
