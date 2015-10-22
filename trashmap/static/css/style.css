@@ -128,7 +128,7 @@ a:hover {
     color: white;
 }
 
-#imprint {
+.imprint {
     left: 5px;
     position: absolute;
     bottom: 5px;

@@ -51,6 +51,11 @@ class Dumpster(Base):
         comments = []
         for comment in self.comments:
             comments.append(comment.to_dict())
+        color = 'grey'
+        if self.count_upvotes() > self.count_downvotes():
+            color = 'green'
+        elif self.count_upvotes() < self.count_downvotes():
+            color = 'red'
         properties = {'id': self.id,
                       'name': self.osmnode.name,
                       'addr:street': self.osmnode.street,
@@ -62,7 +67,8 @@ class Dumpster(Base):
                       'comments': comments,
                       'total_votes': self.count_upvotes() - self.count_downvotes(),
                       'good': self.count_upvotes() > self.count_downvotes(),
-                      'not_good': self.count_upvotes() < self.count_downvotes()
+                      'not_good': self.count_upvotes() < self.count_downvotes(),
+                      'color': color
                       }
         geometry = to_shape(self.osmnode.location)
         feature = Feature(geometry=geometry, properties=properties)

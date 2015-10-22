@@ -185,19 +185,23 @@
 
             <p class="collapse navbar-collapse navbar-text navbar-right">The world-wide map to dumpster diving</p>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    data-target="#navbar-collapse" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div class="collapse navbar-collapse">
+        <div id="navbar-collapse" class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" id="btn-about" data-toggle="modal" data-target="#modal-about">About</a></li>
-            <li><a href="http://trashwiki.org">Trashwiki.org</a></li>
-
-        </ul>
+                <li><a href="#" id="btn-about" data-toggle="modal" data-target="#modal-about">About</a></li>
+                <li><a href="http://trashwiki.org">Trashwiki.org</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <button id="btn-add-dumpster" class="btn btn-sm btn-success " type="submit"><span
+                        class="glyphicon glyphicon-plus"></span> Add Dumpster
+                </button>
+            </form>
         </div>
 
     </div>
@@ -221,13 +225,17 @@
                     <div class="btn-group btn-group-justified" role="group">
                         <a type="button" id="btn-upvote" class="btn btn-success btn-vote btn-upvote" role="button"
                            dumpster-id="{{ id }}"
-                           voting="up"><span class="glyphicon glyphicon-thumbs-up"> </span> <span name="count"
-                                                                                                  class="badge">{{ upvotes }}</span>
+                           voting="up"><span class="glyphicon glyphicon-thumbs-up"
+                                             data-toggle="tooltip" title="Jap, good for dumpsterdiving!"> </span> <span
+                                name="count"
+                                class="badge">{{ upvotes }}</span>
                         </a>
                         <a type="button" id="btn-downvote" class="btn btn-danger btn-vote btn-downvote" role="button"
                            dumpster-id="{{ id }}"
-                           voting="down"><span class="glyphicon glyphicon-thumbs-down"> </span> <span name="count"
-                                                                                                      class="badge">{{ downvotes }}</span>
+                           voting="down"><span class="glyphicon glyphicon-thumbs-down"
+                                               data-toggle="tooltip"
+                                               title="Nö, nichts zu holen hier."> </span> <span name="count"
+                                                                                                class="badge">{{ downvotes }}</span>
                         </a>
                     </div>
                 </div>
@@ -321,10 +329,15 @@
         </div>
     </div>
     /sidebar-plugin -->
+    <span class="imprint">
     <a href="#" id="imprint" data-toggle="modal" data-target="#modal-about">Impressum</a>
+    <a href="#" id="toggle-green">green</a>
+    <a href="#" id="toggle-red">red</a>
+    <a href="#" id="toggle-grey">grey</a>
+        </span>
 </div>
 
-<!-- Dumpster dialog -->
+<!-- Modal Dumpster dialog -->
 <div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
     <!--
         Modal documentation: http://getbootstrap.com/javascript/#modals
@@ -342,35 +355,90 @@
     </div>
     <!-- /.modal-content -->
 </div>
+<!-- Modal How TO Add Dumpsters -->
+<div class="modal fade" id="add-dumpster-modal" tabindex="-1" role="dialog">
+    <!--
+        Modal documentation: http://getbootstrap.com/javascript/#modals
+    -->
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="italic modal-title text-primary"><i>How to add dumpsters</i></h4>
+            </div>
+            <div class="modal-body ">
+                <div>
+                    <h3>[Instructions]</h3>
+                    <ul>
+                        <li>[Instructions]
+                        </li>
+                    </ul>
+                    <p></p>
+                    <button style="margin-top:30px;" class="btn btn-success btn-block center-block" type="button"
+                            data-dismiss="modal"><b>Got it</b></button>
+                </div>
+            </div>
+
+
+            <!--<div class="modal-footer">-->
+
+        </div>
+
+    </div>
+    <!-- /.modal-content -->
+</div>
+<!-- /Model "HowToAddDumpsters" -->
 <!-- Modal About -->
 <div class="modal fade" id="modal-about" tabindex="-1" role="dialog">
     <!--
         Modal documentation: http://getbootstrap.com/javascript/#modals
     -->
     <div class="modal-dialog">
+
         <div class="modal-content">
             <div class="modal-header">
-                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title text-primary">Welcome to Trashmaps.org</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="italic modal-title text-primary"><i>"One person's trash is another's treasure"</i></h4>
             </div>
-            <div class="modal-body">
-                <div>Welcome to Trashmaps.org, the collaborative world wide guide of creating value from trash!</div>
-                <p>It is written for and by <a href="/en/Dumpster_diver" title="Dumpster diver">dumpster divers</a>, <a
-                        href="/en/Freegan" title="Freegan">freegans</a> and others of such kind.
-                    Here you will find plenty of trash-related articles: you can search by specific <a
-                            href="/en/Category:World" title="Category:World">countries</a>, by places like <a
-                            href="/en/Markets" title="Markets">markets</a>, by <a href="/en/Food"
-                                                                                  title="Food">food</a>
-                    types, etc. We already have <b><a href="/en/Special:Statistics" title="Special:Statistics">837
-                        articles</a> on trash and living for free</b>. You can find precise descriptions of how to get
-                    rid of your trash in a sustainable manner, how to <a href="/en/Dumpster_diving"
-                                                                         title="Dumpster diving">sensibly recuperate
-                        trash</a>, how to share and get stuff for free, and much much more... <br>
-                </p>
+            <div class="modal-body ">
+
+
+                <div>
+
+                    <h3>Welcome to Trashmaps.org, the collaborative world wide guide of creating value from trash!</h3>
+
+                    <p>It is written for and by <a href="/en/Dumpster_diver" title="Dumpster diver">dumpster divers</a>,
+                        <a href="/en/Freegan" title="Freegan">freegans</a> and others of such kind.</p>
+
+                    <p> Traditionally, most people who resort to dumpster diving are forced to do so out of economic
+                        necessity. The karung guni, the rag and bone man, waste picker, dumpster monkey, junk man or bin
+                        hoker are people who make their living by sorting and trading trash.</p>
+
+                    <h3>Some things to keep in mind:</h3>
+                    <ul>
+                        <li>Bring a bottle of water, to wash your hands when you dive into bags of fruits and
+                            vegetables
+                        </li>
+                        <li>Always make sure you don't make a mess (i.e. open and close bags nicely)</li>
+                        <li> In the unlikely case you did not manage to find a couch and need to sleep on the street:
+                            Look for recycling bins to get cardboard for sleeping in
+                        </li>
+                        <li>Dumpster diving may be illegal in certain places, but enforcement is rare. In either case
+                            you may want to keep an eye out for police or unsympathetic property owners
+                        </li>
+                    </ul>
+                    <p></p>
+                    <button style="margin-top:30px;" class="btn btn-success btn-block center-block" type="button"
+                            data-dismiss="modal"><b>D'accord</b></button>
+                </div>
             </div>
+
+
             <!--<div class="modal-footer">-->
 
         </div>
+
     </div>
     <!-- /.modal-content -->
 </div>
