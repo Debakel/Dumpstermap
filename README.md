@@ -17,11 +17,11 @@ $ pip install shapely geojson configparser flask sqlalchemy psycopg2 geoalchemy2
 On most systems you need to be authenticated as the PostgreSQL super user (usually named postgres) in order to execute many of the commands below.
 The following will create a new database user called `bob`, a new database called `trashmap` and enables the postgis extension for the new database:
 
-````
+```
 $ sudo -u postgres createuser -P bob
 $ sudo -u postgres createdb --encoding=UTF8 --owner=bob trashmap
 $ sudo -u postgres psql -d trashmap -c "CREATE EXTENSION postgis;"
-'''
+```
 
 ### Start application
 Start the (dev) server by running `python trashmap/Trashmap.py`.
