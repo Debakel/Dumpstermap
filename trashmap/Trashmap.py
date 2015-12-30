@@ -46,7 +46,7 @@ def vote(dumpster_id, vote):
 ## Dumpster
 ##
 @app.route("/api/dumpster/all")
-def get_dumpsters():
+def list_dumpsters():
     dumpsters = store.get_all(Dumpster)
     features = []
     for dumpster in dumpsters:
@@ -55,12 +55,22 @@ def get_dumpsters():
     return str(featurecollection)
 
 @app.route('/api/dumpster/<int:id>')
-def get_dumpster(id):
+def dumpster(id):
     d = store.get(Dumpster, id=id)
     return str(d.__geojson__())
 
 
-##
+@app.route("/api/dumpster/good")
+def good_dumpsters():
+    dumpsters = store.get_all(Dumpster)
+    features = []
+    for dumpster in dumpsters:
+        if dumpster.voting > 0:
+            features.append(dumpster.__geojson__())
+    featurecollection = FeatureCollection(features)
+    return str(featurecollection)
+
+
 ## Comments
 ##
 

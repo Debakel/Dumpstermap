@@ -35,13 +35,20 @@ class Dumpster(Base):
     osmnode = relationship(OSMNode, backref=backref("dumpsters", uselist=False))
     osmnode_id = Column(Integer, ForeignKey('osm_nodes.id'))
 
-    def count_upvotes(self):
+    @property
+    def voting(self):
+        return self.upvotes - self.downvotes
+
+    @property
+    def upvotes(self):
         i=0
         for vote in self.votes:
             if vote.value==1:
                 i+=1
         return i
-    def count_downvotes(self):
+
+    @property
+    def downvotes(self):
         i=0
         for vote in self.votes:
             if vote.value==-1:
@@ -52,22 +59,22 @@ class Dumpster(Base):
         for comment in self.comments:
             comments.append(comment.to_dict())
         color = 'grey'
-        if self.count_upvotes() > self.count_downvotes():
+        if self.upvotes > self.downvotes:
             color = 'green'
-        elif self.count_upvotes() < self.count_downvotes():
+        elif self.upvotes < self.downvotes:
             color = 'red'
         properties = {'id': self.id,
                       'name': self.osmnode.name,
                       'addr:street': self.osmnode.street,
                       'addr:housenumber': self.osmnode.housenumber,
                       'addr:city': self.osmnode.city,
-                      'upvotes': self.count_upvotes(),
-                      'downvotes': self.count_downvotes(),
+                      'upvotes': self.upvotes,
+                      'downvotes': self.downvotes,
                       'osmnode_id': self.osmnode.osm_id,
                       'comments': comments,
-                      'total_votes': self.count_upvotes() - self.count_downvotes(),
-                      'good': self.count_upvotes() > self.count_downvotes(),
-                      'not_good': self.count_upvotes() < self.count_downvotes(),
+                      'total_votes': self.upvotes - self.downvotes,
+                      'good': self.upvotes > self.downvotes,
+                      'not_good': self.upvotes < self.downvotes,
                       'color': color
                       }
         geometry = to_shape(self.osmnode.location)
