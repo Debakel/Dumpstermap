@@ -32,7 +32,7 @@ class Dumpster(Base):
     __tablename__ = 'dumpsters'
     id = Column(Integer, primary_key=True)
 
-    osmnode = relationship(OSMNode, backref=backref("dumpsters", uselist=False))
+    osmnode = relationship(OSMNode, backref=backref("dumpster", uselist=False))
     osmnode_id = Column(Integer, ForeignKey('osm_nodes.id'))
 
     @property

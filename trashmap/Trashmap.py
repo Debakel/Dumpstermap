@@ -1,9 +1,10 @@
 from flask import Flask, request
-from Model import Dumpster, Vote, Comment
+from Model import Dumpster, Vote, Comment, OSMNode
 from DB import Store
-from geojson import FeatureCollection
+from geojson import FeatureCollection, Feature
 from ConfigParser import ConfigParser
 import json
+import Geo
 from pprint import pprint
 
 config = ConfigParser()
@@ -46,10 +47,32 @@ def vote(dumpster_id, vote):
 ## Dumpster
 ##
 @app.route("/api/dumpster/all")
-def list_dumpsters():
+def all_dumpsters():
     dumpsters = store.get_all(Dumpster)
     features = []
     for dumpster in dumpsters:
+        features.append(dumpster.__geojson__())
+    featurecollection = FeatureCollection(features)
+    return str(featurecollection)
+
+
+@app.route("/api/dumpster/tiles/<int:zoom>/<int:x>/<int:y>")
+def dumpster_tiles(zoom, x, y):
+    # TODO: really filter dumpsters by map bounds
+    # See https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames for documentation about slippy maps and how to convert Tile numbers to lon./lat.
+    lat_top, lng_left = Geo.tilenum2deg(x, y, zoom)
+    lat_bottom, lng_right = Geo.tilenum2deg(x + 1, y + 1, zoom)
+    from shapely.geometry import Polygon
+    from shapely.wkt import dumps, loads
+    from sqlalchemy import func
+    boundary = Polygon([(lng_left, lat_top), (lng_right, lat_top), (lng_right, lat_bottom), (lng_left, lat_bottom)])
+    boundary_wkt = dumps(boundary)
+    query = store.session.query(OSMNode).filter(
+            func.ST_Contains(boundary_wkt, OSMNode.location))
+    features = []
+    # features.append(Feature(geometry=boundary)) # adds tile polygon (usefull while debugging)
+    for node in query:
+        dumpster = node.dumpster
         features.append(dumpster.__geojson__())
     featurecollection = FeatureCollection(features)
     return str(featurecollection)
