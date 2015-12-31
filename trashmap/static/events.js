@@ -9,7 +9,7 @@
 $('#featureModal').on('hidden.bs.modal', function (e) {
     $('#sidebar').show();
 });
-map.on('click',
+map.map.on('click',
     function (e) {
         $('#sidebar2-right').addClass("hidden");
     }
