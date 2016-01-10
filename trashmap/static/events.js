@@ -9,7 +9,7 @@
 $('#featureModal').on('hidden.bs.modal', function (e) {
     $('#sidebar').show();
 });
-map.map.on('click',
+map_container.map.on('click',
     function (e) {
         $('#sidebar2-right').addClass("hidden");
     }
@@ -65,15 +65,6 @@ $(document).on('click', '#btn-add-dumpster', function (event) {
     load_geojson("/api/dumpster/all");
     // Show instructions
     $('#add-dumpster-modal').modal("show");
-
-    // Show Markers
-    map.addLayer(groups['grey']['layer']);
-    groups['grey']['active'] = true;
-
-    map.addLayer(groups['red']['layer']);
-    groups['red']['active'] = true;
-
-
 });
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
