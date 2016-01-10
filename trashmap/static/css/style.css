@@ -259,3 +259,33 @@ a:hover {
 }
 
 /* /Navbar */
+
+/* -------- Map ------- */
+.dumpster-icon{
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    background: #3ca0d3;
+
+}
+.dumpster-clustered-icon {
+
+}
+.dumpster-neutral-icon {
+    background: black;
+    width: 7px;
+    height: 7px;
+    line-height: 5px;
+}
+.dumpster-good-icon {
+    background: green;
+}
+.dumpster-bad-icon {
+    background: red;
+    width: 7px;
+    height: 7px;
+    line-height: 5px;
+}

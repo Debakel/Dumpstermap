@@ -3,15 +3,15 @@
 import os
 import sys
 from sqlalchemy import Column, ForeignKey, Integer, String, DateTime, BigInteger
-
+from sqlalchemy.ext.hybrid import hybrid_property
 
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship,backref
+from sqlalchemy.orm import relationship, backref
 from sqlalchemy import create_engine
 
 from geoalchemy2 import Geometry
 from geoalchemy2.shape import to_shape
-
+from sqlalchemy import select, func
 from geojson import Feature
 import json
 Base = declarative_base()
@@ -35,24 +35,40 @@ class Dumpster(Base):
     osmnode = relationship(OSMNode, backref=backref("dumpster", uselist=False))
     osmnode_id = Column(Integer, ForeignKey('osm_nodes.id'))
 
-    @property
+    @hybrid_property
     def voting(self):
         return self.upvotes - self.downvotes
 
+    @voting.expression
+    def voting(cls):
+        return select([func.sum(Vote.value)]). \
+            where(Vote.dumpster_id == cls.id). \
+            label('total_votes')
+
+    @property
+    def voting_str(self):
+
+        if self.voting > 0:
+            return "good"
+        elif self.voting < 0:
+            return "bad"
+        else:
+            return "neutral"
+
     @property
     def upvotes(self):
-        i=0
+        i = 0
         for vote in self.votes:
-            if vote.value==1:
-                i+=1
+            if vote.value > 0:
+                i += 1
         return i
 
     @property
     def downvotes(self):
-        i=0
+        i = 0
         for vote in self.votes:
-            if vote.value==-1:
-                i+=1
+            if vote.value < 0:
+                i += 1
         return i
     def __geojson__(self):
         comments = []
@@ -84,7 +100,7 @@ class Dumpster(Base):
     def __unicode__(self):
         return self.__str__()
     def __str__(self):
-        return self.osmnode.name
+        return str(self.osmnode.name)
 
 
 class Session(Base):
@@ -109,7 +125,7 @@ class Comment(Base):
     __tablename__ = "comments"
     id = Column(Integer, primary_key=True)
     name = Column(String(500))
-    comment = Column(String(500))
+    comment = Column(String(5000))
     created = Column(DateTime)
 
     dumpster = relationship(Dumpster, backref='comments')
@@ -118,6 +134,12 @@ class Comment(Base):
     session = relationship(Session, backref='comments')
     session_id = Column(Integer, ForeignKey('sessions.id'))
     def to_dict(self):
-        return {'id': self.id, 'name': self.name, 'comment': self.comment, 'dumpster_id': self.dumpster_id, 'date': '?' }
+        return {'id': self.id, 'name': self.name, 'comment': self.comment, 'dumpster_id': self.dumpster_id, 'date': '?'}
     def __json__(self):
         return json.dumps(self.to_dict())
+
+    def __unicode__(self):
+        return self.__str__()
+
+    def __str__(self):
+        return str(str(self.name) + ": " + str(self.comment))
