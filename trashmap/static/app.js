@@ -197,7 +197,7 @@ function Map() {
     this.mapbox_accessToken = 'pk.eyJ1IjoiZGViYWtlbCIsImEiOiJjMWVJWEdFIn0.WtaUd8Rh0rgHRiyEZNzSjQ';
     this.bind_to_ui = function (div_id) {
         // Karte laden
-        this.map = L.mapbox.map(div_id).setView([48.2633321, 10.8405515], 8);
+        this.map = L.mapbox.map(div_id).setView([48.2633321, 10.8405515], 7);
         var tile_layer = L.mapbox.tileLayer(this.mapbox_layer, {
             attributionControl: false,
             attribution: '',
