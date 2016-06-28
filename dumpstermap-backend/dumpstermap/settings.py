@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'rest_framework',
     'rest_framework_gis',
-    'dumpsters'
+    'dumpsters',
+    'corsheaders',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -52,7 +53,13 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost'
+)
 
 ROOT_URLCONF = 'dumpstermap.urls'
 
