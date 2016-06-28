@@ -49,5 +49,5 @@ def create_dumpster_for_all_osmnodes():
             new_dumpster = Dumpster(osmnode=osmnode)
             session.add(new_dumpster)
             session.commit()
-import_geojson('data/shop_augsburg.geojson')
-#create_dumpster_for_all_osmnodes()
+import_geojson('data/Augsburg_Umgebung_Supermarketes.geojson')
+create_dumpster_for_all_osmnodes()
