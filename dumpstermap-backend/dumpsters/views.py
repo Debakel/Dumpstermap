@@ -16,7 +16,7 @@ from .geo import tilenum2deg
 
 
 class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewsets.GenericViewSet):
-    queryset = Dumpster.objects.all()
+    queryset = Dumpster.objects.all()[:15]
     serializer_class = DumpsterSerializer
 
     @list_route(url_path='tiles/(?P<zoom_level>.+)/(?P<x>.+)/(?P<y>.+)')
