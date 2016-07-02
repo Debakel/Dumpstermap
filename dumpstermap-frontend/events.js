@@ -36,21 +36,56 @@ $(document).on('click', '#btn-comment', function (event) {
 
 });
 
-var new_dumpster;
+var new_place_marker;
 var adding_new = false;
 $(document).on('click', '#btn-add-dumpster', function (event) {
     event.preventDefault();
     adding_new = true;
+
+    // Show sidebar & create form
     var html = templates.add_dumpster_template();
     $('#sidebar-dumpster-info').html(html);
     $('#sidebar2-right').removeClass("hidden");
 
-    if (new_dumpster != null)
-        map_container.map.removeLayer(new_dumpster);
-    new_dumpster = new L.marker(map_container.map.getCenter(), {draggable: 'true'});
-	map_container.map.addLayer(new_dumpster);
-});
+    // Remove old marker
+    if (new_place_marker != null)
+        map_container.map.removeLayer(new_place_marker);
 
+    // Create marker to show on map
+    var latlng = map_container.map.getCenter();
+
+    new_place_marker = createMarker(
+        latlng.lat,
+        latlng.lng,
+        {
+            "title": "Now place the marker!",
+            "description": "",
+            "marker-color": "#F42786",
+            "marker-size": "small",
+            "marker-symbol": "waste-basket",
+        }
+    );
+    new_place_marker.options.draggable = true;
+    new_place_marker.addTo(map_container.map);
+
+    new_place_marker.openPopup();
+
+
+});
+function createMarker(lat, lng, properties) {
+    var geojson = {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [lng, lat]
+        },
+        "properties": properties
+    };
+    var marker = L.mapbox.featureLayer()
+        .setGeoJSON(geojson)
+        .getLayers()[0];
+    return marker;
+}
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
@@ -61,15 +96,21 @@ $(document).on('click', '#btn-submit-dumpster', function (event) {
     var opinion = $("#add-opinion").val();
     var name = $("#add-name").val();
     var comment = $("#add-comment").val();
-    var lat = new_dumpster.getLatLng().lat;
-    var lng = new_dumpster.getLatLng().lng;
-	success = function(data, textStatus, jqXHR ){
-				template = templates.marker_popup(data['properties']);
-				$('#sidebar-dumpster-info').html(template);
-                $('#sidebar2-right').removeClass("hidden");
-		};
-	error = function(jqXHR, textStatus, errorThrown){
-		alert('error:' + errorThrown);
-		};
-    add_dumpster(title, lng, lat, opinion, comment, name, on_success=success, on_error = error);
+    var lat = new_place_marker.getLatLng().lat;
+    var lng = new_place_marker.getLatLng().lng;
+    success = function (data, textStatus, jqXHR) {
+        template = templates.marker_popup(data['properties']);
+        $('#sidebar-dumpster-info').html(template);
+        $('#sidebar2-right').removeClass("hidden");
+        alert("Thanks, the place has been added!")
+        // todo: Remove marker from map or set new color
+        // todo: Show modal dialog
+    };
+    error = function (jqXHR, textStatus, errorThrown) {
+        if (jqXHR['responseText'] == '{"voting_set":[{"comment":["This field may not be blank."]}]}') {
+            message = "Comment may not be blank."
+        }
+        $("#add-dumpster-warning").html(message).show();
+    };
+    add_dumpster(title, lng, lat, opinion, comment, name, on_success = success, on_error = error);
 });
