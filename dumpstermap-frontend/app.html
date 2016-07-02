@@ -37,7 +37,7 @@
     <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v3.0.3.js"></script>
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
 
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
@@ -145,7 +145,7 @@
     <input type="hidden" id="dumpster_id" value="{{ id }}">
 
     <h3 name="heading" class="sidebar-dumpster-info-block">
-        <b>{{ name }} </b> - Supermarkt
+        <b>{{ name }} </b>
         <br>
         <small class="quiet"><!-- todo: Address here --></small>
     </h3>
@@ -164,8 +164,11 @@
         </div>
     </div>
     <hr>
-    <h4>Your opinion</h4>
-    <div id="your-opinion">
+    <button id="btn-show-dumpster-feedback" class="btn btn-success btn-sm btn-block" name="submit" type="submit">
+        Leave a comment
+    </button>
+    <div id="dumpster-feedback" hidden>
+        <h4>Add comment</h4>
         <div class="form-group form-group-sm">
             <select class="select form-control" id="submit-opinion" name="opinion">
                 <option value="good">
@@ -179,6 +182,7 @@
                 </option>
             </select>
         </div>
+        <!--
         <div class="form-group  form-group-sm">
             <div class="input-group">
                 <div class="input-group-addon">
@@ -188,6 +192,7 @@
                 <input class="form-control" id="submit-name" name="name" placeholder="Name (optional)" type="text"/>
             </div>
         </div>
+        -->
         <div class="form-group  form-group-sm">
             <textarea class="form-control" id="submit-comment" name="comment" rows="3"
                       placeholder="Leave a comment ..."></textarea>
@@ -196,6 +201,9 @@
             <div>
                 <button id="btn-comment" class="btn btn-primary btn-sm" name="submit" type="submit">
                     Submit
+                </button>
+                <button id="btn-cancel-dumpster-feedback" class="btn btn-primary btn-sm">
+                    Cancel
                 </button>
             </div>
         </div>
