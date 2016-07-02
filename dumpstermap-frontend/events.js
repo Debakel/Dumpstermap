@@ -16,6 +16,14 @@ map_container.map.on('click',
     }
 );
 
+$(document).on('click', '#btn-show-dumpster-feedback', function (event) {
+    $('#dumpster-feedback').show();
+    $('#btn-show-dumpster-feedback').hide();
+});
+$(document).on('click', '#btn-cancel-dumpster-feedback', function (event) {
+    $('#dumpster-feedback').hide();
+    $('#btn-show-dumpster-feedback').show();
+});
 $(document).on('click', '#btn-comment', function (event) {
     event.preventDefault();
     var name = $("#submit-name").val();
@@ -103,6 +111,8 @@ $(document).on('click', '#btn-submit-dumpster', function (event) {
         $('#sidebar-dumpster-info').html(template);
         $('#sidebar2-right').removeClass("hidden");
         alert("Thanks, the place has been added!")
+        map_container.map.removeLayer(new_place_marker);
+        dumpsters.layer.redraw();
         // todo: Remove marker from map or set new color
         // todo: Show modal dialog
     };

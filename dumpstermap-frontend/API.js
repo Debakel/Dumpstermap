@@ -3,15 +3,26 @@
  */
 
 // Api Calls
-function send_comment(dumpster_id, voting, comment, name, on_success) {
+function send_comment(dumpster_id, voting, comment, name, on_success, on_error) {
     var url = backend_url + "/votings/";
     var data = {
         "dumpster": dumpster_id,
         "value": voting,
         "comment": comment,
-        "name": name
+        "user": {
+            "name": name
+        }
     };
-    $.post(url, data, on_success);
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: on_success,
+        error: on_error,
+        failure: null
+    });
 }
 function add_dumpster(title, lng, lat, voting, comment, name, on_success, on_error) {
     var url = backend_url + "/dumpsters/";
