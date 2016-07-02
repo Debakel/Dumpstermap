@@ -16,7 +16,7 @@ from .geo import tilenum2deg
 
 
 class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewsets.GenericViewSet):
-    queryset = Dumpster.objects.all()[:15]
+    queryset = Dumpster.objects.all()
     serializer_class = DumpsterSerializer
 
     @list_route(url_path='tiles/(?P<zoom_level>.+)/(?P<x>.+)/(?P<y>.+)')
@@ -38,5 +38,5 @@ class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewset
 
 
 class VotingViewSet(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewsets.GenericViewSet):
-    queryset = Voting.objects.filter(id=3).all()
+    queryset = Voting.objects.all()[:10]
     serializer_class = VotingSerializer
