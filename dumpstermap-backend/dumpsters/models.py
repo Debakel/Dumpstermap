@@ -37,11 +37,11 @@ class Dumpster(models.Model):
 class Voting(models.Model):
     dumpster = models.ForeignKey(Dumpster)
     GOOD = 'good'
-    BAD = 'bad'
-    NEUTRAL = 'neutral'
-    VOTING_CHOICES = (('good', 'Good'),
-                      ('bad', 'Not good'),
-                      ('neutral', 'Neutral'))  # todo
+    BAD = 'senseless'
+    NEUTRAL = 'average'
+    VOTING_CHOICES = ((GOOD, 'Good'),
+                      (BAD, 'Not good'),
+                      (NEUTRAL, 'Neutral'))  # todo
     value = models.CharField(max_length=255, choices=VOTING_CHOICES)
     created_date = models.DateTimeField()
     comment = models.CharField(max_length=2000)
