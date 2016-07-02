@@ -1,32 +1,25 @@
 from rest_framework import serializers
 from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
-from .models import Dumpster, Voting, User
-
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id', 'name')
+from .models import Dumpster, Voting
 
 
 class VotingSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
     created_date = serializers.DateTimeField(read_only=True, allow_null=True)
 
     class Meta:
         model=Voting
-        fields = ('id', 'value', 'comment', 'name', 'created_date', 'user', 'dumpster')
+        fields = ('id', 'value', 'comment', 'created_date', 'dumpster', 'name')
 
-    def create(self, validated_data):
-        user_data = validated_data.pop('user')
-        user = User.objects.create(**user_data)
-        voting = Voting.objects.create(user=user, **validated_data)
-        return voting
+
+class NestedVotingSerializer(VotingSerializer):
+    class Meta:
+        model = Voting
+        fields = ('id', 'value', 'comment', 'created_date', 'name')
 
 
 class DumpsterSerializer(GeoFeatureModelSerializer):
-    voting_set = VotingSerializer(many=True)
+    voting_set = NestedVotingSerializer(many=True)
     created = serializers.DateTimeField(read_only=True)
 
     def create(self, validated_data):

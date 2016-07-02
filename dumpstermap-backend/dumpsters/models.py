@@ -12,9 +12,7 @@ class Dumpster(models.Model):
     imported_from = models.CharField(max_length=255, null=True, blank=True)
     import_reference = models.CharField(max_length=255, null=True, blank=True)
 
-    @property
-    def name(self):
-        return "Netto"
+    name = models.CharField(max_length=255, null=True, default="Dumpster")
 
     @property
     def rating(self):
@@ -34,10 +32,6 @@ class Dumpster(models.Model):
         return super(Dumpster, self).save(*args, **kwargs)
 
 
-class User(models.Model):
-    name = models.CharField(max_length=255)
-
-
 class Voting(models.Model):
     dumpster = models.ForeignKey(Dumpster)
     GOOD = 'good'
@@ -49,15 +43,11 @@ class Voting(models.Model):
     value = models.CharField(max_length=255, choices=VOTING_CHOICES)
     created_date = models.DateTimeField()
     comment = models.CharField(max_length=2000)
-    user = models.ForeignKey(User, null=True)
     #todo: session
 
     @property
     def name(self):
-        if self.user:
-            return self.user.name
-        else:
-            return "Anonymous"
+        return "Anonymous"
 
     def save(self, *args, **kwargs):
         if not self.id:
