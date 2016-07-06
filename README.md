@@ -1,7 +1,7 @@
 # Trashmap
 
 ## Setup
-### Install Requirements
+### Install Requirements (flask version)
 Requirements:
 * Python 2.7 (with  shapely geojson configparser flask sqlalchemy psycopg2 geoalchemy2)
 * Postgres Database (with PostGIS extension)
@@ -12,6 +12,10 @@ $ apt-get install postgresql postgis python-pip python2.7 postgresql-server-dev-
 $ apt-get install postgis*
 $ pip install shapely geojson configparser flask sqlalchemy psycopg2 geoalchemy2 tornado
 ```
+
+### Install Requirements (Django)
+apt-get install libgeos-dev psycopg2 postgis* postgresql-server-dev-X.Y
+pip install -r requirements.txt
 
 ### Create Database
 On most systems you need to be authenticated as the PostgreSQL super user (usually named postgres) in order to execute many of the commands below.
