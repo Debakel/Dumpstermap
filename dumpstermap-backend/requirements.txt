@@ -1,6 +1,6 @@
-Django==1.9.6
+Django==1.9.7
 Pygments==2.1.3
-Shapely==1.5.15
+Shapely==1.5.16
 argparse==1.2.1
 django-cors-headers==1.1.0
 djangorestframework==3.3.3
