@@ -14,7 +14,7 @@ function init() {
     map_container.bind_to_ui("map");
 
     // Create Tile Service Layer
-    dumpsters = new DumpsterLayer(backend_url + '/dumpsters/tiles/{z}/{x}/{y}/');
+    dumpsters = new DumpsterLayer(backend_url + '/dumpsters/tiles/{z}/{x}/{y}/?format=json');
     //dumpsters_clustered = new ClusteredDumpsterLayer('api/dumpster/tiles/clustered/{z}/{x}/{y}');
     dumpsters.addToMap(map_container.map, 0, 21);
 
