@@ -22,9 +22,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '9dns-2v2x^$8@n)@6_cxo3h2c9t3!n@a6g9nk3re-27m*u+&@3'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -57,9 +54,6 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost'
-)
 
 ROOT_URLCONF = 'dumpstermap.urls'
 
@@ -80,20 +74,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'dumpstermap.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'dumpstermap_django',
-        'USER': 'moritz',
-        'PASSWORD': 'JTjyLh2tEqgGF7lFJ707',
-        'HOST': 'localhost'
-    }
-}
 
 
 # Password validation
