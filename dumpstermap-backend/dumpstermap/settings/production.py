@@ -4,6 +4,8 @@ import os
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+FORCE_SCRIPT_NAME = '/api'
+
 ALLOWED_HOSTS = ['1.2.3.4']
 
 SITE_URL = 'http://1.2.3.4/'
