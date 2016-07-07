@@ -1,3 +1,5 @@
+dumpstermap-backend/dumpstermap/settings/local.py
+
 trashmap.config
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -56,3 +58,9 @@ docs/_build/
 
 # PyBuilder
 target/
+
+
+.idea/
+dumpstermap-frontend/.idea/
+dumpstermap-backend/.idea/
+workflow.md
