@@ -80,6 +80,10 @@ $(document).on('click', '#btn-add-dumpster', function (event) {
 
 
 });
+$(document).on('click', '#btn-cancel', function (event) {
+    $("#sidebar2-right").hide();
+    map_container.map.removeLayer(new_place_marker);
+});
 function createMarker(lat, lng, properties) {
     var geojson = {
         "type": "Feature",
