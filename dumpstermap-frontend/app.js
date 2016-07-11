@@ -126,7 +126,7 @@ function DumpsterLayer(endpoint_url) {
             layer.on({
                 click: function (e) {
                     $("#feature-title").html(data.name);
-                    $("#feature-info").html(templates.feature_modal_body(data));
+                    $("#feature-info").html(html);
                     $("#featureModal").modal("show");
                     $('#sidebar').hide();
 
