@@ -1,5 +1,5 @@
 ﻿var map_container, dumpsters;
-var backend_url = 'http://localhost:8000';
+var backend_url = '/api';
 window.onload = init();
 
 function init() {	
