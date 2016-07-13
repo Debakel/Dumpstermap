@@ -6,9 +6,7 @@
 /*map.on('move', function () {
  updateListing();
  });*/
-$('#featureModal').on('hidden.bs.modal', function (e) {
-    $('#sidebar').show();
-});
+
 map_container.map.on('click',
     function (e) {
         $('#sidebar').hide();

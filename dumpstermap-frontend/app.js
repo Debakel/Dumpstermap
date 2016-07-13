@@ -120,8 +120,6 @@ function DumpsterLayer(endpoint_url) {
     function onEachDumpsterMarker(feature, layer) {
         var data = feature.properties;
         data = $.extend(data, {'id': feature.id})
-
-        var popup = L.popup({minWidth: 333}).setContent(html);
         if (is_mobile()) {
             var html = templates.dumpster_modal_template(data);
             layer.on({
