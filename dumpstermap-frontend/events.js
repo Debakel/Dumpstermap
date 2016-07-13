@@ -11,8 +11,7 @@ $('#featureModal').on('hidden.bs.modal', function (e) {
 });
 map_container.map.on('click',
     function (e) {
-        if (!adding_new)
-            $('#sidebar').addClass("hidden");
+        $('#sidebar').hide();
     }
 );
 
@@ -53,7 +52,7 @@ $(document).on('click', '#btn-add-dumpster', function (event) {
     // Show sidebar & create form
     var html = templates.add_dumpster_template();
     $('#sidebar-content').html(html);
-    $('#sidebar').removeClass("hidden");
+    $('#sidebar').show();
 
     // Remove old marker
     if (new_place_marker != null)
@@ -113,7 +112,7 @@ $(document).on('click', '#btn-submit-dumpster', function (event) {
     success = function (data, textStatus, jqXHR) {
         template = templates.marker_popup(data['properties']);
         $('#sidebar-content').html(template);
-        $('#sidebar').removeClass("hidden");
+        $('#sidebar').show();
         alert("Thanks, the place has been added!")
         map_container.map.removeLayer(new_place_marker);
         dumpsters.layer.redraw();

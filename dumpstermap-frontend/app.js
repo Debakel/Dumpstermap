@@ -139,7 +139,6 @@ function DumpsterLayer(endpoint_url) {
             layer.on({
                 click: function (e) {
                     $('#sidebar-content').html(html);
-                    $('#sidebar').removeClass("hidden");
                     $('#sidebar').show();
                     layer.feature.properties['old-color'] = layer.feature.properties['marker-color'];
                     layer.feature.properties['marker-color'] = '#ff8888';
