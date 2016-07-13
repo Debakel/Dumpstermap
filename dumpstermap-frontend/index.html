@@ -29,10 +29,6 @@
     <script src="js/TileLayerCluster.GeoJSON.js"></script>
 
 
-    <!-- Leaflet sidebar plugin -->
-    <link rel="stylesheet" href="css/leaflet-sidebar.css"/>
-    <script src="js/leaflet-sidebar.js"></script>
-
     <!-- handlebars-->
     <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v3.0.3.js"></script>
 
@@ -62,19 +58,78 @@
 <body>
 
 <!-- HANDLEBARS TEMPLATES-->
-<!-- Dumpster sidebar template -->
+<!-- Dumpster sidebar/modal template -->
 <script id="dumpster-sidebar-template" type="text/x-handlebars-template">
 
     <input type="hidden" id="dumpster_id" value="{{ id }}">
-
-    <h3 name="heading" class="sidebar-dumpster-info-block">
+    <h3 name="heading">
         <b>{{ name }} </b>
-        <br>
         <small class="quiet"><!-- todo: Address here --></small>
     </h3>
     <hr>
-    <h4>Comments</h4>
-    <div name="comments" class="sidebar-dumpster-info-block">
+    <div name="comments">
+        <div id="comment_list">
+            {{#each voting_set}}
+            <div class="sidebar-dumpster-comment">
+                <span class="message">{{ comment }}</span>
+                <br>
+                <small class="name">{{ name }}</small>
+                <small class="date quiet"> - {{ created_date }}</small>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <hr>
+    <button id="btn-show-dumpster-feedback" class="btn btn-success btn-sm btn-block" name="submit" type="submit">
+        Leave a comment
+    </button>
+    <div id="dumpster-feedback" hidden>
+        <h4>Add comment</h4>
+        <div class="form-group form-group-sm">
+            <select class="select form-control" id="submit-opinion" name="opinion">
+                <option value="good">
+                    Good
+                </option>
+                <option value="average">
+                    Average
+                </option>
+                <option value="senseless">
+                    Senseless
+                </option>
+            </select>
+        </div>
+        <!--
+        <div class="form-group  form-group-sm">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-child">
+                    </i>
+                </div>
+                <input class="form-control" id="submit-name" name="name" placeholder="Name (optional)" type="text"/>
+            </div>
+        </div>
+        -->
+        <div class="form-group  form-group-sm">
+            <textarea class="form-control" id="submit-comment" name="comment" rows="3"
+                      placeholder="Leave a comment ..."></textarea>
+            </div>
+        <div class="form-group form-group-sm">
+            <div>
+                <button id="btn-comment" class="btn btn-primary btn-sm" name="submit" type="submit">
+                    Submit
+                </button>
+                <button id="btn-cancel-dumpster-feedback" class="btn btn-primary btn-sm">
+                    Cancel
+                </button>
+            </div>
+        </div>
+        </div>
+    </div>
+</script>
+<script id="dumpster-modal-template" type="text/x-handlebars-template">
+
+    <input type="hidden" id="dumpster_id" value="{{ id }}">
+    <div name="comments">
         <div id="comment_list">
             {{#each voting_set}}
             <div class="sidebar-dumpster-comment">
@@ -131,8 +186,9 @@
             </div>
         </div>
     </div>
-
+    </div>
 </script>
+
 <!-- Dumpster comments template -->
 <!-- Add new dumpsters template -->
 <script id="add-dumpster-template" type="text/x-handlebars-template">
@@ -146,7 +202,8 @@
     <div id="your-opinion">
         <div class="form-group  form-group-sm">
             <label class="control-label" for="submit-source-title">Title</label>
-                <input class="form-control" id="add-source-title" name="source-title" placeholder="e.g. ALDI, Carrefour, SPAR, ..." type="text"/>
+            <input class="form-control" id="add-source-title" name="source-title"
+                   placeholder="e.g. ALDI, Carrefour, SPAR, ..." type="text"/>
         </div>
         <div class="form-group form-group-sm">
             <label class="control-label" for="submit-opinion">Your opinion</label>
@@ -224,8 +281,8 @@
 <!-- Content -->
 <div class="content">
     <div id="map" class="map"></div>
-    <div id="sidebar2-right" class="sidebar2 hidden">
-        <div id="sidebar-dumpster-info">
+    <div id="sidebar" class="sidebar hidden">
+        <div id="sidebar-content" class="sidebar-content">
 
 
         </div>
@@ -272,7 +329,8 @@
 
                 <div>
 
-                    <h3>Welcome to Trashmaps.org, the collaborative world wide guide of creating value from trash!</h3>
+                    <h3>Welcome to Dumpstermap.org, the collaborative world wide guide of creating value from
+                        trash!</h3>
 
                     <p>It is written for and by <a href="/en/Dumpster_diver" title="Dumpster diver">dumpster divers</a>,
                         <a href="/en/Freegan" title="Freegan">freegans</a> and others of such kind.</p>

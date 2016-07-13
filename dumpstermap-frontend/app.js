@@ -120,9 +120,10 @@ function DumpsterLayer(endpoint_url) {
     function onEachDumpsterMarker(feature, layer) {
         var data = feature.properties;
         data = $.extend(data, {'id': feature.id})
-        var html = templates.marker_popup(data);
+
         var popup = L.popup({minWidth: 333}).setContent(html);
         if (is_mobile()) {
+            var html = templates.dumpster_modal_template(data);
             layer.on({
                 click: function (e) {
                     $("#feature-title").html(data.name);
@@ -134,12 +135,12 @@ function DumpsterLayer(endpoint_url) {
             });
         }
         else {
-            //layer.bindPopup(popup);
+            var html = templates.marker_popup(data);
             layer.on({
                 click: function (e) {
-                    $('#sidebar-dumpster-info').html(html);
-                    $('#sidebar2-right').removeClass("hidden");
-                    $('#sidebar2-right').show();
+                    $('#sidebar-content').html(html);
+                    $('#sidebar').removeClass("hidden");
+                    $('#sidebar').show();
                     layer.feature.properties['old-color'] = layer.feature.properties['marker-color'];
                     layer.feature.properties['marker-color'] = '#ff8888';
 

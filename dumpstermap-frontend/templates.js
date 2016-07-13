@@ -26,6 +26,7 @@ function setup_handlebars() {
 // ========= Handlebars ==============
 var templates = {
     'marker_popup': Handlebars.compile($("#dumpster-sidebar-template").html()),
+    'dumpster_modal_template': Handlebars.compile($("#dumpster-modal-template").html()),
     'marker_popup_comments': Handlebars.compile($("#dumpster_popup_comments_template").html()),
     'add_dumpster_template': Handlebars.compile($("#add-dumpster-template").html())
 
