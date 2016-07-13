@@ -74,7 +74,7 @@ a:hover {
     background-color: #f8f8f8;
 }
 
-.sidebar2 {
+.sidebar {
     min-width: 300px;
     max-width: 480px;
     width: 10%;
@@ -82,27 +82,18 @@ a:hover {
     position: fixed;
     height: 100%;
     background: rgba(0, 0, 0, 0.1) none repeat scroll 0% 0%;
-}
-
-#sidebar2-right {
     border-left: 1px solid rgba(0, 0, 0, 0.25);
     right: 0px;
-    height: 100%;
     padding-bottom: 100px;
+    overflow: scroll;
 }
 
-#sidebar-dumpster-info {
+#sidebar-content {
     background-color: #FFF;
     padding: 15px 10px;
     border-radius: 5px;
-    overflow-y: scroll;
     margin: 15px 20px 100px;
 }
-
-.sidebar-dumpster-info-block {
-    padding: 0 10px 0 10px;
-}
-
 
 .sidebar-dumpster-comment {
     padding: 5px 10px;
