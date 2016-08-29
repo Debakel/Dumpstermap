@@ -286,6 +286,7 @@
         <div id="navbar-collapse" class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" id="btn-about" data-toggle="modal" data-target="#modal-about">About</a></li>
+                <li><a href="#" id="btn-about" data-toggle="modal" data-target="#modal-contact">Contact</a></li>
                 <li><a href="http://trashwiki.org">Trashwiki.org</a></li>
             </ul>
             <form class="navbar-form navbar-right">
@@ -376,6 +377,49 @@
                     <button style="margin-top:30px;" class="btn btn-success btn-block center-block" type="button"
                             data-dismiss="modal"><b>D'accord</b></button>
                 </div>
+            </div>
+
+
+            <!--<div class="modal-footer">-->
+
+        </div>
+
+    </div>
+    <!-- /.modal-content -->
+</div>
+<!-- Modal Contact -->
+<div class="modal fade" id="modal-contact" tabindex="-1" role="dialog">
+    <!--
+        Modal documentation: http://getbootstrap.com/javascript/#modals
+    -->
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="italic modal-title text-primary">Contact</h4>
+            </div>
+            <script type="text/javascript">
+    function gen_mail_to_link(lhs,rhs,subject) {
+        document.write("<a href=\"mailto");
+        document.write(":" + lhs + "@");
+        document.write(rhs + "?subject=" + subject + "\"><i><u>" + lhs + "@" + rhs + "<\/u><\/i><\/a>");
+    }
+</script>
+            <div class="modal-body ">
+                <p>If you have any questions, feedback or ideas, send me a mail to <script type="text/javascript">
+    gen_mail_to_link('mail','mrtz.me','Dumpstermap.org');
+</script>
+<noscript>
+  <em>Email address protected by JavaScript. Activate JavaScript to see the email.</em>
+</noscript>. Thanks!</p>
+            <b>Impressum</b><small> (required by german law)</small>
+                <p>Moritz Duch&ecirc;ne
+                <br>Friedbergerstr. 11
+                    <br>86161 Augsburg
+                </p>
+                    <button style="margin-top:30px;" class="btn btn-success btn-block center-block" type="button"
+                            data-dismiss="modal"><b>Close</b></button>
             </div>
 
 
