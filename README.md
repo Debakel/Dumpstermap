@@ -1,4 +1,6 @@
-# Trashmap
+# Dumpstermap
+A collaborative world wide map for freegans and dumpster divers to share dumpster locations for others to find.
+http://Dumpstermap.org
 
 ## Setup
 
