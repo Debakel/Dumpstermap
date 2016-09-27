@@ -21,7 +21,7 @@ $ sudo -u postgres psql -d trashmap -c "CREATE EXTENSION postgis;"
 ```
 
 ## Deployment
-### Tornado (with nginx)
+### Flask version with Tornado (and nginx)
 Tornado is an open source version of the scalable, non-blocking web server and tools that power FriendFeed. Because it is non-blocking and uses epoll, it can handle thousands of simultaneous standing connections, which means it is ideal for real-time web services.
 Integrating this service with Flask is straightforward (`run_tornado.py`):
 ```
@@ -56,6 +56,10 @@ Here’s a simple nginx configuration which proxies to an application served on 
     }
 }
 ```
+
+### Django version with gunicorn (and nginx)
+* The Nginx configuration is located at `/etc/nginx/sites-enabled/django`
+* Gunicorn is started on boot by an Upstart script located at `/etc/init/gunicorn.conf`
 
 ## Notes
 * npm install --save-dev grunt-wiredep (To inject Bower packages into your source code with Grunt.)
