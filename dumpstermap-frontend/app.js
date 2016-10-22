@@ -2,7 +2,7 @@
 var backend_url = '/api';
 window.onload = init();
 
-function init() {	
+function init() {
     // Set AJAX Headers for Django CSRF Protection
     setupCSRFProtection();
 
@@ -200,11 +200,14 @@ function Map() {
     this.bind_to_ui = function (div_id) {
         // Karte laden
         this.map = L.mapbox.map(div_id).setView([48.2633321, 10.8405515], 7);
-        var tile_layer = L.mapbox.tileLayer(this.mapbox_layer, {
-            attributionControl: false,
-            attribution: '',
-            id: this.mapbox_id,
-            accessToken: this.mapbox_accessToken
+        /*var tile_layer = L.mapbox.tileLayer(this.mapbox_layer, {
+         attributionControl: false,
+         attribution: '',
+         id: this.mapbox_id,
+         accessToken: this.mapbox_accessToken
+         });*/
+        var tile_layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         });
         this.map.addLayer(tile_layer);
 
