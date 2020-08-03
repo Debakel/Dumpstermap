@@ -11,10 +11,11 @@ ALLOWED_HOSTS = ['dumpstermap.org',
                  'dumpstermap.vercel.app',
                  'dumpstermap.herokuapp.com']
 
-CORS_ORIGIN_WHITELIST = [
-    'dumpstermap.vercel.app',
-    'http://localhost:4200/'
-]
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = [
+#     'dumpstermap.vercel.app',
+#     'http://localhost:4200/'
+# ]
 
 STATIC_URL = '/static/'
 
