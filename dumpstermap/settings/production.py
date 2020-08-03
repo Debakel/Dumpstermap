@@ -1,5 +1,7 @@
 import dj_database_url
 
+# Keep this import!
+# noinspection PyUnresolvedReferences
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -10,7 +12,8 @@ ALLOWED_HOSTS = ['dumpstermap.org',
                  'dumpstermap.herokuapp.com']
 
 CORS_ORIGIN_WHITELIST = [
-    'dumpstermap.vercel.app'
+    'dumpstermap.vercel.app',
+    'http://localhost:4200/'
 ]
 
 STATIC_URL = '/static/'
