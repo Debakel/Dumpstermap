@@ -1,14 +1,15 @@
 import dj_database_url
 
-from .base import *
-import os
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['dumpstermap.org',
                  'dumpstermap.vercel.app',
                  'dumpstermap.herokuapp.com']
+
+CORS_ORIGIN_WHITELIST = [
+    'dumpstermap.vercel.app'
+]
 
 STATIC_URL = '/static/'
 
