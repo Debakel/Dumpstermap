@@ -7,4 +7,3 @@ djangorestframework==3.3.3
 djangorestframework-gis==0.10.1
 psycopg2==2.8.5
 requests==2.10.0
-wsgiref==0.1.2
