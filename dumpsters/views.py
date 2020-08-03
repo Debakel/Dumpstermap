@@ -46,6 +46,21 @@ class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewset
         serializer = DumpsterSerializer(dumpsters, many=True)
         return Response(serializer.data)
 
+    @list_route(url_path='countwithinbounds/(?P<lat_x>.+)/(?P<lng_x>.+)/(?P<lat_y>.+)/(?P<lng_y>.+)')
+    def count_within_bounds(self, request, lat_x, lng_x, lat_y, lng_y):
+        """ Returns number of spots within the given boundary box.
+        """
+        lat_x = float(lat_x)
+        lng_x = float(lng_x)
+        lat_y = float(lng_y)
+        lng_y = float(lng_y)
+
+        boundary = box(lng_x, lat_x, lng_y, lat_y)
+        boundary_wkt = dumps(boundary)
+
+        dumpsters = Dumpster.objects.filter(location__within=boundary_wkt)
+        return Response({'count': dumpsters.count()})
+
 
 class VotingViewSet(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewsets.GenericViewSet):
     queryset = Voting.objects.all()[:10]
