@@ -1,18 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
-from rest_framework import viewsets, mixins
+from rest_framework import viewsets
+from rest_framework.decorators import list_route
 from rest_framework.mixins import RetrieveModelMixin, ListModelMixin, CreateModelMixin
-from rest_framework.decorators import detail_route, list_route
 from rest_framework.response import Response
-from shapely.geometry import Polygon
-from shapely.wkt import dumps, loads
+from shapely.geometry import Polygon, box
+from shapely.wkt import dumps
 
-from .models import Dumpster, Voting
-from .serializers import *
 from .geo import tilenum2deg
+from .serializers import *
 
 
 class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewsets.GenericViewSet):
@@ -30,6 +24,22 @@ class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewset
         lat_top, lng_left = tilenum2deg(x, y, zoom_level)
         lat_bottom, lng_right = tilenum2deg(x + 1, y + 1, zoom_level)
         boundary = Polygon([(lng_left, lat_top), (lng_right, lat_top), (lng_right, lat_bottom), (lng_left, lat_bottom)])
+        boundary_wkt = dumps(boundary)
+
+        dumpsters = Dumpster.objects.filter(location__within=boundary_wkt)
+        serializer = DumpsterSerializer(dumpsters, many=True)
+        return Response(serializer.data)
+
+    @list_route(url_path='withinbounds/(?P<lat_x>.+)/(?P<lng_x>.+)/(?P<lat_y>.+)/(?P<lng_y>.+)')
+    def within_bounds(self, request, lat_x, lng_x, lat_y, lng_y):
+        """ Returns all dumpster spots within the given boundary box.
+        """
+        lat_x = float(lat_x)
+        lng_x = float(lng_x)
+        lat_y = float(lng_y)
+        lng_y = float(lng_y)
+
+        boundary = box(lng_x, lat_x, lng_y, lat_y)
         boundary_wkt = dumps(boundary)
 
         dumpsters = Dumpster.objects.filter(location__within=boundary_wkt)
