@@ -13,5 +13,6 @@ ALLOWED_HOSTS = ['dumpstermap.org',
 STATIC_URL = '/static/'
 
 DATABASES = {
-    'default': dj_database_url.config()
+    # Retrieve database settings from env variable DATABASE_URL
+    'default': dj_database_url.config(engine='django.contrib.gis.db.backends.postgis')
 }
