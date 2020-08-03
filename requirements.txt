@@ -8,3 +8,4 @@ djangorestframework-gis==0.10.1
 psycopg2-binary==2.8.5
 requests==2.10.0
 gunicorn
+dj-database-url
