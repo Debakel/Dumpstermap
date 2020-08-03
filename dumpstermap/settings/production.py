@@ -6,7 +6,9 @@ DEBUG = True
 
 FORCE_SCRIPT_NAME = '/api'
 
-ALLOWED_HOSTS = ['dumpstermap.org']
+ALLOWED_HOSTS = ['dumpstermap.org',
+                 'dumpstermap.vercel.app',
+                 'dumpstermap.herokuapp.com']
 
 SITE_URL = 'http://dumpstermap.org/api/'
 STATIC_URL = '/static/'
