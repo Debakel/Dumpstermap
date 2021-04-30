@@ -60,7 +60,7 @@ MIDDLEWARE_CLASSES = [
 
 DATABASES = {
     # Retrieve database settings from env variable DATABASE_URL
-    'default': dj_database_url.config(engine='django.contrib.gis.db.backends.postgis')
+    'default': env.db(engine='django.contrib.gis.db.backends.postgis')
 }
 
 ROOT_URLCONF = 'dumpstermap.urls'
