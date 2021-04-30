@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import environ
 
+env = environ.Env()
+
+DEBUG = env('DEBUG', default=False)
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -22,8 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '9dns-2v2x^$8@n)@6_cxo3h2c9t3!n@a6g9nk3re-27m*u+&@3'
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['dumpstermap.org',
+                 'dumpstermap.vercel.app',
+                 'dumpstermap.herokuapp.com']
 
 # Application definition
 
@@ -45,7 +49,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -54,6 +58,10 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
 ]
 
+DATABASES = {
+    # Retrieve database settings from env variable DATABASE_URL
+    'default': dj_database_url.config(engine='django.contrib.gis.db.backends.postgis')
+}
 
 ROOT_URLCONF = 'dumpstermap.urls'
 
@@ -75,6 +83,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dumpstermap.wsgi.application'
 
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
