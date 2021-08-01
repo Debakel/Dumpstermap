@@ -18,6 +18,7 @@ Shapely = "==1.5.16"
 django-environ = "*"
 
 [dev-packages]
+python-dotenv = "*"
 
 [requires]
 python_version = "3.8"
