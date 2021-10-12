@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+
 import environ
+from dotenv import load_dotenv
+
+load_dotenv('local.env')
 
 env = environ.Env()
 
