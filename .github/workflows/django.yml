@@ -13,18 +13,50 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [ 3.7, 3.8, 3.9 ]
+
+    services:
+      db_service:
+        image: postgis/postgis
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: postgres
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pipenv
-        pipenv install
-    - name: Run Tests
-      run: |
-        pytest
+      - uses: actions/checkout@v2
+      - name: Install Geospatial libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install binutils libproj-dev gdal-bin
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install pipenv
+        run: |
+          python -m pip install --upgrade pipenv wheel
+      - name: Install Dependencies
+        run: |
+          pipenv install --deploy --dev
+      - name: Migrate database
+        run: |
+          pipenv run python manage.py migrate
+        env:
+          SECRET_KEY: secret
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+      - name: Run Tests
+        env:
+          SECRET_KEY: secret
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+        run: |
+          pytest
