@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from rest_framework.decorators import list_route
+from rest_framework.decorators import action
 from rest_framework.mixins import RetrieveModelMixin, ListModelMixin, CreateModelMixin
 from rest_framework.response import Response
 from shapely.geometry import Polygon, box
@@ -13,7 +13,7 @@ class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewset
     queryset = Dumpster.objects.all()
     serializer_class = DumpsterSerializer
 
-    @list_route(url_path='tiles/(?P<zoom_level>.+)/(?P<x>.+)/(?P<y>.+)')
+    @action(detail=False, url_path='tiles/(?P<zoom_level>.+)/(?P<x>.+)/(?P<y>.+)')
     def in_tile(self, request, zoom_level, x, y):
         """Returns all entries within the given tile
 
@@ -32,7 +32,7 @@ class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewset
         serializer = DumpsterSerializer(dumpsters, many=True)
         return Response(serializer.data)
 
-    @list_route(url_path='withinbounds/(?P<lat_x>.+)/(?P<lng_x>.+)/(?P<lat_y>.+)/(?P<lng_y>.+)')
+    @action(detail=False, url_path='withinbounds/(?P<lat_x>.+)/(?P<lng_x>.+)/(?P<lat_y>.+)/(?P<lng_y>.+)')
     def within_bounds(self, request, lat_x, lng_x, lat_y, lng_y):
         """ Returns all dumpster spots within the given boundary box.
         """
@@ -48,7 +48,7 @@ class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewset
         serializer = DumpsterSerializer(dumpsters, many=True)
         return Response(serializer.data)
 
-    @list_route(url_path='countwithinbounds/(?P<lat_x>.+)/(?P<lng_x>.+)/(?P<lat_y>.+)/(?P<lng_y>.+)')
+    @action(detail=False, url_path='countwithinbounds/(?P<lat_x>.+)/(?P<lng_x>.+)/(?P<lat_y>.+)/(?P<lng_y>.+)')
     def count_within_bounds(self, request, lat_x, lng_x, lat_y, lng_y):
         """ Returns number of spots within the given boundary box.
         """
