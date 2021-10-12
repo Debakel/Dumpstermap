@@ -33,7 +33,7 @@ class Dumpster(models.Model):
 
 
 class Voting(models.Model):
-    dumpster = models.ForeignKey(Dumpster)
+    dumpster = models.ForeignKey(Dumpster, on_delete=models.CASCADE)
     GOOD = 'good'
     BAD = 'senseless'
     NEUTRAL = 'average'

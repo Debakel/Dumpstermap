@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f11ef4ee44545806d1b4794f8356f128e17047da8eecbf6fd68d96d7d849ded2"
+            "sha256": "04d7da18117012a0321534ee81712d9949bbcffa22c11ee8c0e5de4198d9644d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -41,11 +41,11 @@
         },
         "django": {
             "hashes": [
-                "sha256:014e3392058d94f40569206a24523ce254d55ad2f9f46c6550b0fe2e4f94cf3f",
-                "sha256:4200aefb6678019a0acf0005cd14cfce3a5e6b9b90d06145fcdd2e474ad4329c"
+                "sha256:9614851d4a7ff8cbd32b73c6076441f377c45a5bbff7e771798fb02c43c31f47",
+                "sha256:af18618ce3291be5092893d8522fe3919661bf3a1fb60e3858ae74865a4f07c2"
             ],
             "index": "pypi",
-            "version": "==1.11.29"
+            "version": "==2.0"
         },
         "django-cors-headers": {
             "hashes": [
@@ -64,19 +64,19 @@
         },
         "djangorestframework": {
             "hashes": [
-                "sha256:4f47056ad798103fc9fb049dff8a67a91963bd215d31bad12ad72b891559ab16",
-                "sha256:f606f2bb4e9bb320937cb6ccce299991b2d302f5cc705a671dffca491e55935c"
+                "sha256:bb9d74756a6b157bfb2e395b200b11f87c837f45f5e097b2308ed7a526e7dcbe",
+                "sha256:be299fb3f289e22ddca0ff88294924cd06aa3bcfa5043f72792d2a18d96dabe8"
             ],
             "index": "pypi",
-            "version": "==3.3.3"
+            "version": "==3.8.0"
         },
         "djangorestframework-gis": {
             "hashes": [
-                "sha256:9b819eef1d973c15d61edafa9cc5ea3dc35388fbefd135eafe9d67ab87690fd0",
-                "sha256:ba61887238b589c68b563f1c7bc7c75a891c3bea1e851fd4c062c62dae9789d0"
+                "sha256:5be17e27cf2be33ac6119e6d2206d3d81183c62d03aaa9b814ce95a82256614f",
+                "sha256:d3b6aa6beef32f75811f815bda3bc7e9ea5d2f0306f9741cad5f3820d3973be7"
             ],
             "index": "pypi",
-            "version": "==0.10.1"
+            "version": "==0.17.0"
         },
         "factory-boy": {
             "hashes": [
