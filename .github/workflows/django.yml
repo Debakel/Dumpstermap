@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install Geospatial libraries
+      - name: Install system dependencies (geospatial libraries)
         run: |
           sudo apt-get update
           sudo apt-get install binutils libproj-dev gdal-bin
@@ -45,7 +45,7 @@ jobs:
       - name: Install pipenv
         run: |
           python -m pip install --upgrade pipenv wheel
-      - name: Install Dependencies
+      - name: Install Python Dependencies
         run: |
           pipenv install --deploy --dev
       - name: Migrate database
@@ -59,4 +59,4 @@ jobs:
           SECRET_KEY: secret
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
         run: |
-          pytest
+          pipenv run pytest
