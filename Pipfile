@@ -19,9 +19,9 @@ django-environ = "*"
 pytest = "*"
 factory-boy = "*"
 pytest-django = "*"
+python-dotenv = "*"
 
 [dev-packages]
-python-dotenv = "*"
 
 [requires]
 python_version = "3.8"
