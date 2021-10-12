@@ -15,8 +15,10 @@ class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewset
 
     @list_route(url_path='tiles/(?P<zoom_level>.+)/(?P<x>.+)/(?P<y>.+)')
     def in_tile(self, request, zoom_level, x, y):
-        ''' See https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames for documentation
-        about slippy maps and how to convert Tile numbers to lon./lat. '''
+        """Returns all entries within the given tile
+
+        See https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames for documentation
+        about slippy maps and how to convert Tile numbers to lon./lat."""
         zoom_level = int(zoom_level)
         x = int(x)
         y = int(y)
@@ -36,7 +38,7 @@ class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewset
         """
         lat_x = float(lat_x)
         lng_x = float(lng_x)
-        lat_y = float(lng_y)
+        lat_y = float(lat_y)
         lng_y = float(lng_y)
 
         boundary = box(lng_x, lat_x, lng_y, lat_y)
@@ -52,7 +54,7 @@ class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewset
         """
         lat_x = float(lat_x)
         lng_x = float(lng_x)
-        lat_y = float(lng_y)
+        lat_y = float(lat_y)
         lng_y = float(lng_y)
 
         boundary = box(lng_x, lat_x, lng_y, lat_y)
