@@ -13,11 +13,22 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 
 import environ
+import sentry_sdk
 from dotenv import load_dotenv
+from sentry_sdk.integrations.django import DjangoIntegration
 
 load_dotenv("local.env")
 
 env = environ.Env()
+
+SENTRY_DSN = env.str("SENTRY_DSN", default="")
+if SENTRY_DSN:
+    sentry_sdk.init(
+        dsn=SENTRY_DSN,
+        integrations=[DjangoIntegration()],
+        # Capture 10% of transactions for performance monitoring
+        traces_sample_rate=0.1,
+    )
 
 DEBUG = env("DEBUG", default=False)
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -114,7 +125,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/

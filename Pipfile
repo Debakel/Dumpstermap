@@ -18,6 +18,7 @@ pytest = "*"
 factory-boy = "*"
 pytest-django = "*"
 python-dotenv = "*"
+sentry-sdk = "*"
 
 [dev-packages]
 pre-commit = "*"
