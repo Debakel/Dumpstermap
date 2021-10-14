@@ -47,6 +47,10 @@ jobs:
       - name: Install Python Dependencies
         run: |
           pipenv install --deploy --dev
+      - name: pre-commit
+        run: |
+          pipenv run pre-commit install
+          pipenv run pre-commit run --all-files
       - name: Migrate database
         run: |
           pipenv run python manage.py migrate
