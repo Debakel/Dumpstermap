@@ -9,14 +9,16 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('dumpsters', '0001_initial'),
+        ("dumpsters", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='dumpster',
-            name='location',
-            field=django.contrib.gis.db.models.fields.PointField(default=None, srid=4326),
+            model_name="dumpster",
+            name="location",
+            field=django.contrib.gis.db.models.fields.PointField(
+                default=None, srid=4326
+            ),
             preserve_default=False,
         ),
     ]

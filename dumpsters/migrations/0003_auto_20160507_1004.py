@@ -8,13 +8,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('dumpsters', '0002_dumpster_location'),
+        ("dumpsters", "0002_dumpster_location"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='voting',
-            name='comment',
+            model_name="voting",
+            name="comment",
             field=models.CharField(max_length=2000),
         ),
     ]

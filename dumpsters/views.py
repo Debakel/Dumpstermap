@@ -9,11 +9,13 @@ from .geo import tilenum2deg
 from .serializers import *
 
 
-class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewsets.GenericViewSet):
+class DumpsterList(
+    RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewsets.GenericViewSet
+):
     queryset = Dumpster.objects.all()
     serializer_class = DumpsterSerializer
 
-    @action(detail=False, url_path='tiles/(?P<zoom_level>.+)/(?P<x>.+)/(?P<y>.+)')
+    @action(detail=False, url_path="tiles/(?P<zoom_level>.+)/(?P<x>.+)/(?P<y>.+)")
     def in_tile(self, request, zoom_level, x, y):
         """Returns all entries within the given tile
 
@@ -25,17 +27,26 @@ class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewset
 
         lat_top, lng_left = tilenum2deg(x, y, zoom_level)
         lat_bottom, lng_right = tilenum2deg(x + 1, y + 1, zoom_level)
-        boundary = Polygon([(lng_left, lat_top), (lng_right, lat_top), (lng_right, lat_bottom), (lng_left, lat_bottom)])
+        boundary = Polygon(
+            [
+                (lng_left, lat_top),
+                (lng_right, lat_top),
+                (lng_right, lat_bottom),
+                (lng_left, lat_bottom),
+            ]
+        )
         boundary_wkt = dumps(boundary)
 
         dumpsters = Dumpster.objects.filter(location__within=boundary_wkt)
         serializer = DumpsterSerializer(dumpsters, many=True)
         return Response(serializer.data)
 
-    @action(detail=False, url_path='withinbounds/(?P<lat_x>.+)/(?P<lng_x>.+)/(?P<lat_y>.+)/(?P<lng_y>.+)')
+    @action(
+        detail=False,
+        url_path="withinbounds/(?P<lat_x>.+)/(?P<lng_x>.+)/(?P<lat_y>.+)/(?P<lng_y>.+)",
+    )
     def within_bounds(self, request, lat_x, lng_x, lat_y, lng_y):
-        """ Returns all dumpster spots within the given boundary box.
-        """
+        """Returns all dumpster spots within the given boundary box."""
         lat_x = float(lat_x)
         lng_x = float(lng_x)
         lat_y = float(lat_y)
@@ -48,10 +59,12 @@ class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewset
         serializer = DumpsterSerializer(dumpsters, many=True)
         return Response(serializer.data)
 
-    @action(detail=False, url_path='countwithinbounds/(?P<lat_x>.+)/(?P<lng_x>.+)/(?P<lat_y>.+)/(?P<lng_y>.+)')
+    @action(
+        detail=False,
+        url_path="countwithinbounds/(?P<lat_x>.+)/(?P<lng_x>.+)/(?P<lat_y>.+)/(?P<lng_y>.+)",
+    )
     def count_within_bounds(self, request, lat_x, lng_x, lat_y, lng_y):
-        """ Returns number of spots within the given boundary box.
-        """
+        """Returns number of spots within the given boundary box."""
         lat_x = float(lat_x)
         lng_x = float(lng_x)
         lat_y = float(lat_y)
@@ -61,9 +74,11 @@ class DumpsterList(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewset
         boundary_wkt = dumps(boundary)
 
         dumpsters = Dumpster.objects.filter(location__within=boundary_wkt)
-        return Response({'count': dumpsters.count()})
+        return Response({"count": dumpsters.count()})
 
 
-class VotingViewSet(RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewsets.GenericViewSet):
+class VotingViewSet(
+    RetrieveModelMixin, ListModelMixin, CreateModelMixin, viewsets.GenericViewSet
+):
     queryset = Voting.objects.all()[:10]
     serializer_class = VotingSerializer

@@ -7,14 +7,20 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('dumpsters', '0006_auto_20160510_1811'),
+        ("dumpsters", "0006_auto_20160510_1811"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='voting',
-            name='value',
-            field=models.CharField(choices=[('good', 'Good'), ('senseless', 'Not good'), ('average', 'Neutral')],
-                                   max_length=255),
+            model_name="voting",
+            name="value",
+            field=models.CharField(
+                choices=[
+                    ("good", "Good"),
+                    ("senseless", "Not good"),
+                    ("average", "Neutral"),
+                ],
+                max_length=255,
+            ),
         ),
     ]

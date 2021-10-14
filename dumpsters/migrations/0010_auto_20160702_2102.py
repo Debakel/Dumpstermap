@@ -7,15 +7,15 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('dumpsters', '0009_dumpster_name'),
+        ("dumpsters", "0009_dumpster_name"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='voting',
-            name='user',
+            model_name="voting",
+            name="user",
         ),
         migrations.DeleteModel(
-            name='User',
+            name="User",
         ),
     ]

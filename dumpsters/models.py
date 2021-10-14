@@ -34,16 +34,15 @@ class Dumpster(models.Model):
 
 class Voting(models.Model):
     dumpster = models.ForeignKey(Dumpster, on_delete=models.CASCADE)
-    GOOD = 'good'
-    BAD = 'senseless'
-    NEUTRAL = 'average'
-    VOTING_CHOICES = ((GOOD, 'Good'),
-                      (BAD, 'Not good'),
-                      (NEUTRAL, 'Neutral'))  # todo
+    GOOD = "good"
+    BAD = "senseless"
+    NEUTRAL = "average"
+    VOTING_CHOICES = ((GOOD, "Good"), (BAD, "Not good"), (NEUTRAL, "Neutral"))  # todo
     value = models.CharField(max_length=255, choices=VOTING_CHOICES)
     created_date = models.DateTimeField()
     comment = models.CharField(max_length=2000)
-    #todo: session
+
+    # todo: session
 
     @property
     def name(self):
@@ -53,5 +52,3 @@ class Voting(models.Model):
         if not self.id:
             self.created_date = timezone.now()
         return super(Voting, self).save(*args, **kwargs)
-
-

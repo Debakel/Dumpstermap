@@ -8,13 +8,13 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('dumpsters', '0003_auto_20160507_1004'),
+        ("dumpsters", "0003_auto_20160507_1004"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='voting',
-            old_name='created',
-            new_name='created_date',
+            model_name="voting",
+            old_name="created",
+            new_name="created_date",
         ),
     ]

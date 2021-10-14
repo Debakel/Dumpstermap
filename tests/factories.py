@@ -14,5 +14,5 @@ class DumpsterFactory(DjangoModelFactory):
     class Meta:
         model = Dumpster
 
-    location = factory.Faker('point')
+    location = factory.Faker("point")
     created = FuzzyDateTime(datetime.datetime(2008, 1, 1, tzinfo=datetime.timezone.utc))
