@@ -40,6 +40,7 @@ ALLOWED_HOSTS = [
     "dumpstermap.org",
     "dumpstermap.vercel.app",
     "dumpstermap.herokuapp.com",
+    env.str("HOST_NAME", ""),
 ]
 
 # Application definition
@@ -110,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

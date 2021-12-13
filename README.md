@@ -13,11 +13,6 @@
 
 ➡️ [Frontend Repository](https://github.com/Debakel/dumpstermap-ng)
 
-
-## Screenshot
-
-<img width="500" alt="grafik" src="https://user-images.githubusercontent.com/2857237/137350812-08b9ad62-106d-46f2-96d0-835f48481363.png">
-
 ## Development setup
 
 ### Prerequisites
@@ -54,9 +49,7 @@ Run `pipenv run pytest` to execute the unit tests.
 
 ## Deployment
 
-Install Geo Buildpack (installs the Geo/GIS libraries used by GeoDjango):
-
-    heroku buildpacks:add --index 1 https://github.com/heroku/heroku-geo-buildpack.git
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
  ## License
  tbd
