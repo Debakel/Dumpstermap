@@ -19,6 +19,8 @@ factory-boy = "*"
 pytest-django = "*"
 python-dotenv = "*"
 sentry-sdk = "*"
+fastkml = "*"
+pytz = "*"
 
 [dev-packages]
 pre-commit = "*"

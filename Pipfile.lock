@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b013947c55736d9e4a1fbe0fc1141aae2a9e519abf8758ea409cb305e00ab03f"
+            "sha256": "9bd784ab27a59cdfeb06a03da4b51af8418ba10dc87163461b0c175611284cd5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -111,6 +111,14 @@
             "markers": "python_version >= '3.6'",
             "version": "==10.0.0"
         },
+        "fastkml": {
+            "hashes": [
+                "sha256:34d8eb2f77b554002743bb8be5678f89d8ecea5a64ded1480028f43405d8b638",
+                "sha256:73e68cf1f6640dd701d0bfeefb8f9a01145fec30b6a84beff0056f9ae04d7630"
+            ],
+            "index": "pypi",
+            "version": "==0.12"
+        },
         "gunicorn": {
             "hashes": [
                 "sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e",
@@ -208,6 +216,12 @@
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==1.11.0"
         },
+        "pygeoif": {
+            "hashes": [
+                "sha256:11aa0c071d38befa4af3bd123efa834abe0823a873f3744f0a070a44025afe04"
+            ],
+            "version": "==0.7"
+        },
         "pyparsing": {
             "hashes": [
                 "sha256:04ff808a5b90911829c55c4e26f75fa5ca8a2f5f36aa3a51f68e27033341d3e4",
@@ -253,6 +267,7 @@
                 "sha256:3672058bc3453457b622aab7a1c3bfd5ab0bdae451512f6cf25f64ed37f5b87c",
                 "sha256:acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"
             ],
+            "index": "pypi",
             "version": "==2021.3"
         },
         "requests": {
