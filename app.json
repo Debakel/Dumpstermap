@@ -1,0 +1,54 @@
+{
+  "name": "Dumpstermap",
+  "description": "A collaborative world wide map to share dumpster locations for others to find.",
+  "repository": "https://github.com/Debakel/dumpstermap-backend",
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "as": "DATABASE"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-geo-buildpack.git"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env": {
+    "HOST_NAME": {
+      "description": "The host name, e.g. <app-name>.herokuapp.com",
+      "value": ".herokuapp.com"
+    },
+    "SECRET_KEY": {
+      "description": "A secret key for a the Django installation. This is used to provide cryptographic signing, and should be set to a unique, unpredictable value.",
+      "generator": "secret"
+    },
+    "DEBUG": {
+      "description": "A boolean that turns on/off debug mode.",
+      "value": "False"
+    },
+    "DISABLE_COLLECTSTATIC": {
+      "value": "True",
+      "description": "Do not change. Must be True to disable Heroku's collectstatic build step."
+    },
+    "DJANGO_SETTINGS_MODULE": {
+      "value": "dumpstermap.settings",
+      "description": ""
+    },
+    "DJANGO_SUPERUSER_USERNAME": {
+      "description": "Username for the superuser account",
+      "value": "admin"
+    },
+    "DJANGO_SUPERUSER_EMAIL": {
+      "description": "E-Mail for the superuser account"
+    },
+    "DJANGO_SUPERUSER_PASSWORD ": {
+      "description": "Password for the superuser account"
+    }
+  },
+  "scripts": {
+    "postdeploy": "pipenv run python manage.py createsuperuser --no-input"
+  }
+}
