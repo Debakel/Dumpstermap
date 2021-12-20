@@ -44,7 +44,7 @@
     "DJANGO_SUPERUSER_EMAIL": {
       "description": "E-Mail for the superuser account"
     },
-    "DJANGO_SUPERUSER_PASSWORD ": {
+    "DJANGO_SUPERUSER_PASSWORD": {
       "description": "Password for the superuser account"
     }
   },
