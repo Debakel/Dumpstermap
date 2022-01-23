@@ -21,6 +21,7 @@ python-dotenv = "*"
 sentry-sdk = "*"
 fastkml = "*"
 pytz = "*"
+mercantile = "*"
 
 [dev-packages]
 pre-commit = "*"

@@ -1,11 +1,10 @@
+import mercantile
+from django.contrib.gis import geos
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.mixins import RetrieveModelMixin, ListModelMixin, CreateModelMixin
 from rest_framework.response import Response
-from shapely.geometry import Polygon, box
-from shapely.wkt import dumps
 
-from .geo import tilenum2deg
 from .serializers import *
 
 
@@ -19,61 +18,39 @@ class DumpsterList(
     def in_tile(self, request, zoom_level, x, y):
         """Returns all entries within the given tile
 
-        See https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames for documentation
-        about slippy maps and how to convert Tile numbers to lon./lat."""
-        zoom_level = int(zoom_level)
-        x = int(x)
-        y = int(y)
+        For more info about tiles and slippy maps, see https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames
+        """
+        tile = mercantile.Tile(int(x), int(y), int(zoom_level))
+        bbox = mercantile.bounds(tile)
+        polygon = geos.Polygon.from_bbox(*bbox)
 
-        lat_top, lng_left = tilenum2deg(x, y, zoom_level)
-        lat_bottom, lng_right = tilenum2deg(x + 1, y + 1, zoom_level)
-        boundary = Polygon(
-            [
-                (lng_left, lat_top),
-                (lng_right, lat_top),
-                (lng_right, lat_bottom),
-                (lng_left, lat_bottom),
-            ]
-        )
-        boundary_wkt = dumps(boundary)
-
-        dumpsters = Dumpster.objects.filter(location__within=boundary_wkt)
+        dumpsters = Dumpster.objects.filter(location__within=polygon)
         serializer = DumpsterSerializer(dumpsters, many=True)
         return Response(serializer.data)
 
     @action(
         detail=False,
-        url_path="withinbounds/(?P<lat_x>.+)/(?P<lng_x>.+)/(?P<lat_y>.+)/(?P<lng_y>.+)",
+        url_path="withinbounds/(?P<min_x>.+)/(?P<min_y>.+)/(?P<max_x>.+)/(?P<max_y>.+)",
     )
-    def within_bounds(self, request, lat_x, lng_x, lat_y, lng_y):
-        """Returns all dumpster spots within the given boundary box."""
-        lat_x = float(lat_x)
-        lng_x = float(lng_x)
-        lat_y = float(lat_y)
-        lng_y = float(lng_y)
+    def within_bounds(self, request, min_x, min_y, max_x, max_y):
+        """Returns all entries within the given boundary box."""
+        bbox = (float(min_x), float(min_y), float(max_x), float(max_y))
+        polygon = geos.Polygon.from_bbox(*bbox)
 
-        boundary = box(lng_x, lat_x, lng_y, lat_y)
-        boundary_wkt = dumps(boundary)
-
-        dumpsters = Dumpster.objects.filter(location__within=boundary_wkt)
+        dumpsters = Dumpster.objects.filter(location__within=polygon)
         serializer = DumpsterSerializer(dumpsters, many=True)
         return Response(serializer.data)
 
     @action(
         detail=False,
-        url_path="countwithinbounds/(?P<lat_x>.+)/(?P<lng_x>.+)/(?P<lat_y>.+)/(?P<lng_y>.+)",
+        url_path="countwithinbounds/(?P<min_x>.+)/(?P<min_y>.+)/(?P<max_x>.+)/(?P<max_y>.+)",
     )
-    def count_within_bounds(self, request, lat_x, lng_x, lat_y, lng_y):
-        """Returns number of spots within the given boundary box."""
-        lat_x = float(lat_x)
-        lng_x = float(lng_x)
-        lat_y = float(lat_y)
-        lng_y = float(lng_y)
+    def count_within_bounds(self, request, min_x, min_y, max_x, max_y):
+        """Returns number of entries within the given boundary box."""
+        bbox = (float(min_x), float(min_y), float(max_x), float(max_y))
+        polygon = geos.Polygon.from_bbox(*bbox)
 
-        boundary = box(lng_x, lat_x, lng_y, lat_y)
-        boundary_wkt = dumps(boundary)
-
-        dumpsters = Dumpster.objects.filter(location__within=boundary_wkt)
+        dumpsters = Dumpster.objects.filter(location__within=polygon)
         return Response({"count": dumpsters.count()})
 
 
