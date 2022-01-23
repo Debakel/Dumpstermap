@@ -22,7 +22,7 @@ class DumpsterList(
         """
         tile = mercantile.Tile(int(x), int(y), int(zoom_level))
         bbox = mercantile.bounds(tile)
-        polygon = geos.Polygon.from_bbox(*bbox)
+        polygon = geos.Polygon.from_bbox(bbox)
 
         dumpsters = Dumpster.objects.filter(location__within=polygon)
         serializer = DumpsterSerializer(dumpsters, many=True)
@@ -35,7 +35,7 @@ class DumpsterList(
     def within_bounds(self, request, min_x, min_y, max_x, max_y):
         """Returns all entries within the given boundary box."""
         bbox = (float(min_x), float(min_y), float(max_x), float(max_y))
-        polygon = geos.Polygon.from_bbox(*bbox)
+        polygon = geos.Polygon.from_bbox(bbox)
 
         dumpsters = Dumpster.objects.filter(location__within=polygon)
         serializer = DumpsterSerializer(dumpsters, many=True)
@@ -48,7 +48,7 @@ class DumpsterList(
     def count_within_bounds(self, request, min_x, min_y, max_x, max_y):
         """Returns number of entries within the given boundary box."""
         bbox = (float(min_x), float(min_y), float(max_x), float(max_y))
-        polygon = geos.Polygon.from_bbox(*bbox)
+        polygon = geos.Polygon.from_bbox(bbox)
 
         dumpsters = Dumpster.objects.filter(location__within=polygon)
         return Response({"count": dumpsters.count()})
