@@ -26,8 +26,7 @@ if SENTRY_DSN:
     sentry_sdk.init(
         dsn=SENTRY_DSN,
         integrations=[DjangoIntegration()],
-        # Capture 10% of transactions for performance monitoring
-        traces_sample_rate=0.1,
+        traces_sample_rate=env.float("SENTRY_TRACES_SAMPLE_RATE", default=0.0),
     )
 
 DEBUG = env("DEBUG", default=False)
