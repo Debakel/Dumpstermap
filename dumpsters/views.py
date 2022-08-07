@@ -38,7 +38,7 @@ class DumpsterList(
         polygon = geos.Polygon.from_bbox(bbox)
 
         dumpsters = Dumpster.objects.filter(location__within=polygon)
-        serializer = DumpsterSerializer(dumpsters, many=True)
+        serializer = DumpsterListSerializer(dumpsters, many=True)
         return Response(serializer.data)
 
     @action(
