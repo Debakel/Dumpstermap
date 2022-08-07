@@ -17,7 +17,7 @@
 
 ### Prerequisites
 
-The development setup requires Python 3.6, [pipenv](https://github.com/pypa/pipenv) and Docker to run a Postgres database with [GIS extension](https://postgis.net/).
+The development setup requires Python 3.10, [pipenv](https://github.com/pypa/pipenv) and Docker to run a Postgres database with [GIS extension](https://postgis.net/).
 
 To install the required python version and all dependencies, run:
 
