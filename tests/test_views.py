@@ -28,6 +28,30 @@ def test_dumpsters_tile_view(db):
     assert response.data["features"][0]["id"] == dumpster1.id
 
 
+def test_dumpsters_within_bound(db):
+    """Ensure filtering entries by bounding box works
+
+    ▲
+    │
+    │   ┌──────────┐
+    │   │          │
+    │   │    p1    │
+    │   │          │
+    │   └──────────┘
+    │
+    │ p2
+    └──────────────────────►
+    """
+    dumpster1 = DumpsterFactory(location="POINT(1 1)")
+    dumpster2 = DumpsterFactory(location="POINT(0.2 0.2)")
+
+    response = APIClient().get("/dumpsters/withinbounds/0.5/0.5/1.5/1.5/")
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.data["features"]) == 1
+    assert response.data["features"][0]["id"] == dumpster1.id
+
+
 def test_dumpsters_create(db):
     url = "/dumpsters/"
     data = {

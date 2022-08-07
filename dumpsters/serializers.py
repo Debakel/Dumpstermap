@@ -18,6 +18,13 @@ class NestedVotingSerializer(VotingSerializer):
         fields = ("id", "value", "comment", "created_date", "name")
 
 
+class DumpsterListSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = Dumpster
+        geo_field = "location"
+        fields = ("id", "name", "created")
+
+
 class DumpsterSerializer(GeoFeatureModelSerializer):
     voting_set = NestedVotingSerializer(many=True)
     created = serializers.DateTimeField(read_only=True)
