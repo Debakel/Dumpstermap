@@ -17,9 +17,13 @@
 
 ### Prerequisites
 
-The development setup requires Python 3.10, [pipenv](https://github.com/pypa/pipenv) and Docker to run a Postgres database with [GIS extension](https://postgis.net/).
+The development setup requires:
+* Python 3.10
+* [pipenv](https://github.com/pypa/pipenv)
+* [Geospatial libraries required by GeoDjango](https://docs.djangoproject.com/en/4.1/ref/contrib/gis/install/geolibs/)
+* Docker to run a Postgres database with [GIS extension](https://postgis.net/).
 
-To install the required python version and all dependencies, run:
+To install the required python version and all python dependencies, run:
 
     pipenv install
 
