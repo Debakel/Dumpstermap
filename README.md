@@ -1,5 +1,5 @@
 # Dumpstermap Backend
-[Dumpstermap.org](https://dumpstermap.vercel.app) is a collaborative world wide map to share dumpster locations for others to find.
+[Dumpstermap.org](https://dumpstermap.org) is a collaborative world wide map to share dumpster locations for others to find.
 
 ## Built with
 ### Backend
