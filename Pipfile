@@ -22,6 +22,8 @@ fastkml = "*"
 pytz = "*"
 mercantile = "*"
 whitenoise = "*"
+bucketstore = "*"
+geojson = "*"
 
 [dev-packages]
 pre-commit = "*"

@@ -1,7 +1,10 @@
 from __future__ import unicode_literals
 
+import json
+
 from django.contrib.gis.db import models
 from django.utils import timezone
+from geojson import Feature
 
 
 class Dumpster(models.Model):
@@ -30,6 +33,16 @@ class Dumpster(models.Model):
         if not self.id:
             self.created = timezone.now()
         return super(Dumpster, self).save(*args, **kwargs)
+
+    @property
+    def __geo_interface__(self) -> Feature:
+        return Feature.to_instance(
+            {
+                "type": "Feature",
+                "geometry": json.loads(self.location.json),
+                "properties": {"id": self.id, "name": self.name},
+            }
+        )
 
 
 class Voting(models.Model):
