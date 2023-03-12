@@ -21,6 +21,7 @@ sentry-sdk = "*"
 fastkml = "*"
 pytz = "*"
 mercantile = "*"
+whitenoise = "*"
 
 [dev-packages]
 pre-commit = "*"
