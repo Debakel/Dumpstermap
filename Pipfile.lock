@@ -195,11 +195,11 @@
         },
         "faker": {
             "hashes": [
-                "sha256:a000bba893ea502cea66d06acf14e01655a2289e4904de80faf9dbe880fa1a39",
-                "sha256:f3299679a6b23409cfe69774bbd1148324a05bd38bda041da6c302e618d7d4a0"
+                "sha256:170ead9d0d140916168b142df69c44722b8f622ced2070802d0af9c476f0cb84",
+                "sha256:977ad0b7aa7a61ed57287d6a0723a827e9d3dd1f8cc82aaf08707f281b33bacc"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==18.3.2"
+            "version": "==18.4.0"
         },
         "fastkml": {
             "hashes": [
@@ -463,11 +463,11 @@
         },
         "filelock": {
             "hashes": [
-                "sha256:892be14aa8efc01673b5ed6589dbccb95f9a8596f0507e232626155495c18105",
-                "sha256:bde48477b15fde2c7e5a0713cbe72721cb5a5ad32ee0b8f419907960b9d75536"
+                "sha256:3618c0da67adcc0506b015fd11ef7faf1b493f0b40d87728e19986b536890c37",
+                "sha256:f08a52314748335c6460fc8fe40cd5638b85001225db78c2aa01c8c0db83b318"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==3.10.7"
+            "version": "==3.11.0"
         },
         "identify": {
             "hashes": [
@@ -495,11 +495,11 @@
         },
         "pre-commit": {
             "hashes": [
-                "sha256:a06a7fcce7f420047a71213c175714216498b49ebc81fe106f7716ca265f5bb6",
-                "sha256:b5aee7d75dbba21ee161ba641b01e7ae10c5b91967ebf7b2ab0dfae12d07e1f1"
+                "sha256:0b4210aea813fe81144e87c5a291f09ea66f199f367fa1df41b55e1d26e1e2b4",
+                "sha256:5b808fcbda4afbccf6d6633a56663fed35b6c2bc08096fd3d47ce197ac351d9d"
             ],
             "index": "pypi",
-            "version": "==3.2.1"
+            "version": "==3.2.2"
         },
         "pyyaml": {
             "hashes": [
