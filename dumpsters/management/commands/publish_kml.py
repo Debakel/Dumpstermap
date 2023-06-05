@@ -1,3 +1,12 @@
+"""Management command to publish all locations as a KML file to a S3 bucket.
+
+AWS credentials must be provided either via the credentials file located at `~/.aws/credentials` (see
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) or via environment variables (`AWS_ACCESS_KEY_ID`,
+`AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION`).
+
+Additionally, the name of the target S3 bucket must be defined in the `KML_EXPORT_BUCKET_NAME` environment variable.
+"""
+import logging
 from typing import Iterable
 
 import bucketstore
@@ -19,6 +28,8 @@ class Command(BaseCommand):
         s3_key: bucketstore.S3Key = bucket.key("dumpsters.kml")
         s3_key.set(kml)
         s3_key.make_public()
+
+        logging.info("Locations published to %s" % s3_key.url)
 
 
 def to_kml(locations: Iterable[Dumpster]) -> str:
