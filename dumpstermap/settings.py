@@ -15,6 +15,7 @@ from pathlib import Path
 
 import environ
 import sentry_sdk
+from django.db.models import BigAutoField
 from dotenv import load_dotenv
 from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -71,6 +72,7 @@ MIDDLEWARE = [
 ]
 
 DATABASES = {"default": env.db(engine="django.contrib.gis.db.backends.postgis")}
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 ROOT_URLCONF = "dumpstermap.urls"
 
