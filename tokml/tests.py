@@ -1,8 +1,8 @@
-from tomkl.tomkl import tokml_string
+import tokml
 
 
 def test_tokml() -> None:
-    assert kml_string == tokml_string(geojson_dict)
+    assert kml_string == tokml.to_string(geojson_dict)
 
 
 geojson_dict = {

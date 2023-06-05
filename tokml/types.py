@@ -4,7 +4,7 @@ from geojson import Feature, FeatureCollection
 
 
 class GeoInterface(Protocol):
-    """Protocol for objects that implement the __geo_interface__
+    """Protocol for objects that implement the __geo_interface__ protocol
 
     See https://gist.github.com/sgillies/2217756 for details.
     """
@@ -13,5 +13,6 @@ class GeoInterface(Protocol):
 
 
 GeoFeature = TypeVar(
-    "GeoFeature", bound=Union[Iterable[Feature], FeatureCollection, GeoInterface, dict]
+    "GeoFeature",
+    bound=Union[Iterable[Feature], FeatureCollection, Iterable[GeoInterface], dict],
 )

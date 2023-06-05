@@ -12,14 +12,16 @@ from tempfile import NamedTemporaryFile
 import fiona
 import geopandas
 
-from tomkl.types import GeoFeature
+from tokml.types import GeoFeature
+
+__all__ = ["to_file", "to_string"]
 
 # Enable KML support which is disabled by default
 fiona.drvsupport.supported_drivers["KML"] = "rw"
 
 
-def tokml(features: GeoFeature, filename: str):
-    """Converts the given geospatial features to a KML file.
+def to_file(features: GeoFeature, filename: str):
+    """Saves the given geospatial features to a KML file.
 
     Parameters
     ----------
@@ -38,16 +40,16 @@ def tokml(features: GeoFeature, filename: str):
     geodata_frame.to_file(filename, driver="KML")
 
 
-def tokml_string(features: GeoFeature, folder_name: str = "Places") -> str:
+def to_string(features: GeoFeature, folder_name: str = "Places") -> str:
     """Converts the given geospatial features to a KML string.
 
     Parameters
     ----------
         features
-            See `tokml` for details.
+            See ``tokml.to_file`` for details.
         folder_name
             Name of the KML folder to place the features in.
     """
-    output_file = NamedTemporaryFile(mode="w+", prefix=f"{folder_name}.kml")
-    tokml(features, output_file.name)
-    return output_file.read()
+    tmp_file = NamedTemporaryFile(mode="w+", prefix=f"{folder_name}.kml")
+    to_file(features, tmp_file.name)
+    return tmp_file.read()

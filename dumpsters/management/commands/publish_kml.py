@@ -5,7 +5,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 
 from dumpsters.models import Dumpster
-from tomkl.tomkl import tokml_string
+import tokml
 
 
 class Command(BaseCommand):
@@ -24,11 +24,11 @@ class Command(BaseCommand):
 def to_kml(locations: Iterable[Dumpster]) -> str:
     locations = [location.__geo_interface__ for location in locations]
     for dumpster in locations:
-        id = dumpster["properties"].pop("id")
+        identifier = dumpster["properties"].pop("id")
         dumpster["properties"][
             "description"
-        ] = f"More info on https://www.dumpstermap.org/detail/{id}"
+        ] = f"More info on https://www.dumpstermap.org/detail/{identifier}"
 
-    kml = tokml_string(locations)
+    kml = tokml.to_string(locations)
 
     return kml
