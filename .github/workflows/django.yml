@@ -1,10 +1,6 @@
 name: Django CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 env:
   POSTGRES_USER: postgres
