@@ -1,4 +1,4 @@
-from dumpsters.management.commands.publish_kml import to_kml
+from dumpsters.management.commands.publish_kml import locations_to_kml
 from dumpsters.models import Dumpster
 
 
@@ -9,7 +9,7 @@ def test_dumpsters_to_kml():
         Dumpster(id=2, location="POINT(1 1)", name="ALDI"),
     ]
 
-    kml = to_kml(dumpsters)
+    kml = locations_to_kml(dumpsters)
 
     assert (
         """<?xml version="1.0" encoding="utf-8" ?>

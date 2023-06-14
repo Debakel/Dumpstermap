@@ -31,7 +31,7 @@ import tokml
 class Command(BaseCommand):
     def handle(self, *args, **options):
         # Export all locations to a KML string
-        kml = to_kml(Dumpster.objects.all())
+        kml = locations_to_kml(Dumpster.objects.all())
 
         # Publish KML export to S3 bucket
         bucket = bucketstore.get(settings.KML_EXPORT_BUCKET_NAME)
@@ -43,16 +43,14 @@ class Command(BaseCommand):
         logging.info("Locations published to %s" % s3_key.url)
 
 
-def to_kml(locations: Iterable[Dumpster]) -> str:
+def locations_to_kml(locations: Iterable[Dumpster]) -> str:
     locations = [location.__geo_interface__ for location in locations]
     for dumpster in locations:
         identifier = dumpster["properties"].pop("id")
         dumpster["properties"]["description"] = (
-            f"Downloaded from Dumpstermap.org on {datetime.date.today().isoformat()}"
+            f"Data exported from Dumpstermap.org on {datetime.date.today().isoformat()}"
             "\n\n\n"
             f"More info on https://www.dumpstermap.org/detail/{identifier}"
         )
 
-    kml = tokml.to_string(locations)
-
-    return kml
+    return tokml.to_string(locations)
