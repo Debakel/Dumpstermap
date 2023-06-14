@@ -6,6 +6,13 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  POSTGRES_USER: postgres
+  POSTGRES_DB: postgres
+  POSTGRES_PASSWORD: postgres
+  SECRET_KEY: secret
+  DATABASE_URL: postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost:5432/$POSTGRES_DB
+
 jobs:
   build:
 
@@ -18,10 +25,6 @@ jobs:
     services:
       db_service:
         image: postgis/postgis
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_DB: postgres
-          POSTGRES_PASSWORD: postgres
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -54,12 +57,6 @@ jobs:
       - name: Migrate database
         run: |
           pipenv run python manage.py migrate
-        env:
-          SECRET_KEY: secret
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
       - name: Run Tests
-        env:
-          SECRET_KEY: secret
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
         run: |
           pipenv run pytest
