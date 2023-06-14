@@ -50,12 +50,10 @@ class Voting(models.Model):
     GOOD = "good"
     BAD = "senseless"
     NEUTRAL = "average"
-    VOTING_CHOICES = ((GOOD, "Good"), (BAD, "Not good"), (NEUTRAL, "Neutral"))  # todo
+    VOTING_CHOICES = ((GOOD, "Good"), (BAD, "Not good"), (NEUTRAL, "Neutral"))
     value = models.CharField(max_length=255, choices=VOTING_CHOICES)
     created_date = models.DateTimeField()
     comment = models.CharField(max_length=2000)
-
-    # todo: session
 
     @property
     def name(self):
