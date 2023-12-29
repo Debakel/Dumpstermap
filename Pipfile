@@ -25,6 +25,7 @@ whitenoise = "*"
 bucketstore = "*"
 geojson = "*"
 geopandas = "*"
+freezegun = "*"
 
 [dev-packages]
 pre-commit = "*"

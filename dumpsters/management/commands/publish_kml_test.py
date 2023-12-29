@@ -1,7 +1,10 @@
+from freezegun import freeze_time
+
 from dumpsters.management.commands.publish_kml import locations_to_kml
 from dumpsters.models import Dumpster
 
 
+@freeze_time("2023-12-24")
 def test_dumpsters_to_kml():
     """Ensure a list of dumpsters can be converted to a KML string."""
     dumpsters = [
@@ -18,12 +21,18 @@ def test_dumpsters_to_kml():
 <Folder><name>Places</name>
   <Placemark>
 	<name>REWE</name>
-	<description>More info on https://www.dumpstermap.org/detail/1</description>
+	<description>Data exported from Dumpstermap.org on 2023-12-24
+
+
+More info on https://www.dumpstermap.org/detail/1</description>
       <Point><coordinates>1,1</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>ALDI</name>
-	<description>More info on https://www.dumpstermap.org/detail/2</description>
+	<description>Data exported from Dumpstermap.org on 2023-12-24
+
+
+More info on https://www.dumpstermap.org/detail/2</description>
       <Point><coordinates>1,1</coordinates></Point>
   </Placemark>
 </Folder>

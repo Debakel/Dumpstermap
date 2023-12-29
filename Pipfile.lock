@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "24c69b1fc1a20c1222ec65be64936513cbfd1afc5b0984a8f307cc75a76c50e6"
+            "sha256": "05d8606b2304a74d11307f57b9760d7d9cb755a5fe5a1078ceb605dcd01f6750"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -196,7 +196,7 @@
                 "sha256:3a9fd52b8dbeae335ddf4a9dfa6c6a0853a1122f1fb071a8d5eca979f73a05c8",
                 "sha256:7d29e14dfbc19cb6a95a4bd669edbde11f5d4c6a71fdaa42c2d40b6846e807f7"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.10'",
             "version": "==5.0"
         },
         "django-cors-headers": {
@@ -205,6 +205,7 @@
                 "sha256:0bf65ef45e606aff1994d35503e6b677c0b26cafff6506f8fd7187f3be840207"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==4.3.1"
         },
         "django-environ": {
@@ -213,6 +214,7 @@
                 "sha256:f32a87aa0899894c27d4e1776fa6b477e8164ed7f6b3e410a62a6d72caaf64be"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.6' and python_version < '4'",
             "version": "==0.11.2"
         },
         "djangorestframework": {
@@ -221,6 +223,7 @@
                 "sha256:eb63f58c9f218e1a7d064d17a70751f528ed4e1d35547fdade9aaf4cd103fd08"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==3.14.0"
         },
         "djangorestframework-gis": {
@@ -245,6 +248,7 @@
                 "sha256:bc76d97d1a65bbd9842a6d722882098eb549ec8ee1081f9fb2e8ff29f0c300f1"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==3.3.0"
         },
         "faker": {
@@ -293,12 +297,22 @@
             "markers": "python_version >= '3.7'",
             "version": "==1.9.5"
         },
+        "freezegun": {
+            "hashes": [
+                "sha256:10939b0ba0ff5adaecf3b06a5c2f73071d9678e507c5eaedb23c761d56ac774b",
+                "sha256:55e0fc3c84ebf0a96a5aa23ff8b53d70246479e9a68863f1fcac5a3e52f19dd6"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.7'",
+            "version": "==1.4.0"
+        },
         "geojson": {
             "hashes": [
                 "sha256:58a7fa40727ea058efc28b0e9ff0099eadf6d0965e04690830208d3ef571adac",
                 "sha256:68a9771827237adb8c0c71f8527509c8f5bef61733aa434cefc9c9d4f0ebe8f3"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==3.1.0"
         },
         "geopandas": {
@@ -307,6 +321,7 @@
                 "sha256:ed5a7cae7874bfc3238fb05e0501cc1760e1b7b11e5b76ecad29da644ca305da"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.9'",
             "version": "==0.14.1"
         },
         "gunicorn": {
@@ -315,6 +330,7 @@
                 "sha256:88ec8bff1d634f98e61b9f65bc4bf3cd918a90806c6f5c48bc5603849ec81033"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.5'",
             "version": "==21.2.0"
         },
         "idna": {
@@ -514,6 +530,7 @@
                 "sha256:f9b5571d33660d5009a8b3c25dc1db560206e2d2f89d3df1cb32d72c0d117d52"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==2.9.9"
         },
         "pygeoif": {
@@ -561,6 +578,7 @@
                 "sha256:d989d136982de4e3b29dabcc838ad581c64e8ed52c11fbe86ddebd9da0818cd5"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==7.4.3"
         },
         "pytest-django": {
@@ -569,6 +587,7 @@
                 "sha256:92d6fd46b1d79b54fb6b060bbb39428073396cec717d5f2e122a990d4b6aa5e8"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==4.7.0"
         },
         "python-dateutil": {
@@ -585,6 +604,7 @@
                 "sha256:f5971a9226b701070a4bf2c38c89e5a3f0d64de8debda981d1db98583009122a"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==1.0.0"
         },
         "pytz": {
@@ -601,6 +621,7 @@
                 "sha256:942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==2.31.0"
         },
         "s3transfer": {
@@ -728,6 +749,7 @@
                 "sha256:b1f9db9bf67dc183484d760b99f4080185633136a273a03f6436034a41064146"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==6.6.0"
         }
     },
@@ -785,6 +807,7 @@
                 "sha256:d30bad9abf165f7785c15a21a1f46da7d0677cb00ee7ff4c579fd38922efe15d"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.9'",
             "version": "==3.6.0"
         },
         "pyyaml": {
