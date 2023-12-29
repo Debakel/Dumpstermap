@@ -135,3 +135,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+KML_EXPORT_BUCKET_NAME = env.str("KML_EXPORT_BUCKET_NAME", default="")
