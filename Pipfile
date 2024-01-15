@@ -29,6 +29,7 @@ freezegun = "*"
 
 [dev-packages]
 pre-commit = "*"
+pytest-dotenv = "*"
 
 [requires]
 python_version = "3.10"
