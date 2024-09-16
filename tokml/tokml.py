@@ -7,6 +7,7 @@ The `properties` of a GeoJSON-like feature can be an arbitrary JSON object, wher
 If the GeoJSON dataset contains properties other than `name` and `description`, they will be ignored.
 Consider transforming the GeoJSON dataset to a schema compatible with KML before conversion.
 """
+import os
 from tempfile import NamedTemporaryFile
 
 import fiona
@@ -50,6 +51,12 @@ def to_string(features: GeoFeature, folder_name: str = "Places") -> str:
         folder_name
             Name of the KML folder to place the features in.
     """
-    tmp_file = NamedTemporaryFile(mode="w+", prefix=f"{folder_name}.kml")
+    tmp_file = NamedTemporaryFile(mode="w+", prefix="FOLDER_NAME_PREFIX", suffix=".kml")
     to_file(features, tmp_file.name)
-    return tmp_file.read()
+    xml_content = tmp_file.read()
+
+    # Replace the default kml folder name (based on the filepath)
+    current_folder_name = os.path.basename(tmp_file.name).split(".kml")[0]
+    xml_content = xml_content.replace(current_folder_name, folder_name)
+
+    return xml_content
