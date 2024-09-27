@@ -24,7 +24,7 @@ mercantile = "*"
 whitenoise = "*"
 bucketstore = "*"
 geojson = "*"
-geopandas = "*"
+geopandas = "==0.14.4"
 freezegun = "*"
 
 [dev-packages]
