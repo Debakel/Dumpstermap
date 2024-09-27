@@ -37,7 +37,7 @@ def to_file(features: GeoFeature, filename: str):
     """
 
     geodata_frame = geopandas.GeoDataFrame.from_features(features)
-    geodata_frame.to_file(filename, driver="KML")
+    geodata_frame.to_file(filename, driver="KML", engine="fiona")
 
 
 def to_string(features: GeoFeature, folder_name: str = "Places") -> str:
