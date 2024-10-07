@@ -704,12 +704,12 @@
         },
         "sentry-sdk": {
             "hashes": [
-                "sha256:1e0e2eaf6dad918c7d1e0edac868a7bf20017b177f242cefe2a6bcd47955961d",
-                "sha256:b8bc3dc51d06590df1291b7519b85c75e2ced4f28d9ea655b6d54033503b5bf4"
+                "sha256:8fb0d1a4e1a640172f31502e4503543765a1fe8a9209779134a4ac52d4677303",
+                "sha256:a599e7d3400787d6f43327b973e55a087b931ba2c592a7a7afa691f8eb5e75e2"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.6'",
-            "version": "==2.14.0"
+            "version": "==2.15.0"
         },
         "shapely": {
             "hashes": [
@@ -883,12 +883,12 @@
         },
         "pre-commit": {
             "hashes": [
-                "sha256:8bb6494d4a20423842e198980c9ecf9f96607a07ea29549e180eef9ae80fe7af",
-                "sha256:9a90a53bf82fdd8778d58085faf8d83df56e40dfe18f45b19446e26bf1b3a63f"
+                "sha256:0ca2341cf94ac1865350970951e54b1a50521e57b7b500403307aed4315a1234",
+                "sha256:5d9807162cc5537940f94f266cbe2d716a75cfad0d78a317a92cac16287cfed6"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.9'",
-            "version": "==3.8.0"
+            "version": "==4.0.0"
         },
         "pytest": {
             "hashes": [
