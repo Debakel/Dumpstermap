@@ -92,3 +92,13 @@ def test_votings_create(db):
     assert response.data["dumpster"] == dumpster.id
     assert response.data["comment"] == "Hallo123"
     assert response.data["value"] == "good"
+
+
+def test_dumpsters_count_within_bounds(db):
+    dumpster1 = DumpsterFactory(location="POINT(1 1)")
+    dumpster2 = DumpsterFactory(location="POINT(0.2 0.2)")
+
+    response = APIClient().get("/dumpsters/countwithinbounds/0.5/0.5/1.5/1.5/")
+
+    assert response.status_code == status.HTTP_200_OK
+    assert response.data["count"] == 1
