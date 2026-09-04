@@ -2,3 +2,5 @@
 *.pyc
 .venv
 local.env
+.DS_Store
+dumpstermap-frontend-*
