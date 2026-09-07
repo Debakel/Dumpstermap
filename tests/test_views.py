@@ -92,3 +92,10 @@ def test_votings_create(db):
     assert response.data["dumpster"] == dumpster.id
     assert response.data["comment"] == "Hallo123"
     assert response.data["value"] == "good"
+
+
+def test_root_redirects_to_dumpstermap_org(db):
+    response = APIClient().get("/")
+
+    assert response.status_code == status.HTTP_302_FOUND
+    assert response["Location"] == "https://dumpstermap.org"
