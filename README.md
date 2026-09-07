@@ -18,14 +18,13 @@
 ### Prerequisites
 
 The development setup requires:
-* Python 3.10
-* [pipenv](https://github.com/pypa/pipenv)
+* [uv](https://docs.astral.sh/uv/) (installs the required Python version automatically)
 * [Geospatial libraries required by GeoDjango](https://docs.djangoproject.com/en/4.1/ref/contrib/gis/install/geolibs/)
 * Docker to run a Postgres database with [GIS extension](https://postgis.net/).
 
-To install the required python version and all python dependencies, run:
+To install the required python version and all python dependencies (including dev tools), run:
 
-    pipenv install
+    uv sync --all-groups
 
 ### Database
 
@@ -41,14 +40,14 @@ optional variables.
 
 ### Migrate database
 
-Run `manage.py migrate` to create all database tables.
+Run `uv run manage.py migrate` to create all database tables.
 
 ### Development server
 
-Run `manage.py runserver` for a dev server.
+Run `uv run manage.py runserver` for a dev server.
 
 ### Running tests
-Run `pipenv run pytest` to execute the unit tests.
+Run `uv run pytest` to execute the unit tests.
 
 
 ## Deployment

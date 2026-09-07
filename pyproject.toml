@@ -1,0 +1,40 @@
+[project]
+name = "dumpstermap-backend"
+version = "0.1.0"
+description = "Backend of Dumpstermap.org, a collaborative world wide map to share dumpster locations."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django",
+    "django-cors-headers",
+    "djangorestframework",
+    "djangorestframework-gis",
+    "psycopg2-binary",
+    "requests",
+    "gunicorn",
+    "dj-database-url",
+    "django-environ",
+    "pytest",
+    "factory-boy",
+    "pytest-django",
+    "python-dotenv",
+    "sentry-sdk",
+    "fastkml",
+    "pytz",
+    "mercantile",
+    "whitenoise",
+    "bucketstore",
+    "geojson",
+    "geopandas",
+    "freezegun",
+    "fiona",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit",
+    "pytest-dotenv",
+]
+
+[tool.uv]
+package = false
