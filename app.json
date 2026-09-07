@@ -49,6 +49,6 @@
     }
   },
   "scripts": {
-    "postdeploy": "pipenv run python manage.py createsuperuser --no-input"
+    "postdeploy": "python manage.py createsuperuser --no-input"
   }
 }
