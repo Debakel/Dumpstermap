@@ -1,3 +1,4 @@
+from freezegun import freeze_time
 from rest_framework import status
 from rest_framework.test import APIClient
 
@@ -6,15 +7,33 @@ from tests.factories import DumpsterFactory
 
 
 def test_dumpsters_list(db):
-    dumpster = DumpsterFactory()
+    # GIVEN
+    with freeze_time("2000-01-01"):
+        dumpster = Dumpster.objects.create(location="POINT(1 2)")
 
+    # WHEN
     response = APIClient().get("/dumpsters/")
 
+    # THEN
     assert response.status_code == status.HTTP_200_OK
-
-    assert response.data["type"] == "FeatureCollection"
-    assert len(response.data["features"]) == 1
-    assert response.data["features"][0]["id"] == dumpster.id
+    assert response.data == {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "id": dumpster.id,
+                "type": "Feature",
+                "geometry": {"type": "Point", "coordinates": [1.0, 2.0]},
+                "properties": {
+                    "name": "Dumpster",
+                    "created": "2000-01-01T00:00:00Z",
+                    "rating": 0,
+                    "good": 0,
+                    "bad": 0,
+                    "voting_set": [],
+                },
+            }
+        ],
+    }
 
 
 def test_dumpsters_tile_view(db):
@@ -46,7 +65,8 @@ def test_dumpsters_within_bound(db):
     └──────────────────────►
     """
     # GIVEN
-    dumpster1 = DumpsterFactory(location="POINT(1 1)")
+    with freeze_time("2000-01-01"):
+        dumpster1 = DumpsterFactory(location="POINT(1 1)")
     dumpster2 = DumpsterFactory(location="POINT(0.2 0.2)")
 
     # WHEN
@@ -54,8 +74,17 @@ def test_dumpsters_within_bound(db):
 
     # THEN
     assert response.status_code == status.HTTP_200_OK
-    assert len(response.data["features"]) == 1
-    assert response.data["features"][0]["id"] == dumpster1.id
+    assert response.data == {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "id": dumpster1.id,
+                "type": "Feature",
+                "geometry": {"type": "Point", "coordinates": [1.0, 1.0]},
+                "properties": {"name": "Dumpster", "created": "2000-01-01T00:00:00Z"},
+            }
+        ],
+    }
 
 
 def test_dumpsters_count_within_bounds(db):
@@ -97,17 +126,38 @@ def test_dumpsters_create(db):
     }
 
     # WHEN
-    response = APIClient().post(url, data, format="json")
+    with freeze_time("2000-01-01"):
+        response = APIClient().post(url, data, format="json")
 
     # THEN
     assert response.status_code == status.HTTP_201_CREATED
 
     assert Dumpster.objects.count() == 1
-    assert Dumpster.objects.filter(
-        name="REWE", voting__value="good", voting__comment="Hallo123"
-    ).exists()
+    assert Voting.objects.count() == 1
 
-    assert response.data["properties"]["name"] == "REWE"
+    dumpster = Dumpster.objects.get(name="REWE")
+    voting = dumpster.voting_set.first()
+    assert response.data == {
+        "id": dumpster.id,
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [1.0, 1.0]},
+        "properties": {
+            "name": "REWE",
+            "created": "2000-01-01T00:00:00Z",
+            "rating": 1,
+            "good": 1,
+            "bad": 0,
+            "voting_set": [
+                {
+                    "id": voting.id,
+                    "value": "good",
+                    "comment": "Hallo123",
+                    "created_date": "2000-01-01T00:00:00Z",
+                    "name": "Anonymous",
+                }
+            ],
+        },
+    }
 
 
 def test_votings_create(db):
@@ -118,18 +168,21 @@ def test_votings_create(db):
     data = {"dumpster": dumpster.id, "value": "good", "comment": "Hallo123", "user": {}}
 
     # WHEN
-    response = APIClient().post(url, data, format="json")
+    with freeze_time("2000-01-01"):
+        response = APIClient().post(url, data, format="json")
 
     # THEN
     assert response.status_code == status.HTTP_201_CREATED
 
-    assert Voting.objects.filter(
-        dumpster=dumpster, value="good", comment="Hallo123"
-    ).exists()
-
-    assert response.data["dumpster"] == dumpster.id
-    assert response.data["comment"] == "Hallo123"
-    assert response.data["value"] == "good"
+    voting = Voting.objects.get(dumpster=dumpster, value="good", comment="Hallo123")
+    assert response.data == {
+        "id": voting.id,
+        "value": "good",
+        "comment": "Hallo123",
+        "created_date": "2000-01-01T00:00:00Z",
+        "dumpster": dumpster.id,
+        "name": "Anonymous",
+    }
 
 
 def test_root_redirects_to_dumpstermap_org(db):
