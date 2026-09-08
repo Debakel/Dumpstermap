@@ -23,11 +23,11 @@ class Dumpster(models.Model):
 
     @property
     def good(self):
-        return self.voting_set.filter(value=Voting.GOOD).count()
+        return self.voting_set.filter(value=VotingValue.GOOD).count()
 
     @property
     def bad(self):
-        return self.voting_set.filter(value=Voting.BAD).count()
+        return self.voting_set.filter(value=VotingValue.BAD).count()
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -45,13 +45,17 @@ class Dumpster(models.Model):
         )
 
 
+class VotingValue(models.TextChoices):
+    """Possible ratings a voting can give a dumpster."""
+
+    GOOD = "good", "Good"
+    BAD = "senseless", "Not good"
+    NEUTRAL = "average", "Neutral"
+
+
 class Voting(models.Model):
     dumpster = models.ForeignKey(Dumpster, on_delete=models.CASCADE)
-    GOOD = "good"
-    BAD = "senseless"
-    NEUTRAL = "average"
-    VOTING_CHOICES = ((GOOD, "Good"), (BAD, "Not good"), (NEUTRAL, "Neutral"))
-    value = models.CharField(max_length=255, choices=VOTING_CHOICES)
+    value = models.CharField(max_length=255, choices=VotingValue.choices)
     created_date = models.DateTimeField()
     comment = models.CharField(max_length=2000)
 

@@ -5,7 +5,7 @@ import pytz
 import requests
 from django.core.management.base import BaseCommand
 
-from dumpsters.models import Dumpster, Voting
+from dumpsters.models import Dumpster, Voting, VotingValue
 
 map_url = "https://goo.gl/maps/8yvnAyv6wnHraoJ68"
 kml_url = (
@@ -35,7 +35,7 @@ class Command(BaseCommand):
                 )
                 Voting.objects.create(
                     dumpster=dumpster,
-                    value=Voting.GOOD,
+                    value=VotingValue.GOOD,
                     comment=f"Copied from {map_url}",
                     created_date=datetime.now(pytz.utc),
                 )
