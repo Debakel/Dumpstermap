@@ -18,11 +18,14 @@ def test_dumpsters_list(db):
 
 
 def test_dumpsters_tile_view(db):
+    # GIVEN
     dumpster1 = DumpsterFactory(location="POINT(-1 -1)")
     dumpster2 = DumpsterFactory(location="POINT(0 0)")
 
+    # WHEN
     response = APIClient().get("/dumpsters/tiles/2/1/2/")
 
+    # THEN
     assert response.status_code == status.HTTP_200_OK
     assert len(response.data["features"]) == 1
     assert response.data["features"][0]["id"] == dumpster1.id
@@ -42,11 +45,14 @@ def test_dumpsters_within_bound(db):
     │ p2
     └──────────────────────►
     """
+    # GIVEN
     dumpster1 = DumpsterFactory(location="POINT(1 1)")
     dumpster2 = DumpsterFactory(location="POINT(0.2 0.2)")
 
+    # WHEN
     response = APIClient().get("/dumpsters/withinbounds/0.5/0.5/1.5/1.5/")
 
+    # THEN
     assert response.status_code == status.HTTP_200_OK
     assert len(response.data["features"]) == 1
     assert response.data["features"][0]["id"] == dumpster1.id
@@ -79,6 +85,7 @@ def test_dumpsters_count_within_bounds_empty(db):
 
 
 def test_dumpsters_create(db):
+    # GIVEN
     url = "/dumpsters/"
     data = {
         "type": "Feature",
@@ -89,8 +96,10 @@ def test_dumpsters_create(db):
         },
     }
 
+    # WHEN
     response = APIClient().post(url, data, format="json")
 
+    # THEN
     assert response.status_code == status.HTTP_201_CREATED
 
     assert Dumpster.objects.count() == 1
@@ -102,13 +111,16 @@ def test_dumpsters_create(db):
 
 
 def test_votings_create(db):
+    # GIVEN
     dumpster: Dumpster = DumpsterFactory()
 
     url = "/votings/"
     data = {"dumpster": dumpster.id, "value": "good", "comment": "Hallo123", "user": {}}
 
+    # WHEN
     response = APIClient().post(url, data, format="json")
 
+    # THEN
     assert response.status_code == status.HTTP_201_CREATED
 
     assert Voting.objects.filter(
