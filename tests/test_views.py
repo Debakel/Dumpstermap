@@ -2,7 +2,7 @@ from freezegun import freeze_time
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from dumpsters.models import Dumpster, Voting
+from dumpsters.models import Dumpster, Voting, VotingValue
 from tests.factories import DumpsterFactory
 
 
@@ -174,7 +174,9 @@ def test_votings_create(db):
     # THEN
     assert response.status_code == status.HTTP_201_CREATED
 
-    voting = Voting.objects.get(dumpster=dumpster, value="good", comment="Hallo123")
+    voting = Voting.objects.get(
+        dumpster=dumpster, value=VotingValue.GOOD, comment="Hallo123"
+    )
     assert response.data == {
         "id": voting.id,
         "value": "good",
