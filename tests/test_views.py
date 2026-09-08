@@ -52,6 +52,32 @@ def test_dumpsters_within_bound(db):
     assert response.data["features"][0]["id"] == dumpster1.id
 
 
+def test_dumpsters_count_within_bounds(db):
+    # GIVEN - two spots within the bounding box; one outside
+    DumpsterFactory(location="POINT(1 1)")
+    DumpsterFactory(location="POINT(1.2 1.2)")
+    DumpsterFactory(location="POINT(0.2 0.2)")  # <- outside the bbox
+
+    # WHEN
+    response = APIClient().get("/dumpsters/countwithinbounds/0.5/0.5/1.5/1.5/")
+
+    # THEN
+    assert response.status_code == status.HTTP_200_OK
+    assert response.data == {"count": 2}
+
+
+def test_dumpsters_count_within_bounds_empty(db):
+    # GIVEN - no spots within the bounding box
+    DumpsterFactory(location="POINT(5 5)")
+
+    # WHEN
+    response = APIClient().get("/dumpsters/countwithinbounds/0/0/1/1/")
+
+    # THEN
+    assert response.status_code == status.HTTP_200_OK
+    assert response.data == {"count": 0}
+
+
 def test_dumpsters_create(db):
     url = "/dumpsters/"
     data = {
