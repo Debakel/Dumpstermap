@@ -31,7 +31,7 @@ To install the required python version and all python dependencies (including de
 In order to start a basic docker container capable of serving a PostGIS-enabled database (with `postgres` as default
 user and database), run:
 
-     docker run -p 5432:5432 --name some-postgis -e POSTGRES_PASSWORD=mysecretpassword -d postgis/postgis
+     docker run -p 5432:5432 --name some-postgis -e POSTGRES_PASSWORD=mysecretpassword -d imresamu/postgis
 
 ### Configuration
 
