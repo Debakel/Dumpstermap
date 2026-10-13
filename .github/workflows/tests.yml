@@ -7,34 +7,11 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install system dependencies (geospatial libraries)
-        run: |
-          sudo apt-get update
-          sudo apt-get install binutils libproj-dev gdal-bin libsqlite3-mod-spatialite
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version-file: .python-version
-      - name: Install uv
-        uses: astral-sh/setup-uv@v6
-        with:
-          enable-cache: true
-      - name: Install Python Dependencies
-        run: |
-          uv sync --locked --all-groups
-      - name: Migrate database
-        run: |
-          uv run python manage.py migrate
-        env:
-          SECRET_KEY: secret
       - name: Run Tests
-        env:
-          SECRET_KEY: secret
-        run: |
-          uv run pytest
+        run: make test

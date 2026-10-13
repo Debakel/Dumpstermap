@@ -5,7 +5,7 @@
 ### Backend
 * Python, Django, Django REST framework (with [geospatial add-ons](https://github.com/openwisp/django-rest-framework-gis))
 * SQLite, SpatiaLite
-* Deployed to Heroku
+* Deployed to [Fly.io](https://fly.io)
 
 ### Frontend
 * TypeScript, Angular, Leaflet
@@ -34,19 +34,18 @@ optional variables.
 
 ### Migrate database
 
-Run `uv run manage.py migrate` to create all database tables.
+Run `make migrate` to create all database tables.
 
 ### Development server
 
-Run `uv run manage.py runserver` for a dev server.
+Run `make test` for a dev server.
 
 ### Running tests
-Run `uv run pytest` to execute the unit tests.
-
+Run `make pytest` to execute the unit tests.
 
 ## Deployment
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+    fly deploy
 
- ## License
- tbd
+## License
+tbd
