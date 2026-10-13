@@ -40,9 +40,10 @@ SECRET_KEY = env.str("SECRET_KEY")
 ALLOWED_HOSTS = [
     "dumpstermap.org",
     "dumpstermap.vercel.app",
-    "dumpstermap.herokuapp.com",
+    "dumpstermap-backend.fly.dev",
     env.str("HOST_NAME", ""),
 ]
+CSRF_TRUSTED_ORIGINS = [f"https://{host}" for host in ALLOWED_HOSTS if host]
 
 # Application definition
 
