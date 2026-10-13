@@ -24,12 +24,12 @@ dependencies = [
     "bucketstore",
     "geojson",
     "freezegun",
+    "pytest-env>=1.8.0",
 ]
 
 [dependency-groups]
 dev = [
     "pre-commit",
-    "pytest-dotenv",
 ]
 
 [tool.uv]
