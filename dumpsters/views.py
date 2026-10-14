@@ -2,7 +2,7 @@ import mercantile
 from django.contrib.gis import geos
 from rest_framework import viewsets
 from rest_framework.decorators import action
-from rest_framework.mixins import RetrieveModelMixin, ListModelMixin, CreateModelMixin
+from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
 from rest_framework.response import Response
 
 from .serializers import *

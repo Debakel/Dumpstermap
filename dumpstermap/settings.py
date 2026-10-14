@@ -15,7 +15,6 @@ from pathlib import Path
 
 import environ
 import sentry_sdk
-from django.db.models import BigAutoField
 from dotenv import load_dotenv
 from sentry_sdk.integrations.django import DjangoIntegration
 

@@ -39,7 +39,7 @@ def test_dumpsters_list(db):
 def test_dumpsters_tile_view(db):
     # GIVEN
     dumpster1 = DumpsterFactory(location="POINT(-1 -1)")
-    dumpster2 = DumpsterFactory(location="POINT(0 0)")
+    DumpsterFactory(location="POINT(0 0)")
 
     # WHEN
     response = APIClient().get("/dumpsters/tiles/2/1/2/")
@@ -67,7 +67,7 @@ def test_dumpsters_within_bound(db):
     # GIVEN
     with freeze_time("2000-01-01"):
         dumpster1 = DumpsterFactory(location="POINT(1 1)")
-    dumpster2 = DumpsterFactory(location="POINT(0.2 0.2)")
+    DumpsterFactory(location="POINT(0.2 0.2)")
 
     # WHEN
     response = APIClient().get("/dumpsters/withinbounds/0.5/0.5/1.5/1.5/")

@@ -34,3 +34,6 @@ dev = [
 
 [tool.uv]
 package = false
+
+[tool.ruff.lint.per-file-ignores]
+"**/migrations/*.py" = ["E501", "RUF012"]

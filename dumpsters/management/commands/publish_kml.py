@@ -17,9 +17,9 @@ KML_EXPORT_BUCKET_NAME= # required
 
 """
 
-import datetime
 import logging
-from typing import Iterable
+from collections.abc import Iterable
+from datetime import UTC, datetime
 
 import bucketstore
 from django.conf import settings
@@ -27,6 +27,8 @@ from django.core.management.base import BaseCommand
 from django.template.loader import render_to_string
 
 from dumpsters.models import Dumpster
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -41,7 +43,7 @@ class Command(BaseCommand):
         s3_key.set(kml)
         s3_key.make_public()
 
-        logging.info("Locations published to %s" % s3_key.url)
+        logger.info("Locations published to %s", s3_key.url)
 
 
 def locations_to_kml(locations: Iterable[Dumpster]) -> str:
@@ -57,8 +59,9 @@ def locations_to_kml(locations: Iterable[Dumpster]) -> str:
 
 
 def description(location: Dumpster) -> str:
+    today = datetime.now(tz=UTC).date().isoformat()
     return (
-        f"Data exported from Dumpstermap.org on {datetime.date.today().isoformat()}"
+        f"Data exported from Dumpstermap.org on {today}"
         "\n\n\n"
         f"More info on https://www.dumpstermap.org/detail/{location.id}"
     )

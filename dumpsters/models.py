@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import json
 
 from django.contrib.gis.db import models
@@ -32,7 +30,7 @@ class Dumpster(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             self.created = timezone.now()
-        return super(Dumpster, self).save(*args, **kwargs)
+        return super().save(*args, **kwargs)
 
     @property
     def __geo_interface__(self) -> Feature:
@@ -66,4 +64,4 @@ class Voting(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             self.created_date = timezone.now()
-        return super(Voting, self).save(*args, **kwargs)
+        return super().save(*args, **kwargs)

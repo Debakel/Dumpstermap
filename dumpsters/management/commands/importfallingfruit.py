@@ -14,6 +14,5 @@ class Command(BaseCommand):
         filename = options["file"][1]
         dumpsters = Dumpster.objects.all()
         serializer = DumpsterSerializer(dumpsters, many=True)
-        out = open(filename, "w")
-        out.write(serializer.data)
-        out.close()
+        with open(filename, "w") as out:
+            out.write(serializer.data)

@@ -12,22 +12,22 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         TYPES = ["2", "836"]
-        ROW_COMMENT = 5
-        IMPORTED_FROM = "fallingfruit.org"
 
         input_filename = options["input"]
         output_filename = options["output"]
-        input_file = open(input_filename)
-        output_file = open(output_filename, "w")
 
-        print("Reading from {}.".format(input_filename))
+        print(f"Reading from {input_filename}.")
 
-        csv_writer = csv.writer(output_file)
-        csv_reader = csv.reader(input_file, delimiter=",")
-        csv_writer.writerow(csv_reader.next())  # write header
+        with (
+            open(input_filename) as input_file,
+            open(output_filename, "w") as output_file,
+        ):
+            csv_writer = csv.writer(output_file)
+            csv_reader = csv.reader(input_file, delimiter=",")
+            csv_writer.writerow(next(csv_reader))  # write header
 
-        for row in csv_reader:
-            if row[1] in TYPES:  # type in first row; '2' is dumpster
-                csv_writer.writerow(row)
+            for row in csv_reader:
+                if row[1] in TYPES:  # type in first row; '2' is dumpster
+                    csv_writer.writerow(row)
 
         print("Finished.")
