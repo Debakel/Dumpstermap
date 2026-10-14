@@ -11,28 +11,12 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    services:
-      db_service:
-        image: postgis/postgis
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_DB: postgres
-          POSTGRES_PASSWORD: postgres
-        # Set health checks to wait until postgres has started
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 5432:5432
-
     steps:
       - uses: actions/checkout@v2
       - name: Install system dependencies (geospatial libraries)
         run: |
           sudo apt-get update
-          sudo apt-get install binutils libproj-dev gdal-bin
+          sudo apt-get install binutils libproj-dev gdal-bin libsqlite3-mod-spatialite
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -49,10 +33,8 @@ jobs:
           uv run python manage.py migrate
         env:
           SECRET_KEY: secret
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
       - name: Run Tests
         env:
           SECRET_KEY: secret
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
         run: |
           uv run pytest
