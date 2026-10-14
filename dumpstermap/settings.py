@@ -71,7 +71,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
 ]
 
-DATABASES = {"default": env.db(engine="django.contrib.gis.db.backends.postgis")}
+DATABASES = {"default": env.db(default=f"spatialite:///{BASE_DIR / 'db.sqlite3'}")}
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 ROOT_URLCONF = "dumpstermap.urls"
