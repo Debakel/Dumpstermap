@@ -13,35 +13,14 @@
 
 ➡️ [Frontend Repository](https://github.com/Debakel/dumpstermap-ng)
 
-## Development setup
-
-### Prerequisites
-
-The development setup requires:
-* [uv](https://docs.astral.sh/uv/) (installs the required Python version automatically)
-* [Geospatial libraries required by GeoDjango](https://docs.djangoproject.com/en/4.1/ref/contrib/gis/install/geolibs/)
-* [SpatiaLite](https://docs.djangoproject.com/en/5.2/ref/contrib/gis/install/spatialite/)
-
-To install the required python version and all python dependencies (including dev tools), run:
-
-    uv sync --all-groups
+## Development
+**Prerequisites:** [Docker](https://www.docker.com/) and [make](https://www.gnu.org/software/make/)
 
 
-### Configuration
+- `make test` to run unit tests
+- `make runserver` to start a dev server on [localhost:8000](http://localhost:8000)
+- `make migrate` to apply database migrations
 
-The application can be configured using environment variables or a `.env` file. See [local.env.sample](local.env.sample) for all required and
-optional variables.
-
-### Migrate database
-
-Run `make migrate` to create all database tables.
-
-### Development server
-
-Run `make test` for a dev server.
-
-### Running tests
-Run `make pytest` to execute the unit tests.
 
 ## Deployment
 

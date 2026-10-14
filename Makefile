@@ -1,4 +1,4 @@
-.PHONY: build build-deps test runserver
+.PHONY: build build-deps test migrate runserver
 
 IMAGE ?= dumpstermap-backend
 PORT ?= 8000
