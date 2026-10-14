@@ -23,9 +23,9 @@ from typing import Iterable
 import bucketstore
 from django.conf import settings
 from django.core.management.base import BaseCommand
+from django.template.loader import render_to_string
 
 from dumpsters.models import Dumpster
-import tokml
 
 
 class Command(BaseCommand):
@@ -44,13 +44,20 @@ class Command(BaseCommand):
 
 
 def locations_to_kml(locations: Iterable[Dumpster]) -> str:
-    locations = [location.__geo_interface__ for location in locations]
-    for dumpster in locations:
-        identifier = dumpster["properties"].pop("id")
-        dumpster["properties"]["description"] = (
-            f"Data exported from Dumpstermap.org on {datetime.date.today().isoformat()}"
-            "\n\n\n"
-            f"More info on https://www.dumpstermap.org/detail/{identifier}"
-        )
+    places = [
+        {
+            "name": location.name,
+            "description": description(location),
+            "kml": location.location.kml,
+        }
+        for location in locations
+    ]
+    return render_to_string("gis/kml/placemarks.kml", {"places": places})
 
-    return tokml.to_string(locations)
+
+def description(location: Dumpster) -> str:
+    return (
+        f"Data exported from Dumpstermap.org on {datetime.date.today().isoformat()}"
+        "\n\n\n"
+        f"More info on https://www.dumpstermap.org/detail/{location.id}"
+    )

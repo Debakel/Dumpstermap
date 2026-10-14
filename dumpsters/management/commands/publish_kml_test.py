@@ -5,38 +5,38 @@ from dumpsters.models import Dumpster
 
 
 @freeze_time("2023-12-24")
-def test_dumpsters_to_kml():
+def test_locations_to_kml():
     """Ensure a list of dumpsters can be converted to a KML string."""
     dumpsters = [
-        Dumpster(id=1, location="POINT(1 1)", name="REWE"),
-        Dumpster(id=2, location="POINT(1 1)", name="ALDI"),
+        Dumpster(id=1, location="POINT(1 2)", name="REWE"),
+        Dumpster(id=2, location="POINT(3 4)", name="Aldi & Co"),
     ]
 
     kml = locations_to_kml(dumpsters)
 
     assert (
-        """<?xml version="1.0" encoding="utf-8" ?>
-<kml xmlns="http://www.opengis.net/kml/2.2">
-<Document id="root_doc">
-<Folder><name>Places</name>
+        """<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+
   <Placemark>
-	<name>REWE</name>
-	<description>Data exported from Dumpstermap.org on 2023-12-24
+    <name>REWE</name>
+    <description>Data exported from Dumpstermap.org on 2023-12-24
 
 
 More info on https://www.dumpstermap.org/detail/1</description>
-      <Point><coordinates>1,1</coordinates></Point>
+    <Point><coordinates>1.0,2.0,0</coordinates></Point>
   </Placemark>
   <Placemark>
-	<name>ALDI</name>
-	<description>Data exported from Dumpstermap.org on 2023-12-24
+    <name>Aldi &amp; Co</name>
+    <description>Data exported from Dumpstermap.org on 2023-12-24
 
 
 More info on https://www.dumpstermap.org/detail/2</description>
-      <Point><coordinates>1,1</coordinates></Point>
+    <Point><coordinates>3.0,4.0,0</coordinates></Point>
   </Placemark>
-</Folder>
-</Document></kml>
+</Document>
+</kml>
 """
         == kml
     )

@@ -25,9 +25,7 @@ dependencies = [
     "whitenoise",
     "bucketstore",
     "geojson",
-    "geopandas",
     "freezegun",
-    "fiona",
 ]
 
 [dependency-groups]
