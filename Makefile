@@ -1,4 +1,4 @@
-.PHONY: build build-deps build-test test migrate runserver
+.PHONY: build build-deps build-test test migrate runserver upgrade-deps
 
 IMAGE ?= dumpstermap-backend
 PORT ?= 8000
@@ -23,3 +23,7 @@ migrate: build-deps
 
 runserver: build-deps migrate
 	$(DOCKER_CMD) -p $(PORT):8000 $(IMAGE)-deps python manage.py runserver 0.0.0.0:8000
+
+upgrade-deps:
+	# Upgrade all dependencies in uv.lock
+	uv lock --upgrade
