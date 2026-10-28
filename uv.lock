@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.12"
 
 [[package]]
@@ -325,14 +325,10 @@ dependencies = [
     { name = "django-environ" },
     { name = "djangorestframework" },
     { name = "djangorestframework-gis" },
-    { name = "factory-boy" },
     { name = "fastkml" },
-    { name = "freezegun" },
     { name = "geojson" },
     { name = "gunicorn" },
     { name = "mercantile" },
-    { name = "pytest" },
-    { name = "pytest-django" },
     { name = "pytest-env" },
     { name = "python-dotenv" },
     { name = "pytz" },
@@ -343,7 +339,11 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "factory-boy" },
+    { name = "freezegun" },
     { name = "pre-commit" },
+    { name = "pytest" },
+    { name = "pytest-django" },
 ]
 
 [package.metadata]
@@ -354,14 +354,10 @@ requires-dist = [
     { name = "django-environ" },
     { name = "djangorestframework" },
     { name = "djangorestframework-gis" },
-    { name = "factory-boy" },
     { name = "fastkml" },
-    { name = "freezegun" },
     { name = "geojson" },
     { name = "gunicorn" },
     { name = "mercantile" },
-    { name = "pytest" },
-    { name = "pytest-django" },
     { name = "pytest-env", specifier = ">=1.8.0" },
     { name = "python-dotenv" },
     { name = "pytz" },
@@ -371,7 +367,13 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "pre-commit" }]
+dev = [
+    { name = "factory-boy", specifier = ">=3.3.3" },
+    { name = "freezegun", specifier = ">=1.5.5" },
+    { name = "pre-commit" },
+    { name = "pytest", specifier = ">=9.1.1" },
+    { name = "pytest-django", specifier = ">=4.14.0" },
+]
 
 [[package]]
 name = "factory-boy"

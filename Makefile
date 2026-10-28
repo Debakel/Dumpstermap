@@ -1,4 +1,4 @@
-.PHONY: build build-deps test migrate runserver
+.PHONY: build build-deps build-test test migrate runserver
 
 IMAGE ?= dumpstermap-backend
 PORT ?= 8000
@@ -9,8 +9,11 @@ build:
 build-deps:
 	docker build --target deps -t $(IMAGE)-deps .
 
-test: build-deps
-	docker run --rm -v "$(CURDIR)":/app $(IMAGE)-deps pytest -p no:cacheprovider $(ARGS)
+build-test:
+	docker build --target test -t $(IMAGE)-test .
+
+test: build-test
+	docker run --rm -v "$(CURDIR)":/app $(IMAGE)-test pytest -p no:cacheprovider $(ARGS)
 
 DEV_ENV = -e DEBUG=True -e SECRET_KEY=insecure-dev-key
 DOCKER_CMD = docker run --rm $(DEV_ENV) -v "$(CURDIR)":/app

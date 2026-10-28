@@ -12,9 +12,6 @@ dependencies = [
     "requests",
     "gunicorn",
     "django-environ",
-    "pytest",
-    "factory-boy",
-    "pytest-django",
     "python-dotenv",
     "sentry-sdk",
     "fastkml",
@@ -23,13 +20,16 @@ dependencies = [
     "whitenoise",
     "bucketstore",
     "geojson",
-    "freezegun",
     "pytest-env>=1.8.0",
 ]
 
 [dependency-groups]
 dev = [
+    "factory-boy>=3.3.3",
+    "freezegun>=1.5.5",
     "pre-commit",
+    "pytest>=9.1.1",
+    "pytest-django>=4.14.0",
 ]
 
 [tool.uv]

@@ -2,6 +2,7 @@
 
 # Stages:
 #   - deps: Prepares the runtime environment
+#   - test: Adds the dev dependency group
 #   - app: Adds application code
 
 # Stage `deps`
@@ -24,6 +25,11 @@ ENV UV_PROJECT_ENVIRONMENT=/opt/venv
 COPY pyproject.toml uv.lock ./
 RUN uv sync --locked --no-dev
 ENV PATH="/opt/venv/bin:$PATH"
+
+# Stage `test`
+FROM deps AS test
+
+RUN uv sync --locked # includes dev dependencies
 
 # Stage `app`
 FROM deps
